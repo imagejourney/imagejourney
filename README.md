@@ -5,7 +5,8 @@ James Man, Kim Toy, Sophia Feng
 ImageJourney is an iOS journaling app that makes it easy for you to document and share your travel adventures. For every journey that you take, you can create a new travel journal and add entries for each place that you visit, using photos, text, location, weather, and time to uniquely describe your experience. With ImageJourney, you can preserve your travel memories in a detailed and beautiful format and share it to help others get inspiration from journeys to plan their own trips. 
 
 ### Wireframes
-
+<img src='/project_planning/wireframes-pt1.jpg?raw=true' title='Wireframes pt1' width='' alt='Wireframes pt1' />
+<img src='/project_planning/wireframes-pt2.jpg?raw=true' title='Wireframes pt2' width='' alt='Wireframes pt2' />
 
 ### User Stories
 - [ ] Login View
