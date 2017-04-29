@@ -1,0 +1,37 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Material (2.6.1):
+    - Material/Core (= 2.6.1)
+  - Material/Capture (2.6.1):
+    - Material/Core
+  - Material/Core (2.6.1)
+  - Material/Photos (2.6.1):
+    - Material/Core
+
+DEPENDENCIES:
+  - AFNetworking
+  - Material (~> 2.0)
+  - Material/Capture (~> 2.0)
+  - Material/Photos (~> 2.0)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Material: 42f8ac592669b1a01c1ac7c6fae895e4f308f74a
+
+PODFILE CHECKSUM: 63f065f7c5c50c5559d34dafa340c278f7b4f2b2
+
+COCOAPODS: 1.2.0
