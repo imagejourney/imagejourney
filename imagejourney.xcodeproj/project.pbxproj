@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2CB70FFC0CBA0C914392F9A4 /* Pods_imagejourney.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378736A0080288B83FB6B32F /* Pods_imagejourney.framework */; };
+		7A1153291EB4347300614595 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1153281EB4347300614595 /* Journal.swift */; };
+		7A11532B1EB434B700614595 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11532A1EB434B700614595 /* JournalEntry.swift */; };
+		7A11532D1EB434C300614595 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A11532C1EB434C300614595 /* User.swift */; };
 		7A2C514E1EADCA8400370B7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C514D1EADCA8400370B7D /* AppDelegate.swift */; };
 		7A2C51501EADCA8400370B7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2C514F1EADCA8400370B7D /* ViewController.swift */; };
 		7A2C51531EADCA8400370B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51511EADCA8400370B7D /* Main.storyboard */; };
@@ -18,6 +21,9 @@
 /* Begin PBXFileReference section */
 		1AD777038A5A2CBB07EDEC40 /* Pods-imagejourney.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imagejourney.debug.xcconfig"; path = "Pods/Target Support Files/Pods-imagejourney/Pods-imagejourney.debug.xcconfig"; sourceTree = "<group>"; };
 		378736A0080288B83FB6B32F /* Pods_imagejourney.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_imagejourney.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A1153281EB4347300614595 /* Journal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		7A11532A1EB434B700614595 /* JournalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
+		7A11532C1EB434C300614595 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7A2C514A1EADCA8400370B7D /* imagejourney.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imagejourney.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A2C514D1EADCA8400370B7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A2C514F1EADCA8400370B7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +46,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A1153251EB4333100614595 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7A1153281EB4347300614595 /* Journal.swift */,
+				7A11532A1EB434B700614595 /* JournalEntry.swift */,
+				7A11532C1EB434C300614595 /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7A1153261EB4333E00614595 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		7A1153271EB4337500614595 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
 		7A2C51411EADCA8400370B7D = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +91,9 @@
 		7A2C514C1EADCA8400370B7D /* imagejourney */ = {
 			isa = PBXGroup;
 			children = (
+				7A1153271EB4337500614595 /* API */,
+				7A1153261EB4333E00614595 /* Views */,
+				7A1153251EB4333100614595 /* Models */,
 				7A2C514D1EADCA8400370B7D /* AppDelegate.swift */,
 				7A2C514F1EADCA8400370B7D /* ViewController.swift */,
 				7A2C51511EADCA8400370B7D /* Main.storyboard */,
@@ -213,6 +246,9 @@
 			files = (
 				7A2C51501EADCA8400370B7D /* ViewController.swift in Sources */,
 				7A2C514E1EADCA8400370B7D /* AppDelegate.swift in Sources */,
+				7A11532B1EB434B700614595 /* JournalEntry.swift in Sources */,
+				7A11532D1EB434C300614595 /* User.swift in Sources */,
+				7A1153291EB4347300614595 /* Journal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +410,7 @@
 				7A2C515E1EADCA8400370B7D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
