@@ -11,9 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    @IBAction func onLogin(_ sender: UIButton) {
         // temp login
         PFUser.logInWithUsername(inBackground: "sophia", password:"sophiaspassword") {
             (user: PFUser?, error: Error?) -> Void in
@@ -25,15 +23,14 @@ class ViewController: UIViewController {
             } else {
                 // Hooray! Let them use the app now.
                 print("logged in")
-                self.performSegueToHomefeedViewController()
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
             }
         }
     }
     
-    func performSegueToHomefeedViewController() {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let homefeedVC = mainStoryboard.instantiateViewController(withIdentifier: "HomefeedViewController") as! HomefeedViewController
-        self.present(homefeedVC, animated: true, completion: nil)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
     
     

@@ -22,6 +22,7 @@
 		7A2C51581EADCA8400370B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */; };
 		EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */; };
 		EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */; };
+		EC2DED9C1EB68B2500D6FA68 /* ComposeJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8E376066E2A7A867A32BAD13 /* Pods-imagejourney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imagejourney.release.xcconfig"; path = "Pods/Target Support Files/Pods-imagejourney/Pods-imagejourney.release.xcconfig"; sourceTree = "<group>"; };
 		EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomefeedViewController.swift; sourceTree = "<group>"; };
 		EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
+		EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeJournalViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				7A1153301EB560C000614595 /* JournalEntryViewController.swift */,
 				7A1153321EB560D400614595 /* SearchViewController.swift */,
 				EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */,
+				EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A2C51501EADCA8400370B7D /* ViewController.swift in Sources */,
+				EC2DED9C1EB68B2500D6FA68 /* ComposeJournalViewController.swift in Sources */,
 				EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */,
 				7A2C514E1EADCA8400370B7D /* AppDelegate.swift in Sources */,
 				7A1153331EB560D400614595 /* SearchViewController.swift in Sources */,
