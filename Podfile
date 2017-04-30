@@ -10,4 +10,5 @@ target 'imagejourney' do
   pod 'Material', '~> 2.0'
   pod 'Material/Capture', '~> 2.0'
   pod 'Material/Photos', '~> 2.0'
+  pod 'Parse'
 end

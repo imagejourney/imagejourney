@@ -13,5 +13,8 @@ class User: NSObject {
     
     init(dictionary: Dictionary<String, Any>) {
         name = dictionary["name"] as? String
+        
+        //temp testing
+        name = "sophia"
     }
 }

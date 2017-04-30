@@ -6,6 +6,7 @@
 //  Copyright © 2017 Codepath. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 @UIApplicationMain
@@ -15,7 +16,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // initialize Parse
+        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
+            configuration.applicationId = "imagejourney"
+            configuration.server = "https://imagejourney.herokuapp.com/parse"
+        }))
+                
         return true
     }
 
