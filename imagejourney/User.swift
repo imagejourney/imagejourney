@@ -9,6 +9,9 @@
 import UIKit
 
 class User: NSObject {
+    var name: String?
+    
     init(dictionary: Dictionary<String, Any>) {
+        name = dictionary["name"] as? String
     }
 }

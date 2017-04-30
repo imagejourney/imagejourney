@@ -20,6 +20,8 @@
 		7A2C51531EADCA8400370B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51511EADCA8400370B7D /* Main.storyboard */; };
 		7A2C51551EADCA8400370B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51541EADCA8400370B7D /* Assets.xcassets */; };
 		7A2C51581EADCA8400370B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */; };
+		EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */; };
+		EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		7A2C51571EADCA8400370B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A2C51591EADCA8400370B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E376066E2A7A867A32BAD13 /* Pods-imagejourney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imagejourney.release.xcconfig"; path = "Pods/Target Support Files/Pods-imagejourney/Pods-imagejourney.release.xcconfig"; sourceTree = "<group>"; };
+		EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomefeedViewController.swift; sourceTree = "<group>"; };
+		EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +71,8 @@
 		7A1153261EB4333E00614595 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7A11532E1EB560A700614595 /* JournalViewController.swift */,
-				7A1153301EB560C000614595 /* JournalEntryViewController.swift */,
-				7A1153321EB560D400614595 /* SearchViewController.swift */,
 				7A1153361EB5623100614595 /* JournalEntryCell.swift */,
+				EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -103,15 +105,12 @@
 		7A2C514C1EADCA8400370B7D /* imagejourney */ = {
 			isa = PBXGroup;
 			children = (
+				EC2DED991EB5AE6400D6FA68 /* Storyboard */,
+				EC2DED941EB5AA3B00D6FA68 /* View Controllers */,
 				7A1153271EB4337500614595 /* API */,
 				7A1153261EB4333E00614595 /* Views */,
 				7A1153251EB4333100614595 /* Models */,
-				7A2C514D1EADCA8400370B7D /* AppDelegate.swift */,
-				7A2C514F1EADCA8400370B7D /* ViewController.swift */,
-				7A2C51511EADCA8400370B7D /* Main.storyboard */,
-				7A2C51541EADCA8400370B7D /* Assets.xcassets */,
-				7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */,
-				7A2C51591EADCA8400370B7D /* Info.plist */,
+				EC2DED9A1EB5AE7F00D6FA68 /* Supporting Files */,
 			);
 			path = imagejourney;
 			sourceTree = "<group>";
@@ -131,6 +130,37 @@
 				378736A0080288B83FB6B32F /* Pods_imagejourney.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EC2DED941EB5AA3B00D6FA68 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A2C514F1EADCA8400370B7D /* ViewController.swift */,
+				7A11532E1EB560A700614595 /* JournalViewController.swift */,
+				7A1153301EB560C000614595 /* JournalEntryViewController.swift */,
+				7A1153321EB560D400614595 /* SearchViewController.swift */,
+				EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		EC2DED991EB5AE6400D6FA68 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */,
+				7A2C51511EADCA8400370B7D /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		EC2DED9A1EB5AE7F00D6FA68 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7A2C514D1EADCA8400370B7D /* AppDelegate.swift */,
+				7A2C51541EADCA8400370B7D /* Assets.xcassets */,
+				7A2C51591EADCA8400370B7D /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,9 +287,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A2C51501EADCA8400370B7D /* ViewController.swift in Sources */,
+				EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */,
 				7A2C514E1EADCA8400370B7D /* AppDelegate.swift in Sources */,
 				7A1153331EB560D400614595 /* SearchViewController.swift in Sources */,
 				7A11532B1EB434B700614595 /* JournalEntry.swift in Sources */,
+				EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */,
 				7A11532D1EB434C300614595 /* User.swift in Sources */,
 				7A1153311EB560C000614595 /* JournalEntryViewController.swift in Sources */,
 				7A1153371EB5623100614595 /* JournalEntryCell.swift in Sources */,
