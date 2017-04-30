@@ -25,6 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="543" y="135"/>
         </scene>
         <!--Homefeed View Controller-->
         <scene sceneID="6Bs-lw-ZJs">
@@ -113,6 +114,7 @@
                                             <outlet property="previewImageThree" destination="pE2-Q4-Ihc" id="p7h-lL-LwV"/>
                                             <outlet property="previewImageTwo" destination="fEc-rE-kgI" id="iHw-8X-T36"/>
                                             <outlet property="tripTitleLabel" destination="8ru-P7-LIw" id="6gK-8w-dF5"/>
+                                            <segue destination="1vU-rZ-gfK" kind="show" identifier="homefeedToJournalSegue" id="xpT-Z0-khm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -127,17 +129,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovk-pU-swo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2184.8000000000002" y="136.28185907046478"/>
+            <point key="canvasLocation" x="1867" y="136"/>
         </scene>
         <!--Journal View Controller-->
         <scene sceneID="Jq7-pO-30l">
             <objects>
-                <viewController id="1vU-rZ-gfK" customClass="JournalViewController" customModule="imagejourney" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JournalViewController" id="1vU-rZ-gfK" customClass="JournalViewController" customModule="imagejourney" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fWd-gS-Zmc"/>
                         <viewControllerLayoutGuide type="bottom" id="ED5-4h-gH5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DvR-Jv-8zd" customClass="JournalViewController" customModule="imagejourney" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="DvR-Jv-8zd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -210,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zK-yh-dCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="906.29685157421295"/>
+            <point key="canvasLocation" x="2616" y="135"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="dZ0-pd-R2f">

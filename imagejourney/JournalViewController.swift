@@ -9,6 +9,8 @@
 import UIKit
 
 class JournalViewController: UIViewController {
+    
+    var journal: Journal?
 
     override func viewDidLoad() {
         super.viewDidLoad()
