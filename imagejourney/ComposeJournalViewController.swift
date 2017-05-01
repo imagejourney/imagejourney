@@ -6,10 +6,14 @@
 //  Copyright © 2017 Codepath. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class ComposeJournalViewController: UIViewController {
 
+    var entries: [JournalEntry]? = []
+    var previewImageUrls: [URL]? = []
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
@@ -18,7 +22,10 @@ class ComposeJournalViewController: UIViewController {
     }
     
     @IBAction func onCreateJournal(_ sender: UIBarButtonItem) {
-    
+        if titleTextField.text != nil && (titleTextField.text?.trimmingCharacters(in: .whitespaces).characters.count)! > 0 {
+            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!, entries: entries!, previewImageUrls: previewImageUrls!)
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -32,7 +39,7 @@ class ComposeJournalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 

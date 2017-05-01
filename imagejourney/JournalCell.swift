@@ -30,7 +30,7 @@ class JournalCell: UITableViewCell {
     
     func buildCellWithJournal(journal: Journal) {
         tripTitleLabel.text = journal.title
-        authorName.text = journal.author?.name
+        authorName.text = "by \(journal.author?.name ?? "anonymous")"
         previewImageOne.setImageWith((journal.previewImageUrls?[0])!)
         previewImageTwo.setImageWith((journal.previewImageUrls?[1])!)
         previewImageThree.setImageWith((journal.previewImageUrls?[2])!)

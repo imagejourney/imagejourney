@@ -24,6 +24,7 @@
 		EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */; };
 		EC2DED9C1EB68B2500D6FA68 /* ComposeJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */; };
 		EC2DED9E1EB69ED500D6FA68 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED9D1EB69ED500D6FA68 /* ProfileViewController.swift */; };
+		EC2DEDA11EB6EB1A00D6FA68 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DEDA01EB6EB1A00D6FA68 /* ParseClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeJournalViewController.swift; sourceTree = "<group>"; };
 		EC2DED9D1EB69ED500D6FA68 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EC2DEDA01EB6EB1A00D6FA68 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		7A1153271EB4337500614595 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				EC2DEDA01EB6EB1A00D6FA68 /* ParseClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				7A2C51501EADCA8400370B7D /* ViewController.swift in Sources */,
 				EC2DED9C1EB68B2500D6FA68 /* ComposeJournalViewController.swift in Sources */,
+				EC2DEDA11EB6EB1A00D6FA68 /* ParseClient.swift in Sources */,
 				EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */,
 				7A2C514E1EADCA8400370B7D /* AppDelegate.swift in Sources */,
 				7A1153331EB560D400614595 /* SearchViewController.swift in Sources */,

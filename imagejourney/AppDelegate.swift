@@ -16,13 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        // initialize Parse
-        Parse.initialize(with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) in
-            configuration.applicationId = "imagejourney"
-            configuration.server = "https://imagejourney.herokuapp.com/parse"
-        }))
-                
         return true
     }
 

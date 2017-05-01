@@ -6,15 +6,19 @@
 //  Copyright © 2017 Codepath. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class User: NSObject {
     var name: String?
+    var username: String?
     
-    init(dictionary: Dictionary<String, Any>) {
-        name = dictionary["name"] as? String
-        
-        //temp testing
-        name = "sophia"
+    init(obj: PFObject) {
+        self.name = obj["name"] as! String
+        self.username = obj["username"] as! String
+    }
+    
+    class func userFromPFUser(pfUser: PFUser) -> User {
+        return User(obj: pfUser)
     }
 }

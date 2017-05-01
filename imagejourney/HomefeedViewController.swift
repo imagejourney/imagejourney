@@ -24,9 +24,15 @@ class HomefeedViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.estimatedRowHeight = 380
 
         
-        // make api here, temp hard code
-        let journal = Journal.init(dictionary: Dictionary())
-        journals?.append(journal)
+        // Fetch journals to show
+        ParseClient.sharedInstance.getJournalsWithCompletion(completion: { (journals: [Journal]?) in
+            if journals != nil {
+                self.journals = journals
+                self.tableView.reloadData()
+            } else {
+                print("journals fetch failed")
+            }
+        })
     }
     
     // MARK: - UITableViewDelegate
