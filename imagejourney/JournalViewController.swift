@@ -10,8 +10,19 @@ import UIKit
 
 class JournalViewController: UIViewController {
     
-    var journal: Journal?
-
+    @IBOutlet weak var journalTitleLabel: UILabel!
+    @IBOutlet weak var journalAuthorLabel: UILabel!
+    
+    var journal: Journal! {
+        didSet {
+            self.loadViewIfNeeded()
+            journalTitleLabel.text = journal.title
+            if let user = journal.author {
+                journalAuthorLabel.text = "by \(user.name)"
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

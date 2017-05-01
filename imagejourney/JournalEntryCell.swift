@@ -10,6 +10,12 @@ import UIKit
 
 class JournalEntryCell: UITableViewCell {
 
+    @IBOutlet weak var entryTimeLabel: UILabel!
+    @IBOutlet weak var entryWeatherLabel: UILabel!
+    @IBOutlet weak var entryLocationLabel: UILabel!
+    @IBOutlet weak var entryImageView: UIImageView!
+    @IBOutlet weak var entryDescriptionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

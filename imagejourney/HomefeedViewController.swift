@@ -46,8 +46,7 @@ class HomefeedViewController: UIViewController, UITableViewDelegate, UITableView
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "homefeedToJournalSegue" {
-            let navigationController = segue.destination as! UINavigationController
-            let journalViewController = navigationController.topViewController as! JournalViewController
+            let journalViewController = segue.destination as! JournalViewController
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             journalViewController.journal = journals?[indexPath!.row]
         }
