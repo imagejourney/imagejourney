@@ -8,14 +8,17 @@
 
 import UIKit
 
-class JournalViewController: UIViewController {
+class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var journalTitleLabel: UILabel!
     @IBOutlet weak var journalAuthorLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     var journal: Journal! {
         didSet {
             self.loadViewIfNeeded()
+            tableView.delegate = self
+            tableView.dataSource = self
             journalTitleLabel.text = journal.title
             if let user = journal.author {
                 journalAuthorLabel.text = "by \(user.name)"
@@ -34,6 +37,26 @@ class JournalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let entries = journal.entries {
+            return entries.count
+        }
+        return 0
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryCell") as! JournalEntryCell
+        let entry = journal.entries?[indexPath.row]
+        cell.entry = entry
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let journalEntryViewController = segue.destination as! JournalEntryViewController
+        let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+        journalEntryViewController.entry = journal.entries?[indexPath!.row]
+    }
 
     /*
     // MARK: - Navigation

@@ -363,6 +363,7 @@
                                             <outlet property="entryLocationLabel" destination="8ZH-ix-rai" id="O6h-GV-Aoo"/>
                                             <outlet property="entryTimeLabel" destination="Rdk-HI-488" id="0zp-vO-VHy"/>
                                             <outlet property="entryWeatherLabel" destination="CuZ-nz-Mpb" id="NSr-Mb-I9W"/>
+                                            <segue destination="vpf-Q9-Cja" kind="show" id="gVn-Zl-P79"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -374,6 +375,7 @@
                     <connections>
                         <outlet property="journalAuthorLabel" destination="leJ-6X-Qlf" id="eyD-7j-Vyh"/>
                         <outlet property="journalTitleLabel" destination="iLQ-Am-TE9" id="RMZ-y7-455"/>
+                        <outlet property="tableView" destination="3fL-fI-y5E" id="zNC-ZB-JL3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zK-yh-dCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -541,40 +543,47 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jan 1, 2017 at 1:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nL9-rj-ONj">
-                                <rect key="frame" x="16" y="26" width="167" height="21"/>
+                                <rect key="frame" x="16" y="72" width="167" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="San Francisco, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xn-Jl-2nE">
-                                <rect key="frame" x="16" y="55" width="139" height="21"/>
+                                <rect key="frame" x="16" y="101" width="139" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rainy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGh-b6-zzc">
-                                <rect key="frame" x="315" y="26" width="42" height="21"/>
+                                <rect key="frame" x="315" y="72" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Some description about this journal entry ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZe-fd-Ppq">
-                                <rect key="frame" x="16" y="425" width="334" height="21"/>
+                                <rect key="frame" x="16" y="471" width="334" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZRh-jD-dCq">
-                                <rect key="frame" x="16" y="106" width="341" height="290"/>
+                                <rect key="frame" x="16" y="152" width="341" height="290"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="nL9-rj-ONj" id="pFY-gt-NT1"/>
+                        <outlet property="descLabel" destination="uZe-fd-Ppq" id="3BL-Eg-CKb"/>
+                        <outlet property="imageView" destination="ZRh-jD-dCq" id="Fgp-ye-Ocw"/>
+                        <outlet property="locationLabel" destination="3xn-Jl-2nE" id="R97-yo-cMc"/>
+                        <outlet property="weatherLabel" destination="rGh-b6-zzc" id="v3m-l8-05c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbY-uX-R9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

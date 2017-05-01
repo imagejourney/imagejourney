@@ -25,6 +25,7 @@ class Journal: NSObject {
         // temporary hardcoding for testing for now
         
         title = "Sophia's trip in SF"
+        entries = [JournalEntry.init(dictionary: Dictionary())]
         
         // we want to get preview images from entries?[0].imageUrls?[0]
         let previewImageOneUrl = URL(string: "https://cdn0.vox-cdn.com/uploads/chorus_asset/file/4858055/presidio_20cover.0.jpg")

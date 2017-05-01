@@ -21,5 +21,12 @@ class JournalEntry: NSObject {
         location = dictionary["location"] as? String
         weather = dictionary["weather"] as? String
         desc = dictionary["description"] as? String
+        
+        //temporary hardcoding
+        imageUrls = [URL(string: "https://cdn0.vox-cdn.com/uploads/chorus_asset/file/4858055/presidio_20cover.0.jpg")!]
+        date = Date()
+        location = "San Francisco, CA"
+        weather = "Sunny"
+        desc = "It was a great day!"
     }
 }

@@ -9,10 +9,33 @@
 import UIKit
 
 class JournalEntryViewController: UIViewController {
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var descLabel: UILabel!
 
+    var entry: JournalEntry! {
+        didSet{
+            self.loadViewIfNeeded()// should be view.layoutIfNeeded?
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM yyyy hh:mm:ss +zzzz"
+            if let date = entry.date {
+                dateLabel.text = dateFormatter.string(from: date)
+            }
+            
+            weatherLabel.text = entry.weather
+            locationLabel.text = entry.location
+            if let imageUrl = entry.imageUrls?[0] {
+                imageView.setImageWith(imageUrl)
+            }
+            descLabel.text = entry.desc
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 

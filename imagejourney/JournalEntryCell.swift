@@ -16,6 +16,23 @@ class JournalEntryCell: UITableViewCell {
     @IBOutlet weak var entryImageView: UIImageView!
     @IBOutlet weak var entryDescriptionLabel: UILabel!
     
+    var entry: JournalEntry! {
+        didSet {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd MMM yyyy hh:mm:ss +zzzz"
+            if let date = entry.date {
+                entryTimeLabel.text = dateFormatter.string(from: date)
+            }
+            
+            entryWeatherLabel.text = entry.weather
+            entryLocationLabel.text = entry.location
+            if let imageUrl = entry.imageUrls?[0] {
+                entryImageView.setImageWith(imageUrl)
+            }
+            entryDescriptionLabel.text = entry.desc
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
