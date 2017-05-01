@@ -22,9 +22,9 @@ ImageJourney is an iOS journaling app that makes it easy for you to document and
   - [ ] **(Optional) User must enter a valid email format**
 
 - [ ] Homefeed View
-  - [ ] Has option to create a new journal. This will open the compose journal view modally. 
-  - [ ] Displays a feed with the five most recent journals by you and your friends using a table view. The homefeed journal cell should show the title, author, and a picture from one of the journal entries, unless the journal has no entries yet. 
-  - [ ] Tapping on a journal cell should open the journal view. 
+  - [x] Has option to create a new journal. This will open the compose journal view modally. 
+  - [x] Displays a feed with the five most recent journals by you and your friends using a table view. The homefeed journal cell should show the title, author, and a picture from one of the journal entries, unless the journal has no entries yet. 
+  - [x] Tapping on a journal cell should open the journal view.
   - [ ] **(Optional) Load more journals as the user scrolls**
   - [ ] **(Optional) Sample multiple photos from journal entries to show in the homefeed journal cell.**
   - [ ] **(Optional) Optimized the images to show in a grid view or carousel.**
@@ -52,9 +52,9 @@ ImageJourney is an iOS journaling app that makes it easy for you to document and
   - [ ] **(Optional) Times are localized for the location of the journal entry.**
   - [ ] **(Optional) The pins should show a connected travel path, given the chronological order of the entries**
 
-- [ ] Compose Journal View
-  - [ ] Should have navigation bar with the options to cancel or save
-  - [ ] Has input for journal title
+- [x] Compose Journal View
+  - [x] Should have navigation bar with the options to cancel or save
+  - [x] Has input for journal title 
   - [ ] Has button to add new entry. This will add a new entry form section, which contains: input for time and date, input for location, input for weather, option to add photos, and text field for a description. 
   - [ ] **(Optional) Time and date input opens calendar and time picker.**
   - [ ] **(Optional) Input for location has autocomplete options**
