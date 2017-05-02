@@ -19,8 +19,8 @@
 		7A2C51531EADCA8400370B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51511EADCA8400370B7D /* Main.storyboard */; };
 		7A2C51551EADCA8400370B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51541EADCA8400370B7D /* Assets.xcassets */; };
 		7A2C51581EADCA8400370B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */; };
-		C59436271EB7AA8200A505E6 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59436251EB7AA8200A505E6 /* SignInViewController.swift */; };
-		C59436281EB7AA8200A505E6 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C59436261EB7AA8200A505E6 /* SignUpViewController.swift */; };
+		C5B898F31EB834CD00552048 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898F11EB834CD00552048 /* SignInViewController.swift */; };
+		C5B898F41EB834CD00552048 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898F21EB834CD00552048 /* SignUpViewController.swift */; };
 		EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */; };
 		EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */; };
 		EC2DED9C1EB68B2500D6FA68 /* ComposeJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */; };
@@ -45,8 +45,8 @@
 		7A2C51571EADCA8400370B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A2C51591EADCA8400370B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E376066E2A7A867A32BAD13 /* Pods-imagejourney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imagejourney.release.xcconfig"; path = "Pods/Target Support Files/Pods-imagejourney/Pods-imagejourney.release.xcconfig"; sourceTree = "<group>"; };
-		C59436251EB7AA8200A505E6 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = ../../../imagejourney/imagejourney/SignInViewController.swift; sourceTree = "<group>"; };
-		C59436261EB7AA8200A505E6 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = ../../../imagejourney/imagejourney/SignUpViewController.swift; sourceTree = "<group>"; };
+		C5B898F11EB834CD00552048 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C5B898F21EB834CD00552048 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomefeedViewController.swift; sourceTree = "<group>"; };
 		EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeJournalViewController.swift; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 		EC2DED941EB5AA3B00D6FA68 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C59436251EB7AA8200A505E6 /* SignInViewController.swift */,
-				C59436261EB7AA8200A505E6 /* SignUpViewController.swift */,
+				C5B898F11EB834CD00552048 /* SignInViewController.swift */,
+				C5B898F21EB834CD00552048 /* SignUpViewController.swift */,
 				7A11532E1EB560A700614595 /* JournalViewController.swift */,
 				7A1153301EB560C000614595 /* JournalEntryViewController.swift */,
 				7A1153321EB560D400614595 /* SearchViewController.swift */,
@@ -303,13 +303,13 @@
 				EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */,
 				7A2C514E1EADCA8400370B7D /* AppDelegate.swift in Sources */,
 				7A1153331EB560D400614595 /* SearchViewController.swift in Sources */,
+				C5B898F41EB834CD00552048 /* SignUpViewController.swift in Sources */,
 				7A11532B1EB434B700614595 /* JournalEntry.swift in Sources */,
 				EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */,
-				C59436271EB7AA8200A505E6 /* SignInViewController.swift in Sources */,
 				7A11532D1EB434C300614595 /* User.swift in Sources */,
-				C59436281EB7AA8200A505E6 /* SignUpViewController.swift in Sources */,
 				7A1153311EB560C000614595 /* JournalEntryViewController.swift in Sources */,
 				7A1153371EB5623100614595 /* JournalEntryCell.swift in Sources */,
+				C5B898F31EB834CD00552048 /* SignInViewController.swift in Sources */,
 				EC2DED9E1EB69ED500D6FA68 /* ProfileViewController.swift in Sources */,
 				7A11532F1EB560A700614595 /* JournalViewController.swift in Sources */,
 				7A1153291EB4347300614595 /* Journal.swift in Sources */,

@@ -83,6 +83,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ghW-Lo-Dns"/>
+                    <connections>
+                        <outlet property="loginBtn" destination="QgD-Yc-rgR" id="Uus-0h-cNy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -784,6 +787,9 @@
                             <constraint firstItem="EOH-Bt-C9d" firstAttribute="leading" secondItem="Xb6-aM-AeI" secondAttribute="leading" constant="110" id="aME-qA-M4c"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signUpBtn" destination="Nic-Rz-T9m" id="Pzh-7V-6Ei"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zr1-gH-CWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
