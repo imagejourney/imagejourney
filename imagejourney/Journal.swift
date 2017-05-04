@@ -18,7 +18,7 @@ class Journal: NSObject {
     init(obj: PFObject) {
         self.title = obj["title"] as! String
         let pfUser = obj["author"] as! PFUser
-        self.author = User.userFromPFUser(pfUser: pfUser)
+        self.author = User(obj: pfUser)
         let entryObjArray = obj["entries"] as! [PFObject]
         self.entries = JournalEntry.journalEntriesFromArray(pfObjectArray: entryObjArray)
         let previewImageUrlArray = obj["previewImageUrls"] as! [Any]

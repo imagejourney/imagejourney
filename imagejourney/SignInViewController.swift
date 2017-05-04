@@ -13,7 +13,8 @@ class SignInViewController: UIViewController, TextFieldDelegate {
         let password = passwordField.text!
         SwiftSpinner.show(Constants.LOGIN_LOADING_MSG)
         ParseClient.sharedInstance.userSignIn(username: username, password: password, onSuccess: {
-            () in
+            (user: PFUser?) -> () in
+            User.setCurrentUser(user: user!)
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
             SwiftSpinner.hide()
         }, onError: {(error: Error? ) in

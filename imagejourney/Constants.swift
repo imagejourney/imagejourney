@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class Constants {
+    static let USER_DEFAULTS_KEY = "currentUserData"
+    
     static let SIGNUP_MARGIN:CGFloat = 20
     static let SIGNUP_FIELD_OFFSET:CGFloat = 35
     static let LOGIN_FIELD_MARGIN:CGFloat = 20
@@ -18,4 +20,5 @@ class Constants {
     static let LOGIN_LOADING_MSG = "Logging in..."
     static let PASSWORD_NOT_MATCH_MSG = "password does not match."
     static let SIGN_UP_LOADING_MSG = "Signing up..."
+    static let EMPTY_NAME_ERROR_MSG = "Name is required!"
 }

@@ -37,27 +37,28 @@ class ParseClient: NSObject {
         PFUser.logOut()
     }
     
-    func userSignIn(username:String, password:String, onSuccess: @escaping () -> (), onError: @escaping (Error?) -> ()){
+    func userSignIn(username:String, password:String, onSuccess: @escaping (_ user: PFUser) -> (), onError: @escaping (Error?) -> ()){
         PFUser.logInWithUsername(inBackground: username, password:password) {
             (user: PFUser?, error: Error?) -> Void in
             if let error = error {
                 onError(error)
             } else {
-                onSuccess()
+                onSuccess(user!)
             }
         }
 
     }
     
-    func userSignUp(username:String, password:String, onSuccess: @escaping () -> (), onError: @escaping (Error?) -> ()){
+    func userSignUp(name:String, username:String, password:String, onSuccess: @escaping (_ user: PFUser) -> (), onError: @escaping (Error?) -> ()){
         let newUser = PFUser()
         newUser.username = username
         newUser.password = password
+        newUser.setValue(name, forKey: "name")
         newUser.signUpInBackground{(succeeded: Bool, error: Error!) -> Void in
             if let error = error {
                 onError(error)
             } else {
-                onSuccess()
+                onSuccess(newUser)
             }
         }
 

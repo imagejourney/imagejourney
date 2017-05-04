@@ -13,6 +13,7 @@ import SwiftSpinner
 
 class SignUpViewController: UIViewController, TextFieldDelegate {
     @IBOutlet var signUpBtn: RaisedButton!
+    var nameField: TextField!
     var usernameField: TextField!
     var passwordField: TextField!
     var passwordCheckField: ErrorTextField!
@@ -20,6 +21,7 @@ class SignUpViewController: UIViewController, TextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         preparePasswordField()
+        prepareNameField()
         prepareEmailField()
     }
 
@@ -32,9 +34,18 @@ class SignUpViewController: UIViewController, TextFieldDelegate {
     @IBAction func onSignUp(_ sender: Any) {
         let username = usernameField.text!
         let password = passwordField.text!
+        let name = nameField.text!
+        
+        // name is required
+        if name == "" {
+            self.showErrorAlert(errorMsg: Constants.EMPTY_NAME_ERROR_MSG)
+            return
+        }
+        
         SwiftSpinner.show(Constants.SIGN_UP_LOADING_MSG)
-        ParseClient.sharedInstance.userSignUp(username: username, password: password, onSuccess: {
-            () in
+        ParseClient.sharedInstance.userSignUp(name: name, username: username, password: password, onSuccess: {
+            (user: PFUser?) -> () in
+            User.setCurrentUser(user: user!)
             self.performSegue(withIdentifier: "signUpSegue", sender: nil)
             SwiftSpinner.hide()
         }, onError: {(error: Error? ) in
@@ -52,9 +63,10 @@ class SignUpViewController: UIViewController, TextFieldDelegate {
         let alertController = UIAlertController(title: "Sign Up Failure", message: errorMsg, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             self.usernameField.text = ""
+            self.nameField.text = ""
             self.passwordField.text = ""
             self.passwordCheckField.text = ""
-            self.usernameField.becomeFirstResponder()
+            self.nameField.becomeFirstResponder()
         }
         // add the OK action to the alert controller
         alertController.addAction(OKAction)
@@ -78,6 +90,20 @@ class SignUpViewController: UIViewController, TextFieldDelegate {
 }
 
 extension SignUpViewController {
+    fileprivate func prepareNameField() {
+        nameField = TextField()
+        nameField.placeholder = "Enter your name here."
+        nameField.autocapitalizationType = .words
+        nameField.isClearIconButtonEnabled = true
+        nameField.delegate = self
+        
+        let leftView = UIImageView()
+        leftView.image = UIImage(named: "account")
+        nameField.leftView = leftView
+        
+        view.layout(nameField).center(offsetY: -passwordField.height - 4 * Constants.SIGNUP_FIELD_OFFSET).left(Constants.SIGNUP_MARGIN).right(Constants.SIGNUP_MARGIN)
+    }
+
     fileprivate func prepareEmailField() {
         usernameField = TextField()
         usernameField.placeholder = "Enter your username here."
