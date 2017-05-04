@@ -24,6 +24,7 @@ PODS:
     - Material/Core
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
+  - SwiftSpinner (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking
@@ -31,13 +32,15 @@ DEPENDENCIES:
   - Material/Capture (~> 2.0)
   - Material/Photos (~> 2.0)
   - Parse
+  - SwiftSpinner
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Material: 42f8ac592669b1a01c1ac7c6fae895e4f308f74a
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
+  SwiftSpinner: 6892642232471da581ecb020a9150e07d17a954b
 
-PODFILE CHECKSUM: 7d0fa974658ea9dbb43a9a596f1315e4f5abcc0c
+PODFILE CHECKSUM: 0d49226780fcedaaf940a48beb66d1dffd568f96
 
 COCOAPODS: 1.2.0

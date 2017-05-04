@@ -9,16 +9,14 @@
 import Parse
 import UIKit
 import Material
+import SwiftSpinner
 
-class SignUpViewController: UIViewController,TextFieldDelegate {
+class SignUpViewController: UIViewController, TextFieldDelegate {
     @IBOutlet var signUpBtn: RaisedButton!
     var usernameField: TextField!
     var passwordField: TextField!
-    var passwordCheckField: TextField!
-    
-    let MARGIN:CGFloat = 20
-    let FIELD_OFFSET:CGFloat = 35
-
+    var passwordCheckField: ErrorTextField!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         preparePasswordField()
@@ -31,29 +29,17 @@ class SignUpViewController: UIViewController,TextFieldDelegate {
         self.present(signInCtl, animated: true, completion: nil)
     }
     
-    func toggleSignUpBtn(isSigningUp:Bool){
-        if isSigningUp {
-            self.signUpBtn.isEnabled = false
-            self.signUpBtn.isUserInteractionEnabled = false
-            self.signUpBtn.title = "Signing up..."
-        } else {
-            self.signUpBtn.isEnabled = true
-            self.signUpBtn.isUserInteractionEnabled = true
-            self.signUpBtn.title = "Sign Up!"
-        }
-    }
-
     @IBAction func onSignUp(_ sender: Any) {
         let username = usernameField.text!
         let password = passwordField.text!
-        toggleSignUpBtn(isSigningUp: true)
+        SwiftSpinner.show(Constants.SIGN_UP_LOADING_MSG)
         ParseClient.sharedInstance.userSignUp(username: username, password: password, onSuccess: {
             () in
             self.performSegue(withIdentifier: "signUpSegue", sender: nil)
-            self.toggleSignUpBtn(isSigningUp: false)
+            SwiftSpinner.hide()
         }, onError: {(error: Error? ) in
             self.showErrorAlert(errorMsg: (error?.localizedDescription)!)
-            self.toggleSignUpBtn(isSigningUp: false)
+            SwiftSpinner.hide()
         })
     }
     
@@ -75,7 +61,16 @@ class SignUpViewController: UIViewController,TextFieldDelegate {
         self.present(alertController, animated: true)
     }
 
-    
+    func textFieldDidChange(sender: ErrorTextField){
+        let pwdFieldTxt = self.passwordField.text!
+        let pwdCheckFieldTxt = self.passwordCheckField.text!
+        if (!pwdFieldTxt.isEmpty && pwdFieldTxt != pwdCheckFieldTxt) {
+            self.passwordCheckField.isErrorRevealed = true
+            self.passwordCheckField.detailLabel.text = Constants.PASSWORD_NOT_MATCH_MSG
+        } else {
+            self.passwordCheckField.isErrorRevealed = false
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -94,7 +89,7 @@ extension SignUpViewController {
         leftView.image = UIImage(named: "email")
         usernameField.leftView = leftView
         
-        view.layout(usernameField).center(offsetY: -passwordField.height - FIELD_OFFSET).left(MARGIN).right(MARGIN)
+        view.layout(usernameField).center(offsetY: -passwordField.height - 2 * Constants.SIGNUP_FIELD_OFFSET).left(Constants.SIGNUP_MARGIN).right(Constants.SIGNUP_MARGIN)
     }
     
     fileprivate func preparePasswordField() {
@@ -106,7 +101,7 @@ extension SignUpViewController {
         pwdleftView.image = UIImage(named: "lock")
         passwordField.leftView = pwdleftView
         
-        passwordCheckField = TextField()
+        passwordCheckField = ErrorTextField()
         passwordCheckField.placeholder = "Please type your password again."
         passwordCheckField.clearButtonMode = .whileEditing
         passwordCheckField.isVisibilityIconButtonEnabled = true
@@ -114,10 +109,14 @@ extension SignUpViewController {
         pwdCheckleftView.image = UIImage(named: "lock")
         passwordCheckField.leftView = pwdCheckleftView
         
+        // Use delete won't work here since it's not a regular TextField but a ErrorTextField
+        passwordCheckField.addTarget(self, action: #selector(SignUpViewController.textFieldDidChange(sender:)), for: UIControlEvents.editingChanged)
+        
         // Setting the visibilityIconButton color.
         passwordField.visibilityIconButton?.tintColor = Color.green.base.withAlphaComponent(passwordField.isSecureTextEntry ? 0.38 : 0.54)
         passwordCheckField.visibilityIconButton?.tintColor = Color.green.base.withAlphaComponent(passwordField.isSecureTextEntry ? 0.38 : 0.54)
-        view.layout(passwordField).center().left(MARGIN).right(MARGIN)
-        view.layout(passwordCheckField).center(offsetY: passwordField.height + FIELD_OFFSET).left(MARGIN).right(MARGIN)
+        view.layout(passwordField).center(offsetY: -passwordField.height - Constants.SIGNUP_FIELD_OFFSET).left(Constants.SIGNUP_MARGIN).right(Constants.SIGNUP_MARGIN)
+        view.layout(passwordCheckField).center(offsetY: passwordField.height).left(Constants.SIGNUP_MARGIN).right(Constants.SIGNUP_MARGIN)
     }
 }
+

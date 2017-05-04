@@ -1,39 +1,25 @@
 import Parse
 import UIKit
 import Material
+import SwiftSpinner
 
 class SignInViewController: UIViewController, TextFieldDelegate {
     @IBOutlet var loginBtn: RaisedButton!
     var passwordField: TextField!
     var emailField: TextField!
     
-    let MARGIN:CGFloat = 20
-    let EMAIL_FIELD_OFFSET:CGFloat = 50
-    
     @IBAction func onSignIn(_ sender: UIButton) {
         let username = emailField.text!
         let password = passwordField.text!
-        toggleLoginBtn(isLoggingIn: true)
+        SwiftSpinner.show(Constants.LOGIN_LOADING_MSG)
         ParseClient.sharedInstance.userSignIn(username: username, password: password, onSuccess: {
             () in
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            self.toggleLoginBtn(isLoggingIn: false)
+            SwiftSpinner.hide()
         }, onError: {(error: Error? ) in
             self.showErrorAlert(errorMsg: (error?.localizedDescription)!)
-            self.toggleLoginBtn(isLoggingIn: false)
+            SwiftSpinner.hide()
         })
-    }
-    
-    func toggleLoginBtn(isLoggingIn:Bool){
-        if isLoggingIn {
-            self.loginBtn.isEnabled = false
-            self.loginBtn.isUserInteractionEnabled = false
-            self.loginBtn.title = "Logging In..."
-        } else {
-            self.loginBtn.isEnabled = true
-            self.loginBtn.isUserInteractionEnabled = true
-            self.loginBtn.title = "Log In"
-        }
     }
     
     @IBAction func onSignUpClick(_ sender: FlatButton) {
@@ -79,7 +65,7 @@ extension SignInViewController {
         leftView.image = UIImage(named: "email")
         emailField.leftView = leftView
         
-        view.layout(emailField).center(offsetY: -passwordField.height - EMAIL_FIELD_OFFSET).left(MARGIN).right(MARGIN)
+        view.layout(emailField).center(offsetY: -passwordField.height - Constants.LOGIN_EMAIL_FIELD_OFFSET).left(Constants.LOGIN_FIELD_MARGIN).right(Constants.LOGIN_FIELD_MARGIN)
     }
     
     fileprivate func preparePasswordField() {
@@ -95,6 +81,6 @@ extension SignInViewController {
         // Setting the visibilityIconButton color.
         passwordField.visibilityIconButton?.tintColor = Color.green.base.withAlphaComponent(passwordField.isSecureTextEntry ? 0.38 : 0.54)
         
-        view.layout(passwordField).center().left(MARGIN).right(MARGIN)
+        view.layout(passwordField).center().left(Constants.LOGIN_FIELD_MARGIN).right(Constants.LOGIN_FIELD_MARGIN)
     }
 }

@@ -11,4 +11,5 @@ target 'imagejourney' do
   pod 'Material/Capture', '~> 2.0'
   pod 'Material/Photos', '~> 2.0'
   pod 'Parse'
+  pod 'SwiftSpinner'
 end

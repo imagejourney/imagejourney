@@ -21,6 +21,7 @@
 		7A2C51581EADCA8400370B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */; };
 		C5B898F31EB834CD00552048 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898F11EB834CD00552048 /* SignInViewController.swift */; };
 		C5B898F41EB834CD00552048 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898F21EB834CD00552048 /* SignUpViewController.swift */; };
+		C5B898FD1EBAE79900552048 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898FC1EBAE79900552048 /* Constants.swift */; };
 		EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */; };
 		EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */; };
 		EC2DED9C1EB68B2500D6FA68 /* ComposeJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */; };
@@ -47,6 +48,7 @@
 		8E376066E2A7A867A32BAD13 /* Pods-imagejourney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imagejourney.release.xcconfig"; path = "Pods/Target Support Files/Pods-imagejourney/Pods-imagejourney.release.xcconfig"; sourceTree = "<group>"; };
 		C5B898F11EB834CD00552048 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C5B898F21EB834CD00552048 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C5B898FC1EBAE79900552048 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EC2DED951EB5AC8100D6FA68 /* HomefeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomefeedViewController.swift; sourceTree = "<group>"; };
 		EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
 		EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeJournalViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		7A2C514C1EADCA8400370B7D /* imagejourney */ = {
 			isa = PBXGroup;
 			children = (
+				C5B898FB1EBAE74900552048 /* Helper */,
 				EC2DED991EB5AE6400D6FA68 /* Storyboard */,
 				EC2DED941EB5AA3B00D6FA68 /* View Controllers */,
 				7A1153271EB4337500614595 /* API */,
@@ -122,6 +125,14 @@
 				EC2DED9A1EB5AE7F00D6FA68 /* Supporting Files */,
 			);
 			path = imagejourney;
+			sourceTree = "<group>";
+		};
+		C5B898FB1EBAE74900552048 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C5B898FC1EBAE79900552048 /* Constants.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 		E4F3FE365517E1EF067EE04F /* Pods */ = {
@@ -305,6 +316,7 @@
 				7A1153331EB560D400614595 /* SearchViewController.swift in Sources */,
 				C5B898F41EB834CD00552048 /* SignUpViewController.swift in Sources */,
 				7A11532B1EB434B700614595 /* JournalEntry.swift in Sources */,
+				C5B898FD1EBAE79900552048 /* Constants.swift in Sources */,
 				EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */,
 				7A11532D1EB434C300614595 /* User.swift in Sources */,
 				7A1153311EB560C000614595 /* JournalEntryViewController.swift in Sources */,
