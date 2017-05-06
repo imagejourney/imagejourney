@@ -25,7 +25,7 @@ class HomefeedViewController: UIViewController, UITableViewDelegate, UITableView
 
         
         // Fetch journals to show
-        ParseClient.sharedInstance.getJournalsWithCompletion(completion: { (journals: [Journal]?) in
+        ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: false, completion: { (journals: [Journal]?) in
             if journals != nil {
                 self.journals = journals
                 self.tableView.reloadData()

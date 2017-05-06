@@ -63,11 +63,16 @@ class ParseClient: NSObject {
         }
 
     }
-    func getJournalsWithCompletion(completion: @escaping ([Journal]?) -> ()) {
-        let journalQuery = PFQuery(className: "Journal")
-        journalQuery.includeKey("author")
+    
+    func getJournalsWithCompletion(currentUserOnly: Bool, completion: @escaping ([Journal]?) -> ()) {
+        let journalsQuery = PFQuery(className: "Journal")
+        journalsQuery.includeKey("author")
         
-        journalQuery.findObjectsInBackground { (journalPFObjects: [PFObject]?, error: Error?) in
+        if currentUserOnly {
+            journalsQuery.whereKey("author", equalTo: PFUser.current()!)
+        }
+        
+        journalsQuery.findObjectsInBackground { (journalPFObjects: [PFObject]?, error: Error?) in
             if error == nil && journalPFObjects != nil && (journalPFObjects?.count)! > 0 {
                 print("Got journals")
                 let journals = Journal.journalsFromArray(pfObjectArray: journalPFObjects!)

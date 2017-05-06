@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         journalCountLabel.text = "0 journals"
         
         // Fetch journals to show
-        ParseClient.sharedInstance.getJournalsWithCompletion(completion: { (journals: [Journal]?) in
+        ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: true, completion: { (journals: [Journal]?) in
             if journals != nil {
                 self.journals = journals
                 self.journalCountLabel.text = "\(journals?.count ?? 0) journals"

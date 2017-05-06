@@ -65,7 +65,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="onSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6jR-b1-g6t"/>
-                                    <segue destination="dzc-l1-7rr" kind="show" identifier="loginSegue" id="bsC-42-uF8"/>
+                                    <segue destination="sRE-rH-TgT" kind="show" identifier="loginSegue" id="HK3-sY-hwV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -543,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhh-hw-ClY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3460" y="952.17391304347836"/>
+            <point key="canvasLocation" x="3652" y="952"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="dZ0-pd-R2f">
@@ -810,7 +810,7 @@
         <!--Navigation Controller-->
         <scene sceneID="819-No-2le">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dzc-l1-7rr" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="dzc-l1-7rr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BaO-7a-E6c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -826,4 +826,7 @@
             <point key="canvasLocation" x="1961" y="-582"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HK3-sY-hwV"/>
+    </inferredMetricsTieBreakers>
 </document>
