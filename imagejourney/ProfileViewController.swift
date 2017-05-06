@@ -6,14 +6,48 @@
 //  Copyright © 2017 Codepath. All rights reserved.
 //
 
+import AFNetworking
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var journalCountLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    
+    var user: User = User.getCurrentUser()
+    var journals: [Journal]? = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 380
+        
+        if user.profileImageUrl != nil {
+            profileImageView.setImageWith(user.profileImageUrl!)
+        } else {
+            profileImageView.image = #imageLiteral(resourceName: "default_profile_image")
+        }
+        
+        profileNameLabel.text = user.name
+        journalCountLabel.text = "0 journals"
+        
+        // Fetch journals to show
+        ParseClient.sharedInstance.getJournalsWithCompletion(completion: { (journals: [Journal]?) in
+            if journals != nil {
+                self.journals = journals
+                self.journalCountLabel.text = "\(journals?.count ?? 0) journals"
+                self.tableView.reloadData()
+            } else {
+                print("journals fetch failed")
+            }
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +55,18 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - UITableViewDelegate
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "JournalCell") as! JournalCell
+        let journal = journals?[indexPath.row]
+        cell.buildCellWithJournal(journal: journal!)
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (journals?.count)!
+    }
 
     /*
     // MARK: - Navigation
