@@ -29,6 +29,12 @@ class SideMenuViewController: UIViewController {
         self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func onSearchNav(_ sender: Any) {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let homeFeedCtrl = storyBoard.instantiateViewController(withIdentifier: "SearchNavigationCtl") as! UINavigationController
+        self.present(homeFeedCtrl, animated: true, completion: nil)
+    }
+    
     @IBAction func onHomefeedViewNav(_ sender: Any) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let homeFeedCtrl = storyBoard.instantiateViewController(withIdentifier: "HomefeedNavigationCtl") as! UINavigationController
