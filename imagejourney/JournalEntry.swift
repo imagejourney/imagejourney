@@ -10,18 +10,23 @@ import Parse
 import UIKit
 
 class JournalEntry: NSObject {
-    var imageUrls: [URL]?
+    var imageUrls: [URL]? = []
     var date: Date?
     var location: String? // use Geo later
     var weather: String?
     var desc: String?
     
     init(obj: PFObject) {
-        self.imageUrls = obj["imageUrls"] as! [URL]
-        self.date = obj["date"] as! Date
-        self.location = obj["location"] as! String
-        self.weather = obj["weather"] as! String
-        self.desc = obj["description"] as! String
+        self.date = obj["date"] as? Date
+        self.location = obj["location"] as? String
+        self.weather = obj["weather"] as? String
+        self.desc = obj["description"] as? String
+        let imageUrlArray = obj["imageUrls"] as! [Any]
+        for imageUrlArrayAny in imageUrlArray {
+            if let imageUrl = URL(string: (imageUrlArrayAny as? String)!) {
+                imageUrls?.append(imageUrl)
+            }
+        }
     }
     
     class func journalEntriesFromArray(pfObjectArray: [PFObject]) -> [JournalEntry] {

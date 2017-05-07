@@ -54,7 +54,7 @@ class ParseClient: NSObject {
         newUser.username = username
         newUser.password = password
         newUser.setValue(name, forKey: "name")
-        newUser.signUpInBackground{(succeeded: Bool, error: Error!) -> Void in
+        newUser.signUpInBackground{(succeeded, error) -> Void in
             if let error = error {
                 onError(error)
             } else {
@@ -67,6 +67,7 @@ class ParseClient: NSObject {
     func getJournalsWithCompletion(currentUserOnly: Bool, completion: @escaping ([Journal]?) -> ()) {
         let journalsQuery = PFQuery(className: "Journal")
         journalsQuery.includeKey("author")
+        journalsQuery.includeKey("entries")
         
         if currentUserOnly {
             journalsQuery.whereKey("author", equalTo: PFUser.current()!)
