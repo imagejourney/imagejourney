@@ -17,14 +17,14 @@ class SignUpViewController: UIViewController, TextFieldDelegate {
     var usernameField: TextField!
     var passwordField: TextField!
     var passwordCheckField: ErrorTextField!
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         preparePasswordField()
         prepareNameField()
         prepareEmailField()
     }
-
+    
     @IBAction func onLoginTap(_ sender: Any) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let signInCtl = storyBoard.instantiateViewController(withIdentifier: "SignInView") as! SignInViewController
@@ -58,7 +58,7 @@ class SignUpViewController: UIViewController, TextFieldDelegate {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         return false
     }
-
+    
     func showErrorAlert(errorMsg: String) {
         let alertController = UIAlertController(title: "Sign Up Failure", message: errorMsg, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -72,7 +72,7 @@ class SignUpViewController: UIViewController, TextFieldDelegate {
         alertController.addAction(OKAction)
         self.present(alertController, animated: true)
     }
-
+    
     func textFieldDidChange(sender: ErrorTextField){
         let pwdFieldTxt = self.passwordField.text!
         let pwdCheckFieldTxt = self.passwordCheckField.text!
@@ -103,7 +103,7 @@ extension SignUpViewController {
         
         view.layout(nameField).center(offsetY: -passwordField.height - 4 * Constants.SIGNUP_FIELD_OFFSET).left(Constants.SIGNUP_MARGIN).right(Constants.SIGNUP_MARGIN)
     }
-
+    
     fileprivate func prepareEmailField() {
         usernameField = TextField()
         usernameField.placeholder = "Enter your username here."

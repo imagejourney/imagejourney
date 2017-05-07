@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pPS-7O-GGw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pPS-7O-GGw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -223,7 +223,13 @@
                             <constraint firstItem="Irh-1a-iYC" firstAttribute="top" secondItem="5lu-JQ-Abf" secondAttribute="bottom" id="yDw-96-5pB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="re4-kJ-U7T"/>
+                    <navigationItem key="navigationItem" id="re4-kJ-U7T">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="Hle-9L-OSQ">
+                            <connections>
+                                <action selector="showMenu:" destination="r4g-ai-XE7" id="iLB-XL-MuD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="journalCountLabel" destination="9tP-B6-9N7" id="TgQ-Kf-zDr"/>
                         <outlet property="profileImageView" destination="871-1y-f4A" id="jJq-15-g8W"/>
@@ -329,6 +335,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="isU-U5-BPK">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="MpO-Oq-ZxD">
+                            <connections>
+                                <action selector="showMenu:" destination="x3N-zu-0V2" id="CQ9-q4-xTD"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="poC-rt-UQI">
                             <connections>
                                 <segue destination="vew-g5-wCl" kind="presentation" identifier="homefeedToComposeSegue" id="CXy-sy-GYW"/>
@@ -823,7 +834,76 @@
             </objects>
             <point key="canvasLocation" x="1961" y="-582"/>
         </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="6DB-aT-u9B">
+            <objects>
+                <navigationController storyboardIdentifier="LeftMenuNavigationController" navigationBarHidden="YES" id="AfG-jo-igv" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uv5-sX-ede">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="bvd-EV-613" kind="relationship" relationship="rootViewController" id="ePk-jD-bJB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZxZ-Zz-TXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="755" y="937"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="9If-b4-EjC">
+            <objects>
+                <viewController storyboardIdentifier="sidemenu" id="bvd-EV-613" customClass="SideMenuViewController" customModule="imagejourney" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="be3-1a-u2k"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Lp-Vu-84y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="swG-nX-hwQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6T-q4-xyw">
+                                <rect key="frame" x="37" y="599" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log out"/>
+                                <connections>
+                                    <action selector="onSignOut:" destination="bvd-EV-613" eventType="touchUpInside" id="keU-x0-Zjz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Amq-Gh-JSm">
+                                <rect key="frame" x="19" y="125" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Profile vIEW"/>
+                                <connections>
+                                    <action selector="onProfileViewNav:" destination="bvd-EV-613" eventType="touchUpInside" id="mRF-R8-v6m"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkj-Iq-BdS">
+                                <rect key="frame" x="19" y="266" width="109" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Homefeed View"/>
+                                <connections>
+                                    <action selector="onHomefeedViewNav:" destination="bvd-EV-613" eventType="touchUpInside" id="f8v-jm-plT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1Cs-T4-xTV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gcl-en-wPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1612" y="937"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="18" height="18"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HK3-sY-hwV"/>
     </inferredMetricsTieBreakers>

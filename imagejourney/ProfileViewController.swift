@@ -8,15 +8,16 @@
 
 import AFNetworking
 import UIKit
+import SidebarOverlay
 
-class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProfileViewController: SOContainerViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var journalCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
-    var user: User = User.getCurrentUser()
+    var user: User = User.getCurrentUser()!
     var journals: [Journal]? = []
     
     
@@ -48,6 +49,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         })
         
+        self.menuSide = .left
+        self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "sidemenu")
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,6 +67,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
+    @IBAction func showMenu(_ sender: Any) {
+         self.isSideViewControllerPresented = !self.isSideViewControllerPresented
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (journals?.count)!
     }

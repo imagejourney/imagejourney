@@ -16,13 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Remove this to test signIn and signUp
+        // comment this to test signIn and signUp
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if User.getCurrentUser() != nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "HomefeedNavigationCtl")
-            window?.rootViewController = vc
+            let homeFeedNav = storyboard.instantiateViewController(withIdentifier: "HomefeedNavigationCtl") as! UINavigationController
+            window?.rootViewController = homeFeedNav
         }
-
         return true
     }
     

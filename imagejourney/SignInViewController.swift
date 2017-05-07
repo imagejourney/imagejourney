@@ -15,6 +15,7 @@ class SignInViewController: UIViewController, TextFieldDelegate {
         ParseClient.sharedInstance.userSignIn(username: username, password: password, onSuccess: {
             (user: PFUser?) -> () in
             User.setCurrentUser(user: user!)
+            self.clearText()
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
             SwiftSpinner.hide()
         }, onError: {(error: Error? ) in
@@ -40,13 +41,16 @@ class SignInViewController: UIViewController, TextFieldDelegate {
         prepareEmailField()
     }
     
+    func clearText(){
+        self.emailField.text = ""
+        self.passwordField.text = ""
+        self.emailField.becomeFirstResponder()
+    }
     
     func showErrorAlert(errorMsg: String) {
         let alertController = UIAlertController(title: "Login Failure", message: errorMsg, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            self.emailField.text = ""
-            self.passwordField.text = ""
-            self.emailField.becomeFirstResponder()
+            self.clearText()
         }
         // add the OK action to the alert controller
         alertController.addAction(OKAction)
@@ -61,7 +65,7 @@ extension SignInViewController {
         emailField.autocapitalizationType = .none
         emailField.isClearIconButtonEnabled = true
         emailField.delegate = self
-
+        
         let leftView = UIImageView()
         leftView.image = UIImage(named: "email")
         emailField.leftView = leftView

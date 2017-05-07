@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SidebarOverlay
 
-class HomefeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -23,7 +24,9 @@ class HomefeedViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 380
 
-        
+        self.menuSide = .left
+        self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "sidemenu")
+
         // Fetch journals to show
         ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: false, completion: { (journals: [Journal]?) in
             if journals != nil {
@@ -33,6 +36,10 @@ class HomefeedViewController: UIViewController, UITableViewDelegate, UITableView
                 print("journals fetch failed")
             }
         })
+    }
+    
+    @IBAction func showMenu(_ sender: Any) {
+        self.isSideViewControllerPresented = !self.isSideViewControllerPresented
     }
     
     // MARK: - UITableViewDelegate

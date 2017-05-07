@@ -26,6 +26,11 @@ class User: NSObject {
     
     static var _currentUser: User?
     
+    static func logout(){
+        _currentUser = nil
+        defaults.removeObject(forKey: Constants.USER_DEFAULTS_KEY)
+    }
+
     static func setCurrentUser(user:PFUser){
         _currentUser = User(obj: user)
         var data:[String:String] = [:]
@@ -37,7 +42,7 @@ class User: NSObject {
         defaults.set(jsonData, forKey: Constants.USER_DEFAULTS_KEY)
     }
 
-    static func getCurrentUser() -> User{
+    static func getCurrentUser() -> User?{
         if _currentUser == nil {
             let userData = defaults.object(forKey: Constants.USER_DEFAULTS_KEY) as? Data
             if let userData = userData {
@@ -53,6 +58,10 @@ class User: NSObject {
                 _currentUser = user
             }
         }
-        return _currentUser!
+        if _currentUser == nil {
+            return nil
+        } else {
+            return _currentUser!
+        }
     }
 }

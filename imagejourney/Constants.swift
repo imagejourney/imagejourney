@@ -21,4 +21,7 @@ class Constants {
     static let PASSWORD_NOT_MATCH_MSG = "password does not match."
     static let SIGN_UP_LOADING_MSG = "Signing up..."
     static let EMPTY_NAME_ERROR_MSG = "Name is required!"
+    
+    // Side menu configs
+    static let MENU_WIDTH:CGFloat = 200
 }

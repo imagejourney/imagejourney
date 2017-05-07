@@ -12,4 +12,5 @@ target 'imagejourney' do
   pod 'Material/Photos', '~> 2.0'
   pod 'Parse'
   pod 'SwiftSpinner'
+  pod 'SidebarOverlay'
 end
