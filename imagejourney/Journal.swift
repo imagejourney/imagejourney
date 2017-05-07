@@ -16,6 +16,11 @@ class Journal: NSObject {
     var previewImageUrls: [URL]? = []
     
     init(obj: PFObject) {
+        do {
+            try obj.fetchIfNeeded()
+        } catch {
+            print(error)
+        }
         self.title = obj["title"] as! String
         let pfUser = obj["author"] as! PFUser
         self.author = User(obj: pfUser)

@@ -25,7 +25,7 @@ class JournalEntryViewController: UIViewController {
             }
             
             weatherLabel.text = entry.weather
-            locationLabel.text = entry.location
+//            locationLabel.text = entry.location
             if let imageUrl = entry.imageUrls?[0] {
                 imageView.setImageWith(imageUrl)
             }

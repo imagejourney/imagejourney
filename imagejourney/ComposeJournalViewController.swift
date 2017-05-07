@@ -15,7 +15,7 @@ class ComposeJournalViewController: UIViewController {
     var previewImageUrls: [URL]? = []
     
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var descriptionTextField: UITextField!
     
     @IBAction func onCancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -23,9 +23,24 @@ class ComposeJournalViewController: UIViewController {
     
     @IBAction func onCreateJournal(_ sender: UIBarButtonItem) {
         if titleTextField.text != nil && (titleTextField.text?.trimmingCharacters(in: .whitespaces).characters.count)! > 0 {
-            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!, entries: entries!, previewImageUrls: previewImageUrls!)
+            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!,
+                                                   entries: entries!,
+                                                   previewImageUrls: previewImageUrls!,
+                                                   completion: {() in self.dismiss(animated: true, completion: nil)})
+        } else {
+            showErrorAlert()
         }
         
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "Empty title", message: "Please enter a title for your Journal!", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            // do nothing, just let alert dismiss
+        }
+        // add the OK action to the alert controller
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true)
     }
     
     override func viewDidLoad() {

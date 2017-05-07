@@ -25,7 +25,7 @@ class JournalEntryCell: UITableViewCell {
             }
             
             entryWeatherLabel.text = entry.weather
-            entryLocationLabel.text = entry.location
+//            entryLocationLabel.text = entry.location
             if let imageUrl = entry.imageUrls?[0] {
                 entryImageView.setImageWith(imageUrl)
             }

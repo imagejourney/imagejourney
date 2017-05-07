@@ -12,14 +12,24 @@ import UIKit
 class JournalEntry: NSObject {
     var imageUrls: [URL]?
     var date: Date?
-    var location: String? // use Geo later
+    var location: PFGeoPoint? // use Geo later
     var weather: String?
     var desc: String?
     
     init(obj: PFObject) {
-        self.imageUrls = obj["imageUrls"] as! [URL]
+        do {
+            try obj.fetchIfNeeded()
+        } catch {
+            print(error)
+        }
+        let imageUrlArray = obj["imageUrls"] as! [Any]
+        for imageUrlAny in imageUrlArray {
+            if let imageUrl = URL(string: (imageUrlAny as? String)!) {
+                imageUrls?.append(imageUrl)
+            }
+        }
         self.date = obj["date"] as! Date
-        self.location = obj["location"] as! String
+        self.location = obj["location"] as! PFGeoPoint
         self.weather = obj["weather"] as! String
         self.desc = obj["description"] as! String
     }
