@@ -17,11 +17,9 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     var journal: Journal! {
         didSet {
             self.loadViewIfNeeded()
-            tableView.delegate = self
-            tableView.dataSource = self
             journalTitleLabel.text = journal.title
             if let user = journal.author {
-                journalAuthorLabel.text = "by \(user.name)"
+                journalAuthorLabel.text = "by \(user.name ?? "anonymous")"
             }
         }
     }
@@ -30,6 +28,10 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 380
     }
 
     override func didReceiveMemoryWarning() {

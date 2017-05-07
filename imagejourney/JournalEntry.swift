@@ -10,7 +10,7 @@ import Parse
 import UIKit
 
 class JournalEntry: NSObject {
-    var imageUrls: [URL]?
+    var imageUrls: [URL]? = []
     var date: Date?
     var location: PFGeoPoint? // use Geo later
     var weather: String?
