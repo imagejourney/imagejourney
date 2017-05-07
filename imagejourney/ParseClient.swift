@@ -86,6 +86,25 @@ class ParseClient: NSObject {
         }
     }
     
+    func searchByJournalTitle(searchText: String, completion: @escaping ([Journal]?) -> ()) {
+        let query = PFQuery(className: "Journal")
+        query.whereKey("title", matchesRegex: "(?i)(\(searchText))")
+
+        query.findObjectsInBackground { (journals, error) -> Void in
+            if error == nil && journals != nil && (journals?.count)! > 0 {
+                print("Got journals")
+                print(journals ?? "no journals")
+                let journals = Journal.journalsFromArray(pfObjectArray: journals!)
+                completion(journals)
+            } else if error != nil {
+                print("Could not get journals. Error: \(String(describing: error?.localizedDescription))");
+            } else if journals == nil || (journals?.count)! <= 0 {
+                print("no journals")
+                completion([])
+            }
+        }
+    }
+    
     func saveJournal(title: String, entries: [JournalEntry], previewImageUrls: [URL], completion: @escaping () -> ()) {
         let journalObj = PFObject(className:"Journal")
         journalObj["title"] = title

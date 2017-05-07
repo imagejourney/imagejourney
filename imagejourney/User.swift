@@ -16,6 +16,11 @@ class User: NSObject {
     var profileImageUrl: URL?
     
     init(obj: PFUser?) {
+        do {
+            try obj?.fetchIfNeeded()
+        } catch {
+            print(error)
+        }
         self.name = obj?["name"] as? String
         self.username = obj?.username
         self.email = obj?.email
