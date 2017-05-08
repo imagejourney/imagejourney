@@ -50,7 +50,7 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
         })
         
         self.menuSide = .left
-        self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "sidemenu")
+        self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH
     }
 

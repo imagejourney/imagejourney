@@ -26,7 +26,7 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
         tableView.estimatedRowHeight = 100
         
         self.menuSide = .left
-        self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "sidemenu")
+        self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH
     }
 

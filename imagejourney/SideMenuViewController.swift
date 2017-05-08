@@ -47,6 +47,7 @@ class SideMenuViewController: UIViewController {
     @IBAction func onSignOut(_ sender: Any) {
         User.logout()
         PFUser.logOut()
+        Helper.dismissSideMenu()
         let signInUpNav = self.storyboard?.instantiateViewController(withIdentifier: "SignInUpNav")
         UIApplication.shared.keyWindow?.rootViewController = signInUpNav
     }
@@ -57,6 +58,8 @@ class SideMenuViewController: UIViewController {
             let searchCtrl = storyBoard.instantiateViewController(withIdentifier: "SearchNavigationCtl") as! UINavigationController
             self.present(searchCtrl, animated: true, completion: nil)
             currentState = Constants.MENU_STATE.search.rawValue
+        } else {
+            Helper.dismissSideMenu()
         }
     }
     
@@ -66,6 +69,8 @@ class SideMenuViewController: UIViewController {
             let homeFeedCtrl = storyBoard.instantiateViewController(withIdentifier: "HomefeedNavigationCtl") as! UINavigationController
             self.present(homeFeedCtrl, animated: true, completion: nil)
             currentState = Constants.MENU_STATE.home_feed.rawValue
+        } else {
+            Helper.dismissSideMenu()
         }
     }
     
@@ -75,6 +80,8 @@ class SideMenuViewController: UIViewController {
             let profileCtrl = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigationCtl") as! UINavigationController
             self.present(profileCtrl, animated: true, completion: nil)
             currentState = Constants.MENU_STATE.profile.rawValue
+        } else {
+            Helper.dismissSideMenu()
         }
     }
     
