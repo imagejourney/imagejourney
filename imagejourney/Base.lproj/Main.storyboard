@@ -661,22 +661,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0p2-oo-vdP">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="108" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="878-Gy-oR6"/>
+                                </constraints>
                             </mapView>
                             <searchBar contentMode="redraw" placeholder="Where did you visit?" translatesAutoresizingMaskIntoConstraints="NO" id="47Z-bY-fQa">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 4, 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZH-jm-Klq">
+                                <rect key="frame" x="118.5" y="328" width="137.5" height="30"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XVV-Ib-ADb" appends="YES" id="8bo-M7-MsD"/>
+                                </connections>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.78808718919754028" green="0.78791451454162598" blue="0.80853986740112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="0p2-oo-vdP" secondAttribute="trailing" id="51e-Gj-7vT"/>
                             <constraint firstAttribute="trailing" secondItem="47Z-bY-fQa" secondAttribute="trailing" id="5HQ-9Y-ncu"/>
+                            <constraint firstItem="ZZH-jm-Klq" firstAttribute="centerX" secondItem="QmC-8G-ewc" secondAttribute="centerX" id="Ba5-wN-IIr"/>
                             <constraint firstItem="47Z-bY-fQa" firstAttribute="top" secondItem="Xav-L1-I0n" secondAttribute="bottom" id="D1y-Yb-QEn"/>
                             <constraint firstItem="0p2-oo-vdP" firstAttribute="top" secondItem="47Z-bY-fQa" secondAttribute="bottom" id="iiW-4L-qkd"/>
                             <constraint firstItem="0p2-oo-vdP" firstAttribute="leading" secondItem="QmC-8G-ewc" secondAttribute="leading" id="msK-P3-LyY"/>
+                            <constraint firstItem="ZZH-jm-Klq" firstAttribute="top" secondItem="0p2-oo-vdP" secondAttribute="bottom" constant="20" id="s81-cr-w8I"/>
                             <constraint firstItem="47Z-bY-fQa" firstAttribute="leading" secondItem="QmC-8G-ewc" secondAttribute="leading" id="tZT-JW-k71"/>
-                            <constraint firstItem="rnX-D4-fgv" firstAttribute="top" secondItem="0p2-oo-vdP" secondAttribute="bottom" id="zFM-sd-YIA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Journal Entry" id="PGs-Kj-8i5">
@@ -688,11 +703,17 @@
                         <barButtonItem key="rightBarButtonItem" title="Next" id="KvZ-GP-j81"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="dateLabel" destination="ZZH-jm-Klq" id="S9P-TC-iVt"/>
                         <outlet property="mapView" destination="0p2-oo-vdP" id="oVF-Wp-B7i"/>
                         <outlet property="searchBar" destination="47Z-bY-fQa" id="bIx-aP-q69"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mc2-3q-CAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XVV-Ib-ADb" userLabel="date label tap gesture recognizer">
+                    <connections>
+                        <action selector="onTapDateLabel:" destination="1ZY-OC-yMZ" id="yyi-6T-yv5"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5992.8000000000002" y="903.59820089955031"/>
         </scene>
