@@ -105,7 +105,7 @@ class ParseClient: NSObject {
         }
     }
     
-    func saveJournal(title: String, entries: [JournalEntry], previewImageUrls: [URL], completion: @escaping () -> ()) {
+    func saveJournal(title: String, entries: [JournalEntry], previewImageUrls: [URL], completion: @escaping (PFObject) -> ()) {
         let journalObj = PFObject(className:"Journal")
         journalObj["title"] = title
         journalObj["author"] = PFUser.current()
@@ -114,7 +114,7 @@ class ParseClient: NSObject {
         journalObj.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("Journal saved!")
-                completion()
+                completion(journalObj)
             } else {
                 print("Could not save journal. Error: \(String(describing: error?.localizedDescription))")
             }

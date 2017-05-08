@@ -9,10 +9,15 @@
 import Parse
 import UIKit
 
+protocol ComposeJournalViewControllerDelegate: class {
+    func didDismissComposeJournalViewWithNewJournal(journal: Journal)
+}
+
 class ComposeJournalViewController: UIViewController {
 
     var entries: [JournalEntry]? = []
     var previewImageUrls: [URL]? = []
+    var delegate: ComposeJournalViewControllerDelegate?
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
@@ -23,14 +28,15 @@ class ComposeJournalViewController: UIViewController {
     
     @IBAction func onCreateJournal(_ sender: UIBarButtonItem) {
         if titleTextField.text != nil && (titleTextField.text?.trimmingCharacters(in: .whitespaces).characters.count)! > 0 {
-            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!,
-                                                   entries: entries!,
-                                                   previewImageUrls: previewImageUrls!,
-                                                   completion: {() in self.dismiss(animated: true, completion: nil)})
+            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!, entries: entries!, previewImageUrls: previewImageUrls!, completion: { (pfJournalObj: PFObject) in
+                // On success of saving object to Parse, create Journal object from the PFObject we saved and pass it delegate method in HFVC which
+                // will  segue to after dismissing the Journal creation modal
+                let newJournal = Journal.init(obj: pfJournalObj)
+                self.dismiss(animated: true, completion: {self.delegate?.didDismissComposeJournalViewWithNewJournal(journal: newJournal)})
+            })
         } else {
             showErrorAlert()
         }
-        
     }
     
     func showErrorAlert() {
@@ -45,7 +51,6 @@ class ComposeJournalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

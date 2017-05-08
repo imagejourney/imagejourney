@@ -9,7 +9,7 @@
 import UIKit
 import SidebarOverlay
 
-class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UITableViewDataSource {
+class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UITableViewDataSource, ComposeJournalViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -63,6 +63,21 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
             let journalViewController = segue.destination as! JournalViewController
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             journalViewController.journal = journals?[indexPath!.row]
+        } else if segue.identifier == "homefeedToComposeSegue" {
+            let nav = segue.destination as! UINavigationController
+            let vc = nav.viewControllers.first as! ComposeJournalViewController
+            vc.delegate = self
         }
+    }
+    
+    // MARK: - ComposeJournalViewControllerDelegate methods 
+    func didDismissComposeJournalViewWithNewJournal(journal: Journal) {
+        journals?.append(journal)
+        tableView.reloadData()
+        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let journalVC = storyBoard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController
+        journalVC.journal = journal
+        self.present(journalVC, animated: true, completion: nil)
     }
 }
