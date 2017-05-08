@@ -9,15 +9,29 @@
 import MapKit
 import UIKit
 
-class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDelegate {
+class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     var datePicker: UIDatePicker!
     var datePickerToolBar: UIToolbar!
     var showingDatePicker: Bool! = false
+    var weatherPickerData: [String]! = ["Sunny", "Cloudy", "Rain", "Snow"]
+    
+    // Search bar/map vars
+    var searchController:UISearchController!
+    var annotation:MKAnnotation!
+    var localSearchRequest:MKLocalSearchRequest!
+    var localSearch:MKLocalSearch!
+    var localSearchResponse:MKLocalSearchResponse!
+    var error:NSError!
+    var pointAnnotation:MKPointAnnotation!
+    var pinAnnotationView:MKPinAnnotationView!
+
     
     @IBAction func onCancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBOutlet weak var weatherPicker: UIPickerView!
   
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
@@ -59,18 +73,30 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
 
     }
 
-    var searchController:UISearchController!
-    var annotation:MKAnnotation!
-    var localSearchRequest:MKLocalSearchRequest!
-    var localSearch:MKLocalSearch!
-    var localSearchResponse:MKLocalSearchResponse!
-    var error:NSError!
-    var pointAnnotation:MKPointAnnotation!
-    var pinAnnotationView:MKPinAnnotationView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchBar.delegate = self
+        
+        weatherPicker.delegate = self
+        weatherPicker.dataSource = self
+    }
+    
+    // MARK: - Weather picker methods
+    // The number of columns of data
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // The number of rows of data
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return weatherPickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return weatherPickerData[row]
     }
 
     // MARK: - Search bar methods
