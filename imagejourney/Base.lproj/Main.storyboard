@@ -205,6 +205,7 @@
                                             <outlet property="previewImageThree" destination="h0Y-1u-Tyk" id="OET-vi-wo9"/>
                                             <outlet property="previewImageTwo" destination="uHH-Uu-lUD" id="lEr-RN-zxM"/>
                                             <outlet property="tripTitleLabel" destination="Qc4-7I-UFm" id="dMT-zg-mhf"/>
+                                            <segue destination="1vU-rZ-gfK" kind="show" identifier="profileToJournalSegue" id="6JO-Zh-ei7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1072,6 +1073,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HK3-sY-hwV"/>
-        <segue reference="jG0-el-ctt"/>
+        <segue reference="6JO-Zh-ei7"/>
     </inferredMetricsTieBreakers>
 </document>
