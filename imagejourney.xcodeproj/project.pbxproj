@@ -21,6 +21,7 @@
 		7A2C51581EADCA8400370B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */; };
 		C5152A7E1EBFCA630012861B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152A7D1EBFCA630012861B /* SideMenuViewController.swift */; };
 		7A69B19B1EBFD52A00D01E40 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69B19A1EBFD52A00D01E40 /* SearchResultCell.swift */; };
+		C5152A801EBFE37F0012861B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152A7F1EBFE37F0012861B /* Helper.swift */; };
 		C5B898F31EB834CD00552048 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898F11EB834CD00552048 /* SignInViewController.swift */; };
 		C5B898F41EB834CD00552048 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898F21EB834CD00552048 /* SignUpViewController.swift */; };
 		C5B898FD1EBAE79900552048 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898FC1EBAE79900552048 /* Constants.swift */; };
@@ -50,6 +51,7 @@
 		7A69B19A1EBFD52A00D01E40 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		8E376066E2A7A867A32BAD13 /* Pods-imagejourney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imagejourney.release.xcconfig"; path = "Pods/Target Support Files/Pods-imagejourney/Pods-imagejourney.release.xcconfig"; sourceTree = "<group>"; };
 		C5152A7D1EBFCA630012861B /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		C5152A7F1EBFE37F0012861B /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		C5B898F11EB834CD00552048 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C5B898F21EB834CD00552048 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C5B898FC1EBAE79900552048 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				C5B898FC1EBAE79900552048 /* Constants.swift */,
+				C5152A7F1EBFE37F0012861B /* Helper.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				EC2DED961EB5AC8100D6FA68 /* HomefeedViewController.swift in Sources */,
 				7A2C514E1EADCA8400370B7D /* AppDelegate.swift in Sources */,
 				7A1153331EB560D400614595 /* SearchViewController.swift in Sources */,
+				C5152A801EBFE37F0012861B /* Helper.swift in Sources */,
 				C5B898F41EB834CD00552048 /* SignUpViewController.swift in Sources */,
 				7A69B19B1EBFD52A00D01E40 /* SearchResultCell.swift in Sources */,
 				7A11532B1EB434B700614595 /* JournalEntry.swift in Sources */,

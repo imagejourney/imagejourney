@@ -24,9 +24,6 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 380
 
-        self.menuSide = .left
-        self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "sidemenu")
-
         // Fetch journals to show
         ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: false, completion: { (journals: [Journal]?) in
             if journals != nil {
@@ -36,6 +33,10 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
                 print("journals fetch failed")
             }
         })
+        
+        self.menuSide = .left
+        self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "sidemenu")
+        self.sideMenuWidth = Constants.MENU_WIDTH
     }
     
     @IBAction func showMenu(_ sender: Any) {

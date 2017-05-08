@@ -24,4 +24,12 @@ class Constants {
     
     // Side menu configs
     static let MENU_WIDTH:CGFloat = 200
+    
+    enum MENU_STATE:String {
+        case home_feed = "home"
+        case profile = "profile"
+        case search = "search"
+        case most_recent_journal = "recent_journal"
+        case friends = "friends"
+    }
 }

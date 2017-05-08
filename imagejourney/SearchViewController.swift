@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SidebarOverlay
 
-class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -23,6 +24,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        
+        self.menuSide = .left
+        self.sideViewController = self.storyboard?.instantiateViewController(withIdentifier: "sidemenu")
+        self.sideMenuWidth = Constants.MENU_WIDTH
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +57,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
         return journals?.count ?? 0
     }
     
+    @IBAction func onMenuTap(_ sender: Any) {
+        self.isSideViewControllerPresented = !self.isSideViewControllerPresented
+    }
     /*
     // MARK: - Navigation
 
