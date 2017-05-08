@@ -8,11 +8,14 @@
 
 import UIKit
 import SidebarOverlay
+import MapKit
 
 class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
     var journals: [Journal]? = []
 
     override func viewDidLoad() {
@@ -37,10 +40,37 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) // called when keyboard search button pressed
     {
+        self.performSearch()
+    }
+    
+    @IBAction func onSegmentedControllerChanged(_ sender: Any) {
         let query = searchBar.text! as String
-        ParseClient.sharedInstance.searchByJournalTitle(searchText: query) { (journals) in
-            self.journals = journals
-            self.tableView.reloadData()
+        if query.characters.count > 0 {
+            self.performSearch()
+        }
+    }
+    
+    func performSearch() {
+        print("perform search")
+        let query = searchBar.text! as String
+        if self.segmentedControl.selectedSegmentIndex == 0 { // first segment searches for title
+            ParseClient.sharedInstance.searchByJournalTitle(searchText: query) { (journals) in
+                self.journals = journals
+                self.tableView.reloadData()
+            }
+        }
+        else { // second segment searches by location
+            let geocoder = CLGeocoder()
+            geocoder.geocodeAddressString(query, completionHandler: { (clPlacemarkArray, error) in
+                if (clPlacemarkArray?.count ?? 0) > 0 {
+                    if let coord = clPlacemarkArray?[0].location?.coordinate {
+                        ParseClient.sharedInstance.searchByJournalLocation(lat: coord.latitude, long: coord.longitude, completion: { (journals) in
+                            self.journals = journals
+                            self.tableView.reloadData()
+                        })
+                    }
+                }
+            })
         }
     }
     
@@ -53,7 +83,6 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("num cells \(journals?.count ?? 0)")
         return journals?.count ?? 0
     }
     

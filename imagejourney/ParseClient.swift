@@ -105,6 +105,40 @@ class ParseClient: NSObject {
         }
     }
     
+    func searchByJournalLocation(lat: Double, long: Double, completion: @escaping ([Journal]?) -> ()) {
+        let geoPoint = PFGeoPoint(latitude: lat, longitude: long)
+        let query = PFQuery(className: "JournalEntry")
+        query.whereKey("location", nearGeoPoint: geoPoint, withinMiles: 10.0);
+        
+        query.findObjectsInBackground { (entries, error) -> Void in
+            if error == nil && entries != nil && (entries?.count)! > 0 {
+                print("Got entries")
+                print(entries ?? "no entries")
+                let journalQuery = PFQuery(className: "Journal")
+                // contained in checks if any of the "containedIn" elements exist in the array given by "key"
+                journalQuery.whereKey("entries", containedIn: entries!)
+                journalQuery.findObjectsInBackground { (journalPFObjects, error) -> Void in
+                    if error == nil && journalPFObjects != nil && (journalPFObjects?.count)! > 0 {
+                        print("Got journals")
+                        print(journalPFObjects ?? "no journals")
+                        let journals = Journal.journalsFromArray(pfObjectArray: journalPFObjects!)
+                        completion(journals)
+                    } else if error != nil {
+                        print("Could not get entries. Error: \(String(describing: error?.localizedDescription))");
+                    } else if entries == nil || (entries?.count)! <= 0 {
+                        print("no entries")
+                        completion([])
+                    }
+                }
+            } else if error != nil {
+                print("Could not get entries. Error: \(String(describing: error?.localizedDescription))");
+            } else if entries == nil || (entries?.count)! <= 0 {
+                print("no entries")
+                completion([])
+            }
+        }
+    }
+    
     func saveJournal(title: String, entries: [JournalEntry], previewImageUrls: [URL], completion: @escaping (PFObject) -> ()) {
         let journalObj = PFObject(className:"Journal")
         journalObj["title"] = title
