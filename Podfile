@@ -13,4 +13,7 @@ target 'imagejourney' do
   pod 'Parse'
   pod 'SwiftSpinner'
   pod 'SidebarOverlay'
+  pod 'GooglePlacePicker'
+  pod 'GooglePlaces'
+  pod 'GoogleMaps'
 end

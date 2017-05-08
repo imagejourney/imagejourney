@@ -8,6 +8,8 @@
 
 import Parse
 import UIKit
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let homeFeedNav = storyboard.instantiateViewController(withIdentifier: "HomefeedNavigationCtl") as! UINavigationController
             window?.rootViewController = homeFeedNav
         }
+        GMSPlacesClient.provideAPIKey(Constants.GOOGLE_MAP_KEY)
+        GMSServices.provideAPIKey(Constants.GOOGLE_MAP_KEY)
         return true
     }
     
