@@ -339,6 +339,12 @@ static NSNumber *PFNumberCreateSafe(const char *typeEncoding, const void *bytes)
 }
 
 - (void)_registerSubclassesInBundle:(NSBundle *)bundle {
+    // Prevent crash by loading the bundle if it's not loaded yet (see: https://github.com/ParsePlatform/Parse-SDK-iOS-OSX/issues/1006 ):
+    if (!bundle.loaded) {
+        [bundle load];
+    }
+
+    
     PFConsistencyAssert(bundle.loaded, @"Cannot register subclasses in a bundle that hasn't been loaded!");
 
     const char *executablePath = bundle.executablePath.UTF8String;

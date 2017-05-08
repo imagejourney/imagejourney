@@ -345,7 +345,7 @@
                                 <action selector="showMenu:" destination="x3N-zu-0V2" id="CQ9-q4-xTD"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Compose" id="poC-rt-UQI">
+                        <barButtonItem key="rightBarButtonItem" title="New Journal" id="poC-rt-UQI">
                             <connections>
                                 <segue destination="vew-g5-wCl" kind="presentation" identifier="homefeedToComposeSegue" id="CXy-sy-GYW"/>
                             </connections>
@@ -1073,6 +1073,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HK3-sY-hwV"/>
-        <segue reference="6JO-Zh-ei7"/>
+        <segue reference="jG0-el-ctt"/>
     </inferredMetricsTieBreakers>
 </document>
