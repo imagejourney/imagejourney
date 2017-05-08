@@ -19,8 +19,8 @@
 		7A2C51531EADCA8400370B7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51511EADCA8400370B7D /* Main.storyboard */; };
 		7A2C51551EADCA8400370B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51541EADCA8400370B7D /* Assets.xcassets */; };
 		7A2C51581EADCA8400370B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */; };
-		C5152A7E1EBFCA630012861B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152A7D1EBFCA630012861B /* SideMenuViewController.swift */; };
 		7A69B19B1EBFD52A00D01E40 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69B19A1EBFD52A00D01E40 /* SearchResultCell.swift */; };
+		C5152A7E1EBFCA630012861B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152A7D1EBFCA630012861B /* SideMenuViewController.swift */; };
 		C5152A801EBFE37F0012861B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152A7F1EBFE37F0012861B /* Helper.swift */; };
 		C5B898F31EB834CD00552048 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898F11EB834CD00552048 /* SignInViewController.swift */; };
 		C5B898F41EB834CD00552048 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B898F21EB834CD00552048 /* SignUpViewController.swift */; };
@@ -30,6 +30,8 @@
 		EC2DED9C1EB68B2500D6FA68 /* ComposeJournalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */; };
 		EC2DED9E1EB69ED500D6FA68 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DED9D1EB69ED500D6FA68 /* ProfileViewController.swift */; };
 		EC2DEDA11EB6EB1A00D6FA68 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DEDA01EB6EB1A00D6FA68 /* ParseClient.swift */; };
+		EC2DEDA91EC0245800D6FA68 /* ComposeEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DEDA81EC0245800D6FA68 /* ComposeEntryViewController.swift */; };
+		EC2DEDAD1EC02A9500D6FA68 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2DEDAC1EC02A9500D6FA68 /* LocationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeJournalViewController.swift; sourceTree = "<group>"; };
 		EC2DED9D1EB69ED500D6FA68 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EC2DEDA01EB6EB1A00D6FA68 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		EC2DEDA81EC0245800D6FA68 /* ComposeEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeEntryViewController.swift; sourceTree = "<group>"; };
+		EC2DEDAC1EC02A9500D6FA68 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 				7A1153361EB5623100614595 /* JournalEntryCell.swift */,
 				EC2DED971EB5AE5800D6FA68 /* JournalCell.swift */,
 				7A69B19A1EBFD52A00D01E40 /* SearchResultCell.swift */,
+				EC2DEDAC1EC02A9500D6FA68 /* LocationCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 				EC2DED9B1EB68B2500D6FA68 /* ComposeJournalViewController.swift */,
 				EC2DED9D1EB69ED500D6FA68 /* ProfileViewController.swift */,
 				C5152A7D1EBFCA630012861B /* SideMenuViewController.swift */,
+				EC2DEDA81EC0245800D6FA68 /* ComposeEntryViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -326,6 +332,7 @@
 				C5152A801EBFE37F0012861B /* Helper.swift in Sources */,
 				C5B898F41EB834CD00552048 /* SignUpViewController.swift in Sources */,
 				7A69B19B1EBFD52A00D01E40 /* SearchResultCell.swift in Sources */,
+				EC2DEDA91EC0245800D6FA68 /* ComposeEntryViewController.swift in Sources */,
 				7A11532B1EB434B700614595 /* JournalEntry.swift in Sources */,
 				C5B898FD1EBAE79900552048 /* Constants.swift in Sources */,
 				EC2DED981EB5AE5800D6FA68 /* JournalCell.swift in Sources */,
@@ -335,6 +342,7 @@
 				7A1153371EB5623100614595 /* JournalEntryCell.swift in Sources */,
 				C5B898F31EB834CD00552048 /* SignInViewController.swift in Sources */,
 				EC2DED9E1EB69ED500D6FA68 /* ProfileViewController.swift in Sources */,
+				EC2DEDAD1EC02A9500D6FA68 /* LocationCell.swift in Sources */,
 				7A11532F1EB560A700614595 /* JournalViewController.swift in Sources */,
 				7A1153291EB4347300614595 /* Journal.swift in Sources */,
 			);

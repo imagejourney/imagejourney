@@ -55,9 +55,11 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let journalEntryViewController = segue.destination as! JournalEntryViewController
-        let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
-        journalEntryViewController.entry = journal.entries?[indexPath!.row]
+        if segue.identifier == "journalToEntrySegue" {
+            let journalEntryViewController = segue.destination as! JournalEntryViewController
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+            journalEntryViewController.entry = journal.entries?[indexPath!.row]
+        }
     }
 
     /*

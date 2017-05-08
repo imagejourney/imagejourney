@@ -459,7 +459,7 @@
                                             <outlet property="entryLocationLabel" destination="8ZH-ix-rai" id="O6h-GV-Aoo"/>
                                             <outlet property="entryTimeLabel" destination="Rdk-HI-488" id="0zp-vO-VHy"/>
                                             <outlet property="entryWeatherLabel" destination="CuZ-nz-Mpb" id="NSr-Mb-I9W"/>
-                                            <segue destination="vpf-Q9-Cja" kind="show" id="gVn-Zl-P79"/>
+                                            <segue destination="vpf-Q9-Cja" kind="show" identifier="journalToEntrySegue" id="gVn-Zl-P79"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -480,7 +480,7 @@
                     <navigationItem key="navigationItem" id="PkW-MG-SYL">
                         <barButtonItem key="rightBarButtonItem" title="New Entry" id="4rY-n8-OoS">
                             <connections>
-                                <segue destination="43j-NR-cBH" kind="presentation" identifier="journalToNewEntrySegue" id="QS3-dt-4qW"/>
+                                <segue destination="43j-NR-cBH" kind="presentation" identifier="journalToComposeEntrySegue" id="QS3-dt-4qW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -494,7 +494,7 @@
             </objects>
             <point key="canvasLocation" x="5110" y="134"/>
         </scene>
-        <!--Compose Journal View Controller-->
+        <!--New Journal-->
         <scene sceneID="qZb-eR-nVf">
             <objects>
                 <viewController storyboardIdentifier="ComposeJournalViewController" id="yhK-D9-Ooi" customClass="ComposeJournalViewController" customModule="imagejourney" customModuleProvider="target" sceneMemberID="viewController">
@@ -537,7 +537,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vzw-uw-Z0y">
+                    <navigationItem key="navigationItem" title="New Journal" id="vzw-uw-Z0y">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="HjG-Cf-JTC">
                             <connections>
                                 <action selector="onCancel:" destination="yhK-D9-Ooi" id="dtX-Fk-EAI"/>
@@ -648,10 +648,10 @@
             </objects>
             <point key="canvasLocation" x="4358" y="596"/>
         </scene>
-        <!--View Controller-->
+        <!--New Journal Entry-->
         <scene sceneID="iNj-Se-pTH">
             <objects>
-                <viewController id="1ZY-OC-yMZ" sceneMemberID="viewController">
+                <viewController id="1ZY-OC-yMZ" customClass="ComposeEntryViewController" customModule="imagejourney" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Xav-L1-I0n"/>
                         <viewControllerLayoutGuide type="bottom" id="rnX-D4-fgv"/>
@@ -659,13 +659,105 @@
                     <view key="view" contentMode="scaleToFill" id="QmC-8G-ewc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tu9-Ft-lWG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="38"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where was your trip?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEY-Gi-1Bg">
+                                        <rect key="frame" x="106" y="8" width="162" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.78808718919754028" green="0.78791451454162598" blue="0.80853986740112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="Dt9-OM-OZ9"/>
+                                    <constraint firstAttribute="width" constant="375" id="jwi-Od-qWj"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="95" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JJ6-AK-fwO">
+                                <rect key="frame" x="0.0" y="102" width="375" height="565"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="42S-FI-6VZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="95" id="tv4-nu-VHx" customClass="LocationCell" customModule="imagejourney" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tv4-nu-VHx" id="A4c-SD-TdU">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="94.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rainbow place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m37-l8-C2Z">
+                                                    <rect key="frame" x="76" y="17" width="118.5" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jm8-Vy-4uk">
+                                                    <rect key="frame" x="8" y="17" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="0cp-qB-Aav"/>
+                                                        <constraint firstAttribute="width" constant="60" id="g6f-st-CoE"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="some place over the rainbow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiB-n3-1H4">
+                                                    <rect key="frame" x="76" y="42" width="185.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.62182397759991614" green="0.6233163469644295" blue="0.64608970207253891" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="m37-l8-C2Z" firstAttribute="leading" secondItem="Jm8-Vy-4uk" secondAttribute="trailing" constant="8" id="DzA-WO-ls3"/>
+                                                <constraint firstItem="m37-l8-C2Z" firstAttribute="top" secondItem="Jm8-Vy-4uk" secondAttribute="top" id="QFZ-DR-V8F"/>
+                                                <constraint firstItem="Jm8-Vy-4uk" firstAttribute="leading" secondItem="A4c-SD-TdU" secondAttribute="leading" constant="8" id="V6n-jy-HhO"/>
+                                                <constraint firstItem="Jm8-Vy-4uk" firstAttribute="centerY" secondItem="A4c-SD-TdU" secondAttribute="centerY" id="eeb-zn-apo"/>
+                                                <constraint firstItem="QiB-n3-1H4" firstAttribute="leading" secondItem="m37-l8-C2Z" secondAttribute="leading" id="wiv-GX-SxX"/>
+                                                <constraint firstItem="QiB-n3-1H4" firstAttribute="top" secondItem="m37-l8-C2Z" secondAttribute="bottom" constant="4" id="ze9-Dr-adc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addressLabel" destination="QiB-n3-1H4" id="3ZG-cz-KV5"/>
+                                            <outlet property="categoryImageView" destination="Jm8-Vy-4uk" id="NzD-Ke-KGw"/>
+                                            <outlet property="nameLabel" destination="m37-l8-C2Z" id="ofx-B8-8Xz"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Tu9-Ft-lWG" secondAttribute="trailing" id="0fj-QX-BuO"/>
+                            <constraint firstItem="Tu9-Ft-lWG" firstAttribute="leading" secondItem="QmC-8G-ewc" secondAttribute="leading" id="2Up-Eb-hZQ"/>
+                            <constraint firstItem="JJ6-AK-fwO" firstAttribute="leading" secondItem="QmC-8G-ewc" secondAttribute="leading" id="9Og-Yb-7wU"/>
+                            <constraint firstItem="JJ6-AK-fwO" firstAttribute="top" secondItem="Tu9-Ft-lWG" secondAttribute="bottom" id="FtZ-hE-zSa"/>
+                            <constraint firstItem="Tu9-Ft-lWG" firstAttribute="top" secondItem="Xav-L1-I0n" secondAttribute="bottom" id="d9C-yN-iWK"/>
+                            <constraint firstAttribute="trailing" secondItem="JJ6-AK-fwO" secondAttribute="trailing" id="idU-q5-M0S"/>
+                            <constraint firstItem="rnX-D4-fgv" firstAttribute="top" secondItem="JJ6-AK-fwO" secondAttribute="bottom" id="tmr-Xx-Fwz"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PGs-Kj-8i5"/>
+                    <navigationItem key="navigationItem" title="New Journal Entry" id="PGs-Kj-8i5">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Z4p-c1-sqJ">
+                            <connections>
+                                <action selector="onCancel:" destination="1ZY-OC-yMZ" id="dQr-CJ-nas"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="KvZ-GP-j81"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="42S-FI-6VZ" id="RnG-3c-h3x"/>
+                        <outlet property="tableView" destination="JJ6-AK-fwO" id="wXx-HZ-02g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mc2-3q-CAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5993" y="904"/>
+            <point key="canvasLocation" x="5992.8000000000002" y="903.59820089955031"/>
         </scene>
         <!--Journal Entry View Controller-->
         <scene sceneID="hwQ-dF-s4p">
@@ -1120,7 +1212,7 @@
         <image name="menu" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uQn-Il-qGC"/>
+        <segue reference="jG0-el-ctt"/>
         <segue reference="HK3-sY-hwV"/>
     </inferredMetricsTieBreakers>
 </document>
