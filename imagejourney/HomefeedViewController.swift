@@ -63,10 +63,13 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
             let journalViewController = segue.destination as! JournalViewController
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             journalViewController.journal = journals?[indexPath!.row]
-        } else if segue.identifier == "homefeedToComposeSegue" {
+        } else if segue.identifier == "homefeedToComposeJournalSegue" {
             let nav = segue.destination as! UINavigationController
             let vc = nav.viewControllers.first as! ComposeJournalViewController
             vc.delegate = self
+        } else if segue.identifier == "homefeedToNewJournalSegue" {
+            let journalViewController = segue.destination as! JournalViewController
+            journalViewController.journal = sender as! Journal
         }
     }
     
@@ -74,10 +77,6 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
     func didDismissComposeJournalViewWithNewJournal(journal: Journal) {
         journals?.append(journal)
         tableView.reloadData()
-        
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let journalVC = storyBoard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController
-        journalVC.journal = journal
-        self.present(journalVC, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "homefeedToNewJournalSegue", sender: journal)
     }
 }

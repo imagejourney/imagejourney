@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pPS-7O-GGw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pPS-7O-GGw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -147,7 +147,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nk8-M5-EK4" id="Tav-Sb-ZB8">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYU-dx-oxJ">
@@ -262,7 +262,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RB0-kv-yyg" id="7jH-dp-yCn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7ps-Wg-uQB">
@@ -347,12 +347,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New Journal" id="poC-rt-UQI">
                             <connections>
-                                <segue destination="vew-g5-wCl" kind="presentation" identifier="homefeedToComposeSegue" id="CXy-sy-GYW"/>
+                                <segue destination="vew-g5-wCl" kind="presentation" identifier="homefeedToComposeJournalSegue" id="CXy-sy-GYW"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Etz-hW-Wr5" id="dKy-Ul-6Q9"/>
+                        <segue destination="1vU-rZ-gfK" kind="show" identifier="homefeedToNewJournalSegue" id="uQn-Il-qGC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovk-pU-swo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,7 +401,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="258"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5tj-7B-Axs" id="dJG-h8-5n9">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="257"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="257.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 1, 2017 at 1:00PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdk-HI-488">
@@ -476,7 +477,13 @@
                             <constraint firstItem="leJ-6X-Qlf" firstAttribute="leading" secondItem="DvR-Jv-8zd" secondAttribute="leading" constant="15" id="sbl-ai-Wcz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="PkW-MG-SYL"/>
+                    <navigationItem key="navigationItem" id="PkW-MG-SYL">
+                        <barButtonItem key="rightBarButtonItem" title="New Entry" id="4rY-n8-OoS">
+                            <connections>
+                                <segue destination="43j-NR-cBH" kind="presentation" identifier="journalToNewEntrySegue" id="QS3-dt-4qW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="journalAuthorLabel" destination="leJ-6X-Qlf" id="eyD-7j-Vyh"/>
                         <outlet property="journalTitleLabel" destination="iLQ-Am-TE9" id="RMZ-y7-455"/>
@@ -485,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7zK-yh-dCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3589.5999999999999" y="133.5832083958021"/>
+            <point key="canvasLocation" x="5110" y="134"/>
         </scene>
         <!--Compose Journal View Controller-->
         <scene sceneID="qZb-eR-nVf">
@@ -549,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhh-hw-ClY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3590" y="952"/>
+            <point key="canvasLocation" x="3590" y="1471"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="dZ0-pd-R2f">
@@ -588,7 +595,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cl0-Mu-igY" id="7oX-4l-3P7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-Kg-UQ2">
@@ -639,7 +646,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFy-v5-872" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3590" y="1710"/>
+            <point key="canvasLocation" x="4358" y="596"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iNj-Se-pTH">
+            <objects>
+                <viewController id="1ZY-OC-yMZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xav-L1-I0n"/>
+                        <viewControllerLayoutGuide type="bottom" id="rnX-D4-fgv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QmC-8G-ewc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PGs-Kj-8i5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mc2-3q-CAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5993" y="904"/>
         </scene>
         <!--Journal Entry View Controller-->
         <scene sceneID="hwQ-dF-s4p">
@@ -711,7 +737,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbY-uX-R9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4429.6000000000004" y="133.5832083958021"/>
+            <point key="canvasLocation" x="5994" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IVk-QZ-0Kb">
@@ -729,7 +755,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="458-uw-4hd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2777" y="1710"/>
+            <point key="canvasLocation" x="3590" y="596"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w1d-J4-gWp">
@@ -766,7 +792,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eN8-gz-TKG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2777" y="953"/>
+            <point key="canvasLocation" x="2777" y="1472"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Kcj-Vq-sa1">
@@ -1071,12 +1097,30 @@
             </objects>
             <point key="canvasLocation" x="1612" y="936.88155922038993"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cER-f2-baA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43j-NR-cBH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5sZ-eH-SnW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1ZY-OC-yMZ" kind="relationship" relationship="rootViewController" id="Qfb-Iq-JEK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HnI-tf-M9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5110" y="904"/>
+        </scene>
     </scenes>
     <resources>
         <image name="menu" width="18" height="18"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V6a-4s-1V8"/>
+        <segue reference="uQn-Il-qGC"/>
         <segue reference="HK3-sY-hwV"/>
     </inferredMetricsTieBreakers>
 </document>
