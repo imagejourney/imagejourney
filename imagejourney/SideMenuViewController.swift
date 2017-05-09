@@ -40,7 +40,7 @@ class SideMenuViewController: UIViewController {
         
         let border = CALayer()
         border.frame = CGRect(x:0, y:profileViewContainer.frame.height - 1, width:profileViewContainer.frame.width, height: 1)
-        border.backgroundColor = Helper.UIColorFromHex(rgbValue: 0x3ec8ef, alpha: 1.0).cgColor
+        border.backgroundColor = Constants.THEME_COLOR.cgColor
         profileViewContainer.layer.addSublayer(border)
     }
     

@@ -8,6 +8,7 @@
 
 import UIKit
 import SidebarOverlay
+import Material
 import MapKit
 
 class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -31,6 +32,8 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH
+        
+        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
     }
 
     override func didReceiveMemoryWarning() {

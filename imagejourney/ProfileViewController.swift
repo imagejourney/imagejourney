@@ -8,6 +8,7 @@
 
 import AFNetworking
 import UIKit
+import Material
 import SidebarOverlay
 
 class ProfileViewController: SOContainerViewController, UITableViewDelegate, UITableViewDataSource {
@@ -16,7 +17,7 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
     @IBOutlet weak var profileNameLabel: UILabel!
     @IBOutlet weak var journalCountLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet var profileUsernameLabel: UILabel!
     var user: User = User.getCurrentUser()!
     var journals: [Journal]? = []
     
@@ -29,13 +30,16 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 380
         
+        profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
+        profileImageView.clipsToBounds = true
         if user.profileImageUrl != nil {
             profileImageView.setImageWith(user.profileImageUrl!)
         } else {
-            profileImageView.image = #imageLiteral(resourceName: "default_profile_image")
+            profileImageView.image = UIImage(named: "avatar-\(arc4random_uniform(6) + 1)")
         }
         
         profileNameLabel.text = user.name
+        profileUsernameLabel.text = "@\(String(describing: (user.username)!))"
         journalCountLabel.text = "0 journals"
         
         // Fetch journals to show
@@ -49,6 +53,7 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
             }
         })
         
+        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH

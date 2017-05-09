@@ -8,6 +8,7 @@
 
 import UIKit
 import SidebarOverlay
+import Material
 
 class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UITableViewDataSource, ComposeJournalViewControllerDelegate {
     
@@ -37,6 +38,11 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH
+        
+        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
+        for item in self.navigationItem.rightBarButtonItems! {
+            item.tintColor = Constants.THEME_COLOR
+        }
     }
     
     @IBAction func showMenu(_ sender: Any) {

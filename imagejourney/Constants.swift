@@ -34,4 +34,6 @@ class Constants {
         case most_recent_journal = "recent_journal"
         case friends = "friends"
     }
+    
+    static let THEME_COLOR = Helper.UIColorFromHex(rgbValue: 0x3ec8ef, alpha: 1.0)
 }
