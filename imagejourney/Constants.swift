@@ -20,6 +20,7 @@ class Constants {
     static let LOGIN_EMAIL_FIELD_OFFSET:CGFloat = 50
     
     static let LOGIN_LOADING_MSG = "Logging in..."
+    static let HOMEFEED_FETCHING_MSG = "Loading journals..."
     static let PASSWORD_NOT_MATCH_MSG = "password does not match."
     static let SIGN_UP_LOADING_MSG = "Signing up..."
     static let EMPTY_NAME_ERROR_MSG = "Name is required!"

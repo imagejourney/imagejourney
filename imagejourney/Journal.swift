@@ -8,13 +8,15 @@
 
 import Parse
 import UIKit
+import GoogleMaps
 
 class Journal: NSObject {
     var title: String?
     var author: User?
     var entries: [JournalEntry]?
     var previewImageUrls: [URL]? = []
-    
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
     init(obj: PFObject) {
         do {
             try obj.fetchIfNeeded()
@@ -22,6 +24,8 @@ class Journal: NSObject {
             print(error)
         }
         self.title = obj["title"] as! String
+        self.latitude = obj["latitude"] as? CLLocationDegrees
+        self.longitude = obj["longitude"] as? CLLocationDegrees
         let pfUser = obj["author"] as! PFUser
         self.author = User(obj: pfUser)
         let entryObjArray = obj["entries"] as! [PFObject]

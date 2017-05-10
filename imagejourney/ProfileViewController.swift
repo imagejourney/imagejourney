@@ -10,6 +10,7 @@ import AFNetworking
 import UIKit
 import Material
 import SidebarOverlay
+import SwiftSpinner
 
 class ProfileViewController: SOContainerViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -43,6 +44,7 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
         journalCountLabel.text = "0 journals"
         
         // Fetch journals to show
+        SwiftSpinner.show(Constants.HOMEFEED_FETCHING_MSG)
         ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: true, completion: { (journals: [Journal]?) in
             if journals != nil {
                 self.journals = journals
@@ -51,9 +53,11 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
             } else {
                 print("journals fetch failed")
             }
+            SwiftSpinner.hide()
         })
         
         self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
+        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH

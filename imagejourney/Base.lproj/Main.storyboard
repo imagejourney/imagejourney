@@ -365,7 +365,11 @@
                                     <segue destination="vew-g5-wCl" kind="presentation" identifier="homefeedToComposeJournalSegue" id="CXy-sy-GYW"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="map" id="GBv-vt-pkh"/>
+                            <barButtonItem image="map" id="GBv-vt-pkh">
+                                <connections>
+                                    <segue destination="kgR-nR-a8q" kind="show" identifier="homefeedMapViewSegue" id="pQU-tQ-BnL"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -494,7 +498,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PkW-MG-SYL">
-                        <barButtonItem key="rightBarButtonItem" title="New Entry" id="4rY-n8-OoS">
+                        <barButtonItem key="rightBarButtonItem" image="edit" id="4rY-n8-OoS">
                             <connections>
                                 <segue destination="43j-NR-cBH" kind="presentation" identifier="journalToComposeEntrySegue" id="QS3-dt-4qW"/>
                             </connections>
@@ -1128,16 +1132,6 @@
                                             <action selector="onSearchNav:" destination="bvd-EV-613" eventType="touchUpInside" id="MVJ-ea-qFS"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tEK-GE-QQN">
-                                        <rect key="frame" x="8" y="295" width="76" height="38"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                        <state key="normal" title="Friends">
-                                            <color key="titleColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="onHomefeedViewNav:" destination="bvd-EV-613" eventType="touchUpInside" id="PpO-o4-aBe"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="PUG-8d-6lJ" firstAttribute="top" secondItem="fc8-58-3m7" secondAttribute="top" id="04d-Jq-hQS"/>
@@ -1148,8 +1142,6 @@
                                     <constraint firstItem="Amq-Gh-JSm" firstAttribute="leading" secondItem="Mkj-Iq-BdS" secondAttribute="leading" id="HAE-2R-1rp"/>
                                     <constraint firstItem="Amq-Gh-JSm" firstAttribute="top" secondItem="PUG-8d-6lJ" secondAttribute="bottom" constant="114" id="Lsm-li-20f"/>
                                     <constraint firstAttribute="width" constant="200" id="SFV-hh-Je0"/>
-                                    <constraint firstItem="tEK-GE-QQN" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" constant="8" id="dmC-kJ-Bbh"/>
-                                    <constraint firstItem="tEK-GE-QQN" firstAttribute="top" secondItem="Amq-Gh-JSm" secondAttribute="bottom" constant="54" id="eYh-MZ-oUw"/>
                                     <constraint firstAttribute="trailing" secondItem="PUG-8d-6lJ" secondAttribute="trailing" id="h7O-Z4-z6c"/>
                                     <constraint firstItem="PKh-y7-FNN" firstAttribute="top" secondItem="Mkj-Iq-BdS" secondAttribute="bottom" constant="8" id="hdo-iU-MyM"/>
                                     <constraint firstItem="Amq-Gh-JSm" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" constant="8" id="iHP-lM-wm2"/>
@@ -1220,6 +1212,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HK3-sY-hwV"/>
-        <segue reference="6JO-Zh-ei7"/>
+        <segue reference="jG0-el-ctt"/>
     </inferredMetricsTieBreakers>
 </document>

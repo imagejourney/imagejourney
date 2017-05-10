@@ -13,6 +13,7 @@ import GoogleMaps
 class MapViewController: UIViewController, GMSMapViewDelegate {
     var markerList = [GMSMarker]()
     var data = [Dictionary<String, Any>]()
+    var journals: [Journal]? = []
     var mapView:GMSMapView?
     
     override func viewDidLoad() {
@@ -20,29 +21,29 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
         // ***************************************************************************************************
         // Sample data, please follow the structure when passing the data from segue
-        data = [
-            [
-                "longitude" : 37.77,
-                "latitue" : 50.6,
-                "title": "San Francisco",
-                "snippet" : "The city we live in",
-                "image" : ""
-            ],
-            [
-                "longitude" : 121.408,
-                "latitue" : 31.005,
-                "title": "Shanghai",
-                "snippet": "The fastest growing city in the world",
-                "image" : ""
-            ],
-            [
-                "longitude" : 151.20,
-                "latitue" : -30.86,
-                "title": "Sydney",
-                "snippet" : "The opera house",
-                "image" : ""
-            ]
-        ]
+//        data = [
+//            [
+//                "longitude" : 37.77,
+//                "latitue" : 50.6,
+//                "title": "San Francisco",
+//                "snippet" : "The city we live in",
+//                "image" : ""
+//            ],
+//            [
+//                "longitude" : 121.408,
+//                "latitue" : 31.005,
+//                "title": "Shanghai",
+//                "snippet": "The fastest growing city in the world",
+//                "image" : ""
+//            ],
+//            [
+//                "longitude" : 151.20,
+//                "latitue" : -30.86,
+//                "title": "Sydney",
+//                "snippet" : "The opera house",
+//                "image" : ""
+//            ]
+//        ]
         
         // ***************************************************************************************************
         
@@ -51,7 +52,36 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         mapView?.delegate = self
         view = mapView
         
-        fitAllMarkers()
+        if (journals?.isEmpty)! {
+            fitAllMarkers()
+        } else {
+            fitAllMarkersWithJournals()
+        }
+        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
+    }
+    
+    func fitAllMarkersWithJournals() {
+        let path = GMSMutablePath()
+        for journal in journals! {
+            if journal.previewImageUrls != nil && journal.latitude != nil && (journal.longitude != nil) {
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2D(latitude: journal.latitude!, longitude: journal.longitude!)
+                marker.title = journal.title
+                marker.snippet = journal.author?.name
+                
+                // testing the image view
+                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+                imageView.setImageWith(journal.previewImageUrls![0])
+                marker.iconView = imageView
+                marker.map = mapView
+                marker.userData = journal
+                path.add(marker.position)
+            }
+        }
+        
+        let bounds = GMSCoordinateBounds(path: path)
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 60)
+        mapView?.animate(with: update)
     }
     
     func fitAllMarkers() {
@@ -63,10 +93,14 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
             marker.position = CLLocationCoordinate2D(latitude: item["latitue"] as! CLLocationDegrees, longitude: item["longitude"] as! CLLocationDegrees )
             marker.title = item["title"] as? String
             marker.snippet = item["snippet"] as? String
-            
+
             // testing the image view
-            var imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-            imageView.image = UIImage(named: "avatar-\(arc4random_uniform(6) + 1)")
+            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+            if item["image"] != nil || item["image"] != nil {
+                imageView.setImageWith(item["image"] as! URL)
+            } else {
+                imageView.image = UIImage(named: "avatar-\(arc4random_uniform(6) + 1)")
+            }
             marker.iconView = imageView
             marker.map = mapView
             path.add(marker.position)
@@ -84,7 +118,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     // Do the tap even handler here
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-        print("fsdf")
+        let journalViewCtrl = self.storyboard?.instantiateViewController(withIdentifier: "JournalViewController") as? JournalViewController
+        journalViewCtrl?.journal = marker.userData as! Journal
+        self.navigationController?.pushViewController(journalViewCtrl!, animated: true)
         return true
     }
 }

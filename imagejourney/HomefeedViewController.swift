@@ -9,6 +9,7 @@
 import UIKit
 import SidebarOverlay
 import Material
+import SwiftSpinner
 
 class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UITableViewDataSource, ComposeJournalViewControllerDelegate {
     
@@ -24,8 +25,9 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 380
-
+        
         // Fetch journals to show
+        SwiftSpinner.show(Constants.HOMEFEED_FETCHING_MSG)
         ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: false, completion: { (journals: [Journal]?) in
             if journals != nil {
                 self.journals = journals
@@ -33,6 +35,7 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
             } else {
                 print("journals fetch failed")
             }
+            SwiftSpinner.hide()
         })
         
         self.menuSide = .left
@@ -43,6 +46,7 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         for item in self.navigationItem.rightBarButtonItems! {
             item.tintColor = Constants.THEME_COLOR
         }
+        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
     }
     
     @IBAction func showMenu(_ sender: Any) {
@@ -76,6 +80,9 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         } else if segue.identifier == "homefeedToNewJournalSegue" {
             let journalViewController = segue.destination as! JournalViewController
             journalViewController.journal = sender as! Journal
+        } else if segue.identifier == "homefeedMapViewSegue" {
+            let mapViewController = segue.destination as! MapViewController
+            mapViewController.journals = self.journals
         }
     }
     
