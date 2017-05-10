@@ -67,10 +67,12 @@ extension SignInViewController {
         emailField.delegate = self
         
         let leftView = UIImageView()
-        leftView.image = UIImage(named: "email")
+        leftView.image = UIImage(named: "email")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        leftView.tintColor = Constants.THEME_COLOR
         emailField.leftView = leftView
         
         view.layout(emailField).center(offsetY: -passwordField.height - Constants.LOGIN_EMAIL_FIELD_OFFSET).left(Constants.LOGIN_FIELD_MARGIN).right(Constants.LOGIN_FIELD_MARGIN)
+        emailField.becomeFirstResponder()
     }
     
     fileprivate func preparePasswordField() {
@@ -80,7 +82,8 @@ extension SignInViewController {
         passwordField.isVisibilityIconButtonEnabled = true
         
         let leftView = UIImageView()
-        leftView.image = UIImage(named: "lock")
+        leftView.image = UIImage(named: "lock")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        leftView.tintColor = Constants.THEME_COLOR
         passwordField.leftView = leftView
         
         // Setting the visibilityIconButton color.

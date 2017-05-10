@@ -98,10 +98,12 @@ extension SignUpViewController {
         nameField.delegate = self
         
         let leftView = UIImageView()
-        leftView.image = UIImage(named: "account")
+        leftView.image = UIImage(named: "account")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        leftView.tintColor = Constants.THEME_COLOR
         nameField.leftView = leftView
         
         view.layout(nameField).center(offsetY: -passwordField.height - 4 * Constants.SIGNUP_FIELD_OFFSET).left(Constants.SIGNUP_MARGIN).right(Constants.SIGNUP_MARGIN)
+        nameField.becomeFirstResponder()
     }
     
     fileprivate func prepareEmailField() {
@@ -112,7 +114,8 @@ extension SignUpViewController {
         usernameField.delegate = self
         
         let leftView = UIImageView()
-        leftView.image = UIImage(named: "email")
+        leftView.image = UIImage(named: "email")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        leftView.tintColor = Constants.THEME_COLOR
         usernameField.leftView = leftView
         
         view.layout(usernameField).center(offsetY: -passwordField.height - 2 * Constants.SIGNUP_FIELD_OFFSET).left(Constants.SIGNUP_MARGIN).right(Constants.SIGNUP_MARGIN)
@@ -124,7 +127,8 @@ extension SignUpViewController {
         passwordField.clearButtonMode = .whileEditing
         passwordField.isVisibilityIconButtonEnabled = true
         let pwdleftView = UIImageView()
-        pwdleftView.image = UIImage(named: "lock")
+        pwdleftView.image = UIImage(named: "lock")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        pwdleftView.tintColor = Constants.THEME_COLOR
         passwordField.leftView = pwdleftView
         
         passwordCheckField = ErrorTextField()
@@ -132,7 +136,8 @@ extension SignUpViewController {
         passwordCheckField.clearButtonMode = .whileEditing
         passwordCheckField.isVisibilityIconButtonEnabled = true
         let pwdCheckleftView = UIImageView()
-        pwdCheckleftView.image = UIImage(named: "lock")
+        pwdCheckleftView.image = UIImage(named: "lock")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        pwdCheckleftView.tintColor = Constants.THEME_COLOR
         passwordCheckField.leftView = pwdCheckleftView
         
         // Use delete won't work here since it's not a regular TextField but a ErrorTextField

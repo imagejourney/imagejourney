@@ -558,12 +558,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Journal" id="vzw-uw-Z0y">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="HjG-Cf-JTC">
+                        <barButtonItem key="leftBarButtonItem" image="cancel" id="HjG-Cf-JTC">
                             <connections>
                                 <action selector="onCancel:" destination="yhK-D9-Ooi" id="dtX-Fk-EAI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="7JN-Pc-y1T">
+                        <barButtonItem key="rightBarButtonItem" image="check" id="7JN-Pc-y1T">
                             <connections>
                                 <action selector="onCreateJournal:" destination="yhK-D9-Ooi" id="hrD-AO-ad8"/>
                             </connections>
@@ -1206,9 +1206,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="edit" width="18" height="18"/>
-        <image name="map" width="18" height="18"/>
-        <image name="menu" width="18" height="18"/>
+        <image name="cancel" width="24" height="24"/>
+        <image name="check" width="24" height="24"/>
+        <image name="edit" width="24" height="24"/>
+        <image name="map" width="24" height="24"/>
+        <image name="menu" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HK3-sY-hwV"/>
