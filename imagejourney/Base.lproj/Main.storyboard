@@ -505,6 +505,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="composeNewEntryButton" destination="4rY-n8-OoS" id="qdF-1a-3ie"/>
                         <outlet property="journalAuthorLabel" destination="leJ-6X-Qlf" id="eyD-7j-Vyh"/>
                         <outlet property="journalTitleLabel" destination="iLQ-Am-TE9" id="RMZ-y7-455"/>
                         <outlet property="tableView" destination="3fL-fI-y5E" id="zNC-ZB-JL3"/>

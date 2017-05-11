@@ -13,6 +13,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var journalTitleLabel: UILabel!
     @IBOutlet weak var journalAuthorLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var composeNewEntryButton: UIBarButtonItem!
     
     var journal: Journal! {
         didSet {
@@ -27,6 +28,11 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do not show compose new entry if journal view does not belong to current owner
+        if journal.author?.username != User.getCurrentUser()?.username {
+           self.navigationItem.rightBarButtonItem = nil
+        }
+        
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
