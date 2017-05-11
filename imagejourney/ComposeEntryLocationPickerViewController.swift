@@ -7,14 +7,17 @@
 //
 
 import MapKit
+import Parse
 import UIKit
 
-class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate {
 
     var datePicker: UIDatePicker!
     var datePickerToolBar: UIToolbar!
     var showingDatePicker: Bool! = false
     var weatherPickerData: [String]! = ["Sunny", "Cloudy", "Rain", "Snow"]
+    var journal: Journal!
+    var image: UIImage!
     
     // Search bar/map vars
     var searchController:UISearchController!
@@ -42,12 +45,7 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
         }
         
         showingDatePicker = true
-        datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: self.view.height - 200, width: self.view.width, height: 200))
-        datePicker.backgroundColor = UIColor.white
-        datePicker.datePickerMode = UIDatePickerMode.date;
-        datePicker.isHidden = false;
-        datePicker.date = Date()
-        datePicker.addTarget(self, action: #selector(updateDateLabelTitle), for: UIControlEvents.valueChanged)
+        
         self.view.addSubview(datePicker)
         
         datePickerToolBar = UIToolbar.init(frame: CGRect(x: 0, y: self.view.height - 200 - 40, width: self.view.width, height: 40))
@@ -56,6 +54,41 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
         let doneButton = UIBarButtonItem.init(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(removeDatePicker));
         datePickerToolBar.setItems([doneButton], animated: true)
         self.view.addSubview(datePickerToolBar)
+    }
+    
+    @IBAction func uploadPhotos(_ sender: UIButton) {
+        print("tapped camera")
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            print("Camera is available 📸")
+            vc.sourceType = .camera
+        } else {
+            print("Camera 🚫 available so we will use photo library instead")
+            vc.sourceType = .photoLibrary
+        }
+        
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @IBAction func onComposeJournalEntryComplete(_ sender: UIBarButtonItem) {
+        if pointAnnotation == nil {
+            showErrorAlert()
+            return
+        }
+        
+        ParseClient.sharedInstance.saveEntries(image: image, weather: weatherPickerData[weatherPicker.selectedRow(inComponent: 0)], date: datePicker.date, description: "test desc", coordinate: pointAnnotation.coordinate, toJournal: journal, completion: {})
+    }
+    
+    func showErrorAlert() {
+        let alertController = UIAlertController(title: "No location", message: "Please pick a location for your entry!", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            // do nothing, just let alert dismiss
+        }
+        // add the OK action to the alert controller
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true)
     }
     
     func removeDatePicker() {
@@ -72,7 +105,19 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
         self.dateLabel.text = dateString
 
     }
-
+    
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any]) {
+        // Get the image captured by the UIImagePickerController
+        image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        
+        
+        // Dismiss UIImagePickerController to go back to your original view controller
+        dismiss(animated: true, completion: {
+//            self.performSegue(withIdentifier: "tagSegue", sender: nil)
+        })
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,6 +126,13 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
         
         weatherPicker.delegate = self
         weatherPicker.dataSource = self
+        
+        datePicker = UIDatePicker.init(frame: CGRect(x: 0, y: self.view.height - 200, width: self.view.width, height: 200))
+        datePicker.backgroundColor = UIColor.white
+        datePicker.datePickerMode = UIDatePickerMode.date;
+        datePicker.isHidden = false;
+        datePicker.date = Date()
+        datePicker.addTarget(self, action: #selector(updateDateLabelTitle), for: UIControlEvents.valueChanged)
     }
     
     // MARK: - Weather picker methods
@@ -102,7 +154,7 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
     // MARK: - Search bar methods
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
 
-        if self.mapView.annotations.count != 0{
+        if self.mapView.annotations.count != 0 {
             annotation = self.mapView.annotations[0]
             self.mapView.removeAnnotation(annotation)
         }

@@ -154,6 +154,42 @@ class ParseClient: NSObject {
             }
         }
     }
+    
+    func saveEntries(image: UIImage?, weather: String, date: Date, description: String, coordinate: CLLocationCoordinate2D, toJournal: Journal, completion: @escaping () -> ()) {
+        // Save entry to Entry class
+        let entryPFObject = PFObject(className: "JournalEntry")
+        
+        // Save UIImage as PFFile
+        if let image = image {
+            let imageData = UIImageJPEGRepresentation(image, 0.8)!
+            let imageFile = PFFile(data: imageData)
+            do {
+                try imageFile?.save()
+                entryPFObject["image"] = imageFile
+            } catch {
+                print(error)
+            }
+        }
+        
+        // Handle converting coordinates to PFGeoPoint
+        let location = PFGeoPoint(latitude: coordinate.latitude, longitude: coordinate.longitude)
 
+        entryPFObject["weather"] = weather
+        entryPFObject["date"] = date
+        entryPFObject["description"] = description
+        entryPFObject["location"] = location
+        
+        entryPFObject.saveInBackground { (success: Bool, error: Error?) in
+            if success {
+                print("Entries saved! Now trying to associate with journal")
+//                toJournal.pfObj?.add(entryPFObject.objectId!, forKey: "entries")
+                completion()
+            } else {
+                print("Could not save entries. Error: \(String(describing: error?.localizedDescription))")
+            }
+        }
+        
+    }
+    
 
 }

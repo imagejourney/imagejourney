@@ -714,6 +714,14 @@
                                 <rect key="frame" x="0.0" y="366" width="375" height="156"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-Dm-mfi">
+                                <rect key="frame" x="138" y="530" width="101" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Upload Photos"/>
+                                <connections>
+                                    <action selector="uploadPhotos:" destination="1ZY-OC-yMZ" eventType="touchUpInside" id="EBf-dY-pX0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78808718919754028" green="0.78791451454162598" blue="0.80853986740112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -734,7 +742,11 @@
                                 <action selector="onCancel:" destination="1ZY-OC-yMZ" id="dQr-CJ-nas"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="KvZ-GP-j81"/>
+                        <barButtonItem key="rightBarButtonItem" title="Complete" id="KvZ-GP-j81">
+                            <connections>
+                                <action selector="onComposeJournalEntryComplete:" destination="1ZY-OC-yMZ" id="eMu-s4-KJZ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="ZZH-jm-Klq" id="S9P-TC-iVt"/>

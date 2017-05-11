@@ -65,6 +65,11 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
             let journalEntryViewController = segue.destination as! JournalEntryViewController
             let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
             journalEntryViewController.entry = journal.entries?[indexPath!.row]
+        } else if segue.identifier == "journalToComposeEntrySegue" {
+            let nav = segue.destination as! UINavigationController
+            let vc = nav.viewControllers.first as! ComposeEntryLocationPickerViewController
+            vc.journal = journal
+//            vc.delegate = self
         }
     }
 

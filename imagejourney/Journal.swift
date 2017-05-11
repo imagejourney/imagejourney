@@ -17,12 +17,15 @@ class Journal: NSObject {
     var previewImageUrls: [URL]? = []
     var latitude: CLLocationDegrees?
     var longitude: CLLocationDegrees?
+    var pfObj: PFObject?
+    
     init(obj: PFObject) {
         do {
             try obj.fetchIfNeeded()
         } catch {
             print(error)
         }
+        self.pfObj = obj
         self.title = obj["title"] as! String
         self.latitude = obj["latitude"] as? CLLocationDegrees
         self.longitude = obj["longitude"] as? CLLocationDegrees
