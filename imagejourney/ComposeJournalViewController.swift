@@ -8,19 +8,25 @@
 
 import Parse
 import UIKit
+import Material
+import GooglePlaces
+import GoogleMaps
+import GooglePlacePicker
 
 protocol ComposeJournalViewControllerDelegate: class {
     func didDismissComposeJournalViewWithNewJournal(journal: Journal)
 }
 
 class ComposeJournalViewController: UIViewController {
-
+    var longtitude: CLLocationDegrees?
+    var latitude: CLLocationDegrees?
     var entries: [JournalEntry]? = []
     var previewImageUrls: [URL]? = []
     var delegate: ComposeJournalViewControllerDelegate?
     
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var titleTextField: TextField!
+    @IBOutlet weak var descriptionTextField: TextField!
+    @IBOutlet var locationLabel: UILabel!
     
     @IBAction func onCancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -28,7 +34,7 @@ class ComposeJournalViewController: UIViewController {
     
     @IBAction func onCreateJournal(_ sender: UIBarButtonItem) {
         if titleTextField.text != nil && (titleTextField.text?.trimmingCharacters(in: .whitespaces).characters.count)! > 0 {
-            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!, entries: entries!, previewImageUrls: previewImageUrls!, completion: { (pfJournalObj: PFObject) in
+            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!, desc:descriptionTextField.text!, longtitude:longtitude!, latitude: latitude!, entries: entries!, previewImageUrls: previewImageUrls!, completion: { (pfJournalObj: PFObject) in
                 // On success of saving object to Parse, create Journal object from the PFObject we saved and pass it delegate method in HFVC which
                 // will  segue to after dismissing the Journal creation modal
                 let newJournal = Journal.init(obj: pfJournalObj)
@@ -52,8 +58,43 @@ class ComposeJournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let titleLeftView = UIImageView()
+        titleLeftView.image = UIImage(named: "camera")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        titleLeftView.tintColor = Constants.THEME_COLOR
+        titleTextField.leftView = titleLeftView
+        
+        let descLeftView = UIImageView()
+        descLeftView.image = UIImage(named: "trip")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        descLeftView.tintColor = Constants.THEME_COLOR
+        descriptionTextField.leftView = descLeftView
+        
+        titleTextField.becomeFirstResponder()
+        
+        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
+        self.navigationItem.rightBarButtonItem?.tintColor = Constants.THEME_COLOR
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.THEME_COLOR]
     }
 
+    @IBAction func pickPlace(_ sender: UIButton) {
+        let config = GMSPlacePickerConfig(viewport: nil)
+        let placePicker = GMSPlacePicker(config: config)
+        
+        placePicker.pickPlace(callback: { (place, error) -> Void in
+            if let error = error {
+                print("Pick Place error: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let place = place else {
+                print("No place selected")
+                return
+            }
+            self.longtitude = place.coordinate.longitude
+            self.latitude = place.coordinate.latitude
+            self.locationLabel.isHidden = false
+            self.locationLabel.text = place.formattedAddress
+        })
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

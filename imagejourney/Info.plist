@@ -34,5 +34,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Add your location to the journal</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Add your location to the journal</string>
 </dict>
 </plist>

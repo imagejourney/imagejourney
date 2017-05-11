@@ -515,7 +515,7 @@
             </objects>
             <point key="canvasLocation" x="5110" y="134"/>
         </scene>
-        <!--New Journal-->
+        <!--Compose Journal View Controller-->
         <scene sceneID="qZb-eR-nVf">
             <objects>
                 <viewController storyboardIdentifier="ComposeJournalViewController" id="yhK-D9-Ooi" customClass="ComposeJournalViewController" customModule="imagejourney" customModuleProvider="target" sceneMemberID="viewController">
@@ -527,38 +527,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter journal title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuv-oa-srV">
-                                <rect key="frame" x="8" y="203" width="359" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgU-y0-xRM">
+                                <rect key="frame" x="80" y="92" width="216" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xuv-oa-srV" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="8" y="256" width="359" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Say something about the trip!"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isClearIconButtonEnabled" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUl-Ek-HzB">
-                                <rect key="frame" x="8" y="84" width="34" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="enter journal title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4a-Vx-CiA">
-                                <rect key="frame" x="8" y="110" width="359" height="30"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4a-Vx-CiA" customClass="TextField" customModule="Material">
+                                <rect key="frame" x="8" y="188" width="359" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Add an awesome title for your trip"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderVerticalOffset">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipU-1O-PYb">
-                                <rect key="frame" x="8" y="174" width="88" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mb-Gp-ecc">
+                                <rect key="frame" x="8" y="301" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="meB-Kn-lOa">
+                                <rect key="frame" x="142" y="330" width="90" height="30"/>
+                                <state key="normal" title="Add Location">
+                                    <color key="titleColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickPlace:" destination="yhK-D9-Ooi" eventType="touchUpInside" id="uuh-iB-97b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dgU-y0-xRM" secondAttribute="trailing" constant="79" id="9ji-lM-Fru"/>
+                            <constraint firstAttribute="trailing" secondItem="meB-Kn-lOa" secondAttribute="trailing" constant="143" id="E1Z-LT-hCh"/>
+                            <constraint firstItem="xuv-oa-srV" firstAttribute="top" secondItem="E4a-Vx-CiA" secondAttribute="bottom" constant="38" id="EPc-yZ-V0q"/>
+                            <constraint firstItem="dgU-y0-xRM" firstAttribute="leading" secondItem="0JI-jv-elj" secondAttribute="leading" constant="80" id="FZE-yc-bPY"/>
+                            <constraint firstItem="meB-Kn-lOa" firstAttribute="leading" secondItem="0JI-jv-elj" secondAttribute="leading" constant="142" id="HUF-7h-8PN"/>
+                            <constraint firstItem="E4a-Vx-CiA" firstAttribute="leading" secondItem="0JI-jv-elj" secondAttribute="leading" constant="8" id="Lcs-4D-fF0"/>
+                            <constraint firstItem="5mb-Gp-ecc" firstAttribute="leading" secondItem="0JI-jv-elj" secondAttribute="leading" constant="8" id="Ljq-nv-GLC"/>
+                            <constraint firstItem="5mb-Gp-ecc" firstAttribute="top" secondItem="xuv-oa-srV" secondAttribute="bottom" constant="15" id="LyX-Tv-IiZ"/>
+                            <constraint firstItem="xuv-oa-srV" firstAttribute="leading" secondItem="0JI-jv-elj" secondAttribute="leading" constant="8" id="YGE-J3-veB"/>
+                            <constraint firstItem="meB-Kn-lOa" firstAttribute="top" secondItem="5mb-Gp-ecc" secondAttribute="bottom" constant="8" id="exK-qt-Gac"/>
+                            <constraint firstItem="dgU-y0-xRM" firstAttribute="top" secondItem="h5q-jV-K2q" secondAttribute="bottom" constant="28" id="f4a-Og-Wgz"/>
+                            <constraint firstAttribute="trailing" secondItem="E4a-Vx-CiA" secondAttribute="trailing" constant="8" id="qPK-GQ-aVW"/>
+                            <constraint firstItem="E4a-Vx-CiA" firstAttribute="top" secondItem="dgU-y0-xRM" secondAttribute="bottom" constant="69" id="th8-d3-ArX"/>
+                            <constraint firstAttribute="trailing" secondItem="5mb-Gp-ecc" secondAttribute="trailing" constant="8" id="uou-ss-Rhc"/>
+                            <constraint firstAttribute="trailing" secondItem="xuv-oa-srV" secondAttribute="trailing" constant="8" id="yql-oq-Qvk"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Journal" id="vzw-uw-Z0y">
+                    <navigationItem key="navigationItem" id="vzw-uw-Z0y">
                         <barButtonItem key="leftBarButtonItem" image="cancel" id="HjG-Cf-JTC">
                             <connections>
                                 <action selector="onCancel:" destination="yhK-D9-Ooi" id="dtX-Fk-EAI"/>
@@ -572,12 +604,13 @@
                     </navigationItem>
                     <connections>
                         <outlet property="descriptionTextField" destination="xuv-oa-srV" id="pdT-X0-EHH"/>
+                        <outlet property="locationLabel" destination="5mb-Gp-ecc" id="Zrg-yh-FT7"/>
                         <outlet property="titleTextField" destination="E4a-Vx-CiA" id="Hgb-1t-nAU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nhh-hw-ClY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3590" y="1471"/>
+            <point key="canvasLocation" x="3589.5999999999999" y="1470.3148425787108"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="dZ0-pd-R2f">

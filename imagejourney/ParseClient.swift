@@ -8,6 +8,9 @@
 
 import Parse
 import UIKit
+import GooglePlaces
+import GoogleMaps
+import GooglePlacePicker
 
 class ParseClient: NSObject {
     
@@ -139,9 +142,12 @@ class ParseClient: NSObject {
         }
     }
     
-    func saveJournal(title: String, entries: [JournalEntry], previewImageUrls: [URL], completion: @escaping (PFObject) -> ()) {
+    func saveJournal(title: String, desc:String, longtitude:CLLocationDegrees, latitude: CLLocationDegrees, entries: [JournalEntry], previewImageUrls: [URL], completion: @escaping (PFObject) -> ()) {
         let journalObj = PFObject(className:"Journal")
         journalObj["title"] = title
+        journalObj["description"] = desc
+        journalObj["latitude"] = latitude
+        journalObj["longitude"] = longtitude
         journalObj["author"] = PFUser.current()
         journalObj["entries"] = entries
         journalObj["previewImageUrls"] = previewImageUrls

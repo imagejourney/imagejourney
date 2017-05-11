@@ -22,10 +22,12 @@ class JournalEntry: NSObject {
         } catch {
             print(error)
         }
-        let imageUrlArray = obj["imageUrls"] as! [Any]
-        for imageUrlAny in imageUrlArray {
-            if let imageUrl = URL(string: (imageUrlAny as? String)!) {
-                imageUrls?.append(imageUrl)
+        if obj["imageUrls"] != nil {
+            let imageUrlArray = obj["imageUrls"] as! [Any]
+            for imageUrlAny in imageUrlArray {
+                if let imageUrl = URL(string: (imageUrlAny as? String)!) {
+                    imageUrls?.append(imageUrl)
+                }
             }
         }
         self.date = obj["date"] as! Date
