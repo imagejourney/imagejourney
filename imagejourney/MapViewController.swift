@@ -63,7 +63,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     func fitAllMarkersWithJournals() {
         let path = GMSMutablePath()
         for journal in journals! {
-            if journal.previewImageUrls != nil && journal.latitude != nil && (journal.longitude != nil) {
+            if journal.previewImageUrls != nil && !(journal.previewImageUrls?.isEmpty)! && journal.latitude != nil && (journal.longitude != nil) {
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2D(latitude: journal.latitude!, longitude: journal.longitude!)
                 marker.title = journal.title

@@ -13,9 +13,9 @@ import MapKit
 
 class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var imageView: UIImageView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var journals: [Journal]? = []
 
@@ -24,16 +24,19 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
 
         // Do any additional setup after loading the view.
         searchBar.delegate = self
+        searchBar.becomeFirstResponder()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
         
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH
         
         self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
+        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,35 +49,29 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
         self.performSearch()
     }
     
-    @IBAction func onSegmentedControllerChanged(_ sender: Any) {
-        let query = searchBar.text! as String
-        if query.characters.count > 0 {
-            self.performSearch()
-        }
-    }
-    
     func performSearch() {
         print("perform search")
+        self.journals = []
         let query = searchBar.text! as String
-        if self.segmentedControl.selectedSegmentIndex == 0 { // first segment searches for title
-            ParseClient.sharedInstance.searchByJournalTitle(searchText: query) { (journals) in
-                self.journals = journals
+        ParseClient.sharedInstance.searchByJournalTitle(searchText: query) { (journals) in
+            if !(journals?.isEmpty)!{
+                self.journals = self.journals! + journals!
                 self.tableView.reloadData()
             }
         }
-        else { // second segment searches by location
-            let geocoder = CLGeocoder()
-            geocoder.geocodeAddressString(query, completionHandler: { (clPlacemarkArray, error) in
-                if (clPlacemarkArray?.count ?? 0) > 0 {
-                    if let coord = clPlacemarkArray?[0].location?.coordinate {
-                        ParseClient.sharedInstance.searchByJournalLocation(lat: coord.latitude, long: coord.longitude, completion: { (journals) in
-                            self.journals = journals
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(query, completionHandler: { (clPlacemarkArray, error) in
+            if (clPlacemarkArray?.count ?? 0) > 0 {
+                if let coord = clPlacemarkArray?[0].location?.coordinate {
+                    ParseClient.sharedInstance.searchByJournalLocation(lat: coord.latitude, long: coord.longitude, completion: { (journals) in
+                        if !(journals?.isEmpty)!{
+                            self.journals = self.journals! + journals!
                             self.tableView.reloadData()
-                        })
-                    }
+                        }
+                    })
                 }
-            })
-        }
+            }
+        })
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

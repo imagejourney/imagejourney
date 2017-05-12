@@ -615,7 +615,7 @@
         <!--Search View Controller-->
         <scene sceneID="dZ0-pd-R2f">
             <objects>
-                <viewController id="oH2-Oy-1Yo" customClass="SearchViewController" customModule="imagejourney" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="oH2-Oy-1Yo" customClass="SearchViewController" customModule="imagejourney" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ey9-Ly-0iI"/>
                         <viewControllerLayoutGuide type="bottom" id="Nyw-xX-AFm"/>
@@ -624,22 +624,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mwM-65-3ky">
+                            <searchBar contentMode="redraw" placeholder="Search by title or location." translatesAutoresizingMaskIntoConstraints="NO" id="mwM-65-3ky">
                                 <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="g4v-ih-tPF">
-                                <rect key="frame" x="30" y="121" width="315" height="29"/>
-                                <segments>
-                                    <segment title="Journal Title"/>
-                                    <segment title="Location"/>
-                                </segments>
-                                <connections>
-                                    <action selector="onSegmentedControllerChanged:" destination="oH2-Oy-1Yo" eventType="valueChanged" id="uub-0E-HJn"/>
-                                </connections>
-                            </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="75" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="009-Ns-2VM">
-                                <rect key="frame" x="0.0" y="175" width="375" height="492"/>
+                                <rect key="frame" x="0.0" y="113" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="75" id="cl0-Mu-igY" customClass="SearchResultCell" customModule="imagejourney" customModuleProvider="target">
@@ -650,48 +643,74 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEa-Kg-UQ2">
-                                                    <rect key="frame" x="15" y="8" width="95" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="109" y="8" width="249" height="23"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                    <color key="textColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8uO-Mp-0MG">
+                                                    <rect key="frame" x="25" y="2" width="70" height="70"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="70" id="PLc-We-dBY"/>
+                                                        <constraint firstAttribute="width" constant="70" id="oZt-SC-0fV"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Author name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jxe-ee-KPb">
-                                                    <rect key="frame" x="15" y="37" width="122" height="21"/>
+                                                    <rect key="frame" x="109" y="39" width="122" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Jxe-ee-KPb" firstAttribute="leading" secondItem="kEa-Kg-UQ2" secondAttribute="leading" id="9MC-1B-hya"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jxe-ee-KPb" secondAttribute="bottom" constant="8" id="Aob-2Q-R2d"/>
+                                                <constraint firstItem="8uO-Mp-0MG" firstAttribute="top" secondItem="7oX-4l-3P7" secondAttribute="top" constant="2" id="H9h-CW-LUB"/>
                                                 <constraint firstItem="Jxe-ee-KPb" firstAttribute="top" secondItem="kEa-Kg-UQ2" secondAttribute="bottom" constant="8" id="KxS-H0-rvV"/>
-                                                <constraint firstItem="kEa-Kg-UQ2" firstAttribute="leading" secondItem="7oX-4l-3P7" secondAttribute="leading" constant="15" id="RcK-Un-nbO"/>
+                                                <constraint firstAttribute="trailing" secondItem="kEa-Kg-UQ2" secondAttribute="trailing" constant="17" id="MPu-3j-K8Y"/>
+                                                <constraint firstItem="kEa-Kg-UQ2" firstAttribute="leading" secondItem="7oX-4l-3P7" secondAttribute="leading" constant="109" id="RcK-Un-nbO"/>
+                                                <constraint firstItem="8uO-Mp-0MG" firstAttribute="leading" secondItem="7oX-4l-3P7" secondAttribute="leading" constant="25" id="Yhx-Tx-QhA"/>
+                                                <constraint firstAttribute="bottom" secondItem="8uO-Mp-0MG" secondAttribute="bottom" constant="2.5" id="Yvx-Vv-86k"/>
                                                 <constraint firstItem="kEa-Kg-UQ2" firstAttribute="top" secondItem="7oX-4l-3P7" secondAttribute="top" constant="8" id="bz2-d9-GxV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="SearchResultcell"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="-1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="journalAuthorLabel" destination="Jxe-ee-KPb" id="Q9p-Tr-P6R"/>
                                             <outlet property="journalTitleLabel" destination="kEa-Kg-UQ2" id="dmh-cT-zEv"/>
+                                            <outlet property="resultImageView" destination="8uO-Mp-0MG" id="jjK-WF-lri"/>
                                             <segue destination="1vU-rZ-gfK" kind="show" identifier="searchToJournalSegue" id="V6a-4s-1V8"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="dividerColor">
+                                        <color key="value" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isDividerHidden" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="dividerThickness">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="g4v-ih-tPF" firstAttribute="leading" secondItem="yzg-8b-DFo" secondAttribute="leading" constant="30" id="19R-y0-NYc"/>
                             <constraint firstItem="Nyw-xX-AFm" firstAttribute="top" secondItem="009-Ns-2VM" secondAttribute="bottom" id="8VL-AQ-iHK"/>
-                            <constraint firstAttribute="trailing" secondItem="g4v-ih-tPF" secondAttribute="trailing" constant="30" id="HcD-JJ-Ccd"/>
                             <constraint firstAttribute="trailing" secondItem="009-Ns-2VM" secondAttribute="trailing" id="IFO-kk-oIj"/>
                             <constraint firstItem="mwM-65-3ky" firstAttribute="top" secondItem="Ey9-Ly-0iI" secondAttribute="bottom" id="LWT-mf-76X"/>
+                            <constraint firstItem="009-Ns-2VM" firstAttribute="top" secondItem="mwM-65-3ky" secondAttribute="bottom" constant="5" id="U3v-zS-eVF"/>
                             <constraint firstItem="009-Ns-2VM" firstAttribute="leading" secondItem="yzg-8b-DFo" secondAttribute="leading" id="Ukg-fG-cuV"/>
                             <constraint firstItem="mwM-65-3ky" firstAttribute="leading" secondItem="yzg-8b-DFo" secondAttribute="leading" id="fVi-oC-92M"/>
                             <constraint firstAttribute="trailing" secondItem="mwM-65-3ky" secondAttribute="trailing" id="kbk-Ui-vkH"/>
-                            <constraint firstItem="g4v-ih-tPF" firstAttribute="top" secondItem="mwM-65-3ky" secondAttribute="bottom" constant="13" id="rIW-0a-aPT"/>
-                            <constraint firstItem="009-Ns-2VM" firstAttribute="top" secondItem="g4v-ih-tPF" secondAttribute="bottom" constant="26" id="tcn-7N-uMf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Vag-7c-r6s">
@@ -703,13 +722,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="mwM-65-3ky" id="E5J-9V-uWD"/>
-                        <outlet property="segmentedControl" destination="g4v-ih-tPF" id="kk8-aD-j3d"/>
                         <outlet property="tableView" destination="009-Ns-2VM" id="Ls4-fA-Iuq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFy-v5-872" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4358" y="596"/>
+            <point key="canvasLocation" x="4357.6000000000004" y="595.95202398800609"/>
         </scene>
         <!--New Journal Entry-->
         <scene sceneID="iNj-Se-pTH">
@@ -1260,6 +1278,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HK3-sY-hwV"/>
-        <segue reference="jG0-el-ctt"/>
+        <segue reference="V6a-4s-1V8"/>
     </inferredMetricsTieBreakers>
 </document>

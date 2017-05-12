@@ -12,11 +12,17 @@ class SearchResultCell: UITableViewCell {
 
     @IBOutlet weak var journalTitleLabel: UILabel!
     @IBOutlet weak var journalAuthorLabel: UILabel!
+    @IBOutlet var resultImageView: UIImageView!
     
     var journal: Journal! {
         didSet {
             journalTitleLabel.text = journal.title
             journalAuthorLabel.text = "by \(journal.author?.name ?? "anonymous")"
+            if (journal.previewImageUrls?.isEmpty)!{
+                resultImageView.image = #imageLiteral(resourceName: "preview_image_placeholder")
+            } else {
+                resultImageView.setImageWith((journal.previewImageUrls?[0])!)
+            }
         }
     }
     
