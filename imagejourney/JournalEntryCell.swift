@@ -26,8 +26,10 @@ class JournalEntryCell: UITableViewCell {
             
             entryWeatherLabel.text = entry.weather
 //            entryLocationLabel.text = entry.location
-            if let imageUrl = entry.imageUrls?[0] {
-                entryImageView.setImageWith(imageUrl)
+            if !(entry.imageUrls?.isEmpty)! {
+                entryImageView.setImageWith((entry.imageUrls?[0])!)
+            }else{
+                entryImageView.image = UIImage(named: "preview_image_placeholder")
             }
             entryDescriptionLabel.text = entry.desc
         }
