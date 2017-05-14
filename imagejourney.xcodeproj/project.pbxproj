@@ -20,6 +20,7 @@
 		7A2C51551EADCA8400370B7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51541EADCA8400370B7D /* Assets.xcassets */; };
 		7A2C51581EADCA8400370B7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */; };
 		7A69B19B1EBFD52A00D01E40 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A69B19A1EBFD52A00D01E40 /* SearchResultCell.swift */; };
+		7AE0E6211EC8248E0048CCA4 /* EmptyJournalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AE0E6201EC8248E0048CCA4 /* EmptyJournalView.xib */; };
 		C5152A7E1EBFCA630012861B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152A7D1EBFCA630012861B /* SideMenuViewController.swift */; };
 		C5152A801EBFE37F0012861B /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152A7F1EBFE37F0012861B /* Helper.swift */; };
 		C5152A821EC0053F0012861B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5152A811EC0053F0012861B /* MapViewController.swift */; };
@@ -51,6 +52,7 @@
 		7A2C51571EADCA8400370B7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A2C51591EADCA8400370B7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A69B19A1EBFD52A00D01E40 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		7AE0E6201EC8248E0048CCA4 /* EmptyJournalView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmptyJournalView.xib; sourceTree = "<group>"; };
 		8E376066E2A7A867A32BAD13 /* Pods-imagejourney.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-imagejourney.release.xcconfig"; path = "Pods/Target Support Files/Pods-imagejourney/Pods-imagejourney.release.xcconfig"; sourceTree = "<group>"; };
 		C5152A7D1EBFCA630012861B /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		C5152A7F1EBFE37F0012861B /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				7A2C51561EADCA8400370B7D /* LaunchScreen.storyboard */,
 				7A2C51511EADCA8400370B7D /* Main.storyboard */,
+				7AE0E6201EC8248E0048CCA4 /* EmptyJournalView.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			files = (
 				7A2C51581EADCA8400370B7D /* LaunchScreen.storyboard in Resources */,
 				7A2C51551EADCA8400370B7D /* Assets.xcassets in Resources */,
+				7AE0E6211EC8248E0048CCA4 /* EmptyJournalView.xib in Resources */,
 				7A2C51531EADCA8400370B7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

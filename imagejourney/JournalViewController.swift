@@ -47,8 +47,13 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let entries = journal.entries {
-            return entries.count
+            if entries.count > 0 {
+                tableView.separatorStyle = .singleLine
+                return entries.count
+            }
         }
+        tableView.backgroundView = Bundle.main.loadNibNamed("EmptyJournalView", owner: self, options: nil)?.first as! UIView?
+        tableView.separatorStyle = .none
         return 0
     }
 
