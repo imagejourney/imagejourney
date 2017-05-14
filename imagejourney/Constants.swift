@@ -17,7 +17,7 @@ class Constants {
     static let SIGNUP_MARGIN:CGFloat = 20
     static let SIGNUP_FIELD_OFFSET:CGFloat = 35
     static let LOGIN_FIELD_MARGIN:CGFloat = 20
-    static let LOGIN_EMAIL_FIELD_OFFSET:CGFloat = 50
+    static let LOGIN_EMAIL_FIELD_OFFSET:CGFloat = 10
     
     static let LOGIN_LOADING_MSG = "Logging in..."
     static let HOMEFEED_FETCHING_MSG = "Loading journals..."

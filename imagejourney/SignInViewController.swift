@@ -89,6 +89,6 @@ extension SignInViewController {
         // Setting the visibilityIconButton color.
         passwordField.visibilityIconButton?.tintColor = Color.green.base.withAlphaComponent(passwordField.isSecureTextEntry ? 0.38 : 0.54)
         
-        view.layout(passwordField).center().left(Constants.LOGIN_FIELD_MARGIN).right(Constants.LOGIN_FIELD_MARGIN)
+        view.layout(passwordField).center(offsetY: 50).left(Constants.LOGIN_FIELD_MARGIN).right(Constants.LOGIN_FIELD_MARGIN)
     }
 }

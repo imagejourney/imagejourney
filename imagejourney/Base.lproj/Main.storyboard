@@ -22,12 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMAGE JOURNEY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoC-nH-nk8">
-                                <rect key="frame" x="38" y="144" width="299" height="31"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="31"/>
-                                <color key="textColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lnK-Vk-8fW" customClass="FlatButton" customModule="Material">
                                 <rect key="frame" x="111" y="629" width="153" height="30"/>
                                 <state key="normal" title="Sign Up"/>
@@ -69,18 +63,25 @@
                                     <segue destination="sRE-rH-TgT" kind="show" identifier="loginSegue" id="HK3-sY-hwV"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagejourney-blue" translatesAutoresizingMaskIntoConstraints="NO" id="g2x-9O-KKo">
+                                <rect key="frame" x="67" y="119" width="240" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="iGc-ok-UeK"/>
+                                    <constraint firstAttribute="height" constant="83" id="ub8-nz-ITW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="lnK-Vk-8fW" firstAttribute="top" secondItem="QgD-Yc-rgR" secondAttribute="bottom" constant="130" id="0Yh-vN-boH"/>
-                            <constraint firstItem="EoC-nH-nk8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="6ZC-Tu-d25"/>
                             <constraint firstItem="QgD-Yc-rgR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="89" id="BTW-Mh-qgO"/>
                             <constraint firstAttribute="trailing" secondItem="QgD-Yc-rgR" secondAttribute="trailing" constant="89" id="EFC-4r-IFH"/>
                             <constraint firstAttribute="trailing" secondItem="lnK-Vk-8fW" secondAttribute="trailing" constant="111" id="Fpk-O9-0iQ"/>
-                            <constraint firstItem="EoC-nH-nk8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="38" id="am5-jL-SDj"/>
-                            <constraint firstItem="QgD-Yc-rgR" firstAttribute="top" secondItem="EoC-nH-nk8" secondAttribute="bottom" constant="290" id="sEi-a9-lhI"/>
+                            <constraint firstItem="g2x-9O-KKo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="67" id="VAx-Wk-qte"/>
+                            <constraint firstAttribute="trailing" secondItem="g2x-9O-KKo" secondAttribute="trailing" constant="68" id="fQg-y1-Wap"/>
+                            <constraint firstItem="g2x-9O-KKo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="55" id="fik-wr-wT9"/>
                             <constraint firstItem="lnK-Vk-8fW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="111" id="v0s-g6-GF2"/>
-                            <constraint firstAttribute="trailing" secondItem="EoC-nH-nk8" secondAttribute="trailing" constant="38" id="xeP-k0-oRN"/>
+                            <constraint firstItem="QgD-Yc-rgR" firstAttribute="top" secondItem="g2x-9O-KKo" secondAttribute="bottom" constant="263" id="ytv-bK-P4z"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ghW-Lo-Dns"/>
@@ -1337,6 +1338,7 @@
         <image name="cancel" width="24" height="24"/>
         <image name="check" width="24" height="24"/>
         <image name="edit" width="24" height="24"/>
+        <image name="imagejourney-blue" width="321" height="146"/>
         <image name="map" width="24" height="24"/>
         <image name="map-icon" width="50" height="50"/>
         <image name="menu" width="24" height="24"/>
