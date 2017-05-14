@@ -11,10 +11,10 @@ import UIKit
 class JournalEntryCell: UITableViewCell {
 
     @IBOutlet weak var entryTimeLabel: UILabel!
-    @IBOutlet weak var entryWeatherLabel: UILabel!
     @IBOutlet weak var entryLocationLabel: UILabel!
     @IBOutlet weak var entryImageView: UIImageView!
     @IBOutlet weak var entryDescriptionLabel: UILabel!
+    @IBOutlet weak var weatherIconView: UIImageView!
     
     var entry: JournalEntry! {
         didSet {
@@ -24,10 +24,22 @@ class JournalEntryCell: UITableViewCell {
                 entryTimeLabel.text = dateFormatter.string(from: date)
             }
             
-            entryWeatherLabel.text = entry.weather
+            let weatherTypeString: String = entry.weather!
+            switch weatherTypeString {
+                case "Cloudy":
+                    weatherIconView.image = UIImage(named: "cloudy-icon")
+                case "Rain":
+                    weatherIconView.image = UIImage(named: "rain-icon")
+                case "Snow":
+                    weatherIconView.image = UIImage(named: "snow-icon")
+                default:
+                    weatherIconView.image = UIImage(named: "sunny-icon")
+            }
 //            entryLocationLabel.text = entry.location
             entryImageView.image = entry.image
             entryDescriptionLabel.text = entry.desc
+            
+            
         }
     }
     

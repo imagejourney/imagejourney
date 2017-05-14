@@ -10,11 +10,11 @@ import UIKit
 
 class JournalEntryViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
-
+    @IBOutlet weak var weatherIconView: UIImageView!
+    
     var entry: JournalEntry! {
         didSet{
             self.loadViewIfNeeded()// should be view.layoutIfNeeded?
@@ -24,7 +24,17 @@ class JournalEntryViewController: UIViewController {
                 dateLabel.text = dateFormatter.string(from: date)
             }
             
-            weatherLabel.text = entry.weather
+            let weatherTypeString: String = entry.weather!
+            switch weatherTypeString {
+            case "Cloudy":
+                weatherIconView.image = UIImage(named: "cloudy-icon")
+            case "Rain":
+                weatherIconView.image = UIImage(named: "rain-icon")
+            case "Snow":
+                weatherIconView.image = UIImage(named: "snow-icon")
+            default:
+                weatherIconView.image = UIImage(named: "sunny-icon")
+            }
 //            locationLabel.text = entry.location
             imageView.image = entry.image
             descLabel.text = entry.desc

@@ -27,11 +27,10 @@ class JournalEntry: NSObject {
             var imageData: Data?
             do {
                 imageData = try imageFile.getData()
+                self.image = UIImage(data:imageData!)!
             } catch {
                 print(error)
             }
-
-            self.image = UIImage(data:imageData!)!
         } else {
             self.image = #imageLiteral(resourceName: "preview_image_placeholder")
         }
