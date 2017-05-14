@@ -50,4 +50,14 @@ class Journal: NSObject {
         
         return journals
     }
+    
+    func reloadJournalData() {
+        do {
+            try pfObj?.fetchIfNeeded()
+        } catch {
+            print(error)
+        }
+        let entryObjArray = pfObj?["entries"] as! [PFObject]
+        self.entries = JournalEntry.journalEntriesFromArray(pfObjectArray: entryObjArray)
+    }
 }

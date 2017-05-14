@@ -8,7 +8,7 @@
 
 import UIKit
 
-class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeJournalEntryViewControllerDelegate {
     
     @IBOutlet weak var journalTitleLabel: UILabel!
     @IBOutlet weak var journalAuthorLabel: UILabel!
@@ -74,18 +74,14 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
             let nav = segue.destination as! UINavigationController
             let vc = nav.viewControllers.first as! ComposeEntryLocationPickerViewController
             vc.journal = journal
-//            vc.delegate = self
+            vc.delegate = self
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: - ComposeJournalEntryViewControllerDelegate methods
+    func didDismissComposeJournalEntryLocationPickerViewWithNewEntry() {
+        journal.reloadJournalData()
+        tableView.reloadData()
     }
-    */
 
 }

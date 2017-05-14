@@ -10,6 +10,10 @@ import MapKit
 import Parse
 import UIKit
 
+protocol ComposeJournalEntryViewControllerDelegate: class {
+    func didDismissComposeJournalEntryLocationPickerViewWithNewEntry()
+}
+
 class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate {
 
     var datePicker: UIDatePicker!
@@ -18,6 +22,7 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
     var weatherPickerData: [String]! = ["Sunny", "Cloudy", "Rain", "Snow"]
     var journal: Journal!
     var image: UIImage!
+    var delegate: ComposeJournalEntryViewControllerDelegate?
     
     // Search bar/map vars
     var searchController:UISearchController!
@@ -41,7 +46,7 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBAction func onTapDateLabel(_ sender: UITapGestureRecognizer) {
-        if showingDatePicker == false {
+        if showingDatePicker == true {
             return
         }
         
@@ -80,6 +85,7 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
         }
 
         ParseClient.sharedInstance.saveEntries(image: image, weather: weatherPickerData[weatherPicker.selectedRow(inComponent: 0)], date: datePicker.date, description: descriptionTextField.text, coordinate: pointAnnotation.coordinate, toJournal: journal, completion: { () in
+            self.delegate?.didDismissComposeJournalEntryLocationPickerViewWithNewEntry()
             self.dismiss(animated: true, completion: nil)
         })
     }
