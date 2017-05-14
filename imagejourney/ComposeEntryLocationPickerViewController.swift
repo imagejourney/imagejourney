@@ -39,6 +39,7 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var descriptionTextField: UITextField!
     @IBAction func onTapDateLabel(_ sender: UITapGestureRecognizer) {
         if showingDatePicker {
             return
@@ -77,8 +78,10 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
             showErrorAlert()
             return
         }
-        
-        ParseClient.sharedInstance.saveEntries(image: image, weather: weatherPickerData[weatherPicker.selectedRow(inComponent: 0)], date: datePicker.date, description: "test desc", coordinate: pointAnnotation.coordinate, toJournal: journal, completion: {})
+
+        ParseClient.sharedInstance.saveEntries(image: image, weather: weatherPickerData[weatherPicker.selectedRow(inComponent: 0)], date: datePicker.date, description: descriptionTextField.text, coordinate: pointAnnotation.coordinate, toJournal: journal, completion: { () in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     func showErrorAlert() {

@@ -161,7 +161,7 @@ class ParseClient: NSObject {
         }
     }
     
-    func saveEntries(image: UIImage?, weather: String, date: Date, description: String, coordinate: CLLocationCoordinate2D, toJournal: Journal, completion: @escaping () -> ()) {
+    func saveEntries(image: UIImage?, weather: String, date: Date, description: String?, coordinate: CLLocationCoordinate2D, toJournal: Journal, completion: @escaping () -> ()) {
         // Save entry to Entry class
         let entryPFObject = PFObject(className: "JournalEntry")
         
@@ -188,7 +188,15 @@ class ParseClient: NSObject {
         entryPFObject.saveInBackground { (success: Bool, error: Error?) in
             if success {
                 print("Entries saved! Now trying to associate with journal")
-//                toJournal.pfObj?.add(entryPFObject.objectId!, forKey: "entries")
+                let entryDict: [String: String] = ["__type":"Pointer",
+                                                   "className":"JournalEntry",
+                                                   "objectId":entryPFObject.objectId!]
+                toJournal.pfObj?.add(entryDict, forKey: "entries")
+                do {
+                    try toJournal.pfObj?.save()
+                } catch {
+                    print(error)
+                }
                 completion()
             } else {
                 print("Could not save entries. Error: \(String(describing: error?.localizedDescription))")

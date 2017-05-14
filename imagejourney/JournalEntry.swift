@@ -10,7 +10,7 @@ import Parse
 import UIKit
 
 class JournalEntry: NSObject {
-    var imageUrls: [URL]? = []
+    var image: UIImage?
     var date: Date?
     var location: PFGeoPoint? // use Geo later
     var weather: String?
@@ -22,14 +22,20 @@ class JournalEntry: NSObject {
         } catch {
             print(error)
         }
-        if obj["imageUrls"] != nil {
-            let imageUrlArray = obj["imageUrls"] as! [Any]
-            for imageUrlAny in imageUrlArray {
-                if let imageUrl = URL(string: (imageUrlAny as? String)!) {
-                    imageUrls?.append(imageUrl)
-                }
+        
+        if let imageFile = obj["image"] as? PFFile {
+            var imageData: Data?
+            do {
+                imageData = try imageFile.getData()
+            } catch {
+                print(error)
             }
+
+            self.image = UIImage(data:imageData!)!
+        } else {
+            self.image = #imageLiteral(resourceName: "preview_image_placeholder")
         }
+        
         self.date = obj["date"] as! Date
         self.location = obj["location"] as! PFGeoPoint
         self.weather = obj["weather"] as! String

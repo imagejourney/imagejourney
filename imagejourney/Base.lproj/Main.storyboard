@@ -761,13 +761,26 @@
                                     <outletCollection property="gestureRecognizers" destination="XVV-Ib-ADb" appends="YES" id="8bo-M7-MsD"/>
                                 </connections>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="civ-Gt-nPK">
-                                <rect key="frame" x="0.0" y="366" width="375" height="156"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="civ-Gt-nPK">
+                                <rect key="frame" x="50" y="358" width="276" height="152"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="276" id="bHn-5m-cwT"/>
+                                    <constraint firstAttribute="width" constant="276" id="d6z-QI-aEU"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="152" id="fun-hU-qSb"/>
+                                    <constraint firstAttribute="height" constant="152" id="ux6-FS-Smd"/>
+                                </constraints>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-Dm-mfi">
-                                <rect key="frame" x="138" y="530" width="101" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZaL-0j-Jlx">
+                                <rect key="frame" x="10" y="510" width="355" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Wic-iT-9bS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bd3-Dm-mfi">
+                                <rect key="frame" x="137" y="600" width="101" height="30"/>
                                 <state key="normal" title="Upload Photos"/>
                                 <connections>
                                     <action selector="uploadPhotos:" destination="1ZY-OC-yMZ" eventType="touchUpInside" id="EBf-dY-pX0"/>
@@ -777,14 +790,22 @@
                         <color key="backgroundColor" red="0.78808718919754028" green="0.78791451454162598" blue="0.80853986740112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="civ-Gt-nPK" firstAttribute="leading" secondItem="QmC-8G-ewc" secondAttribute="leading" constant="50" id="0px-AI-Uju"/>
                             <constraint firstAttribute="trailing" secondItem="0p2-oo-vdP" secondAttribute="trailing" id="51e-Gj-7vT"/>
                             <constraint firstAttribute="trailing" secondItem="47Z-bY-fQa" secondAttribute="trailing" id="5HQ-9Y-ncu"/>
+                            <constraint firstItem="ZaL-0j-Jlx" firstAttribute="top" secondItem="civ-Gt-nPK" secondAttribute="bottom" id="5t7-tG-nGi"/>
                             <constraint firstItem="ZZH-jm-Klq" firstAttribute="centerX" secondItem="QmC-8G-ewc" secondAttribute="centerX" id="Ba5-wN-IIr"/>
                             <constraint firstItem="47Z-bY-fQa" firstAttribute="top" secondItem="Xav-L1-I0n" secondAttribute="bottom" id="D1y-Yb-QEn"/>
+                            <constraint firstItem="bd3-Dm-mfi" firstAttribute="top" secondItem="ZaL-0j-Jlx" secondAttribute="bottom" constant="30" id="E1v-mT-MXf"/>
+                            <constraint firstAttribute="trailing" secondItem="civ-Gt-nPK" secondAttribute="trailing" constant="49" id="MwC-Jx-63L"/>
+                            <constraint firstItem="civ-Gt-nPK" firstAttribute="top" secondItem="ZZH-jm-Klq" secondAttribute="bottom" id="aOg-cr-HLx"/>
                             <constraint firstItem="0p2-oo-vdP" firstAttribute="top" secondItem="47Z-bY-fQa" secondAttribute="bottom" id="iiW-4L-qkd"/>
+                            <constraint firstItem="bd3-Dm-mfi" firstAttribute="centerX" secondItem="QmC-8G-ewc" secondAttribute="centerX" id="mbr-M7-To3"/>
                             <constraint firstItem="0p2-oo-vdP" firstAttribute="leading" secondItem="QmC-8G-ewc" secondAttribute="leading" id="msK-P3-LyY"/>
                             <constraint firstItem="ZZH-jm-Klq" firstAttribute="top" secondItem="0p2-oo-vdP" secondAttribute="bottom" constant="20" id="s81-cr-w8I"/>
                             <constraint firstItem="47Z-bY-fQa" firstAttribute="leading" secondItem="QmC-8G-ewc" secondAttribute="leading" id="tZT-JW-k71"/>
+                            <constraint firstAttribute="trailing" secondItem="ZaL-0j-Jlx" secondAttribute="trailing" constant="10" id="ufY-6C-IWQ"/>
+                            <constraint firstItem="ZaL-0j-Jlx" firstAttribute="leading" secondItem="QmC-8G-ewc" secondAttribute="leading" constant="10" id="voU-67-V5P"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Journal Entry" id="PGs-Kj-8i5">
@@ -801,6 +822,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="ZZH-jm-Klq" id="S9P-TC-iVt"/>
+                        <outlet property="descriptionTextField" destination="ZaL-0j-Jlx" id="QNd-kV-5il"/>
                         <outlet property="mapView" destination="0p2-oo-vdP" id="oVF-Wp-B7i"/>
                         <outlet property="searchBar" destination="47Z-bY-fQa" id="bIx-aP-q69"/>
                         <outlet property="weatherPicker" destination="civ-Gt-nPK" id="6Fv-zA-2cu"/>
