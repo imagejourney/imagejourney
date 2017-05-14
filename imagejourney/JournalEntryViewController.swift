@@ -19,7 +19,7 @@ class JournalEntryViewController: UIViewController {
         didSet{
             self.loadViewIfNeeded()// should be view.layoutIfNeeded?
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MMM yyyy hh:mm:ss +zzzz"
+            dateFormatter.dateFormat = "MMM d yyyy, h:mm a"
             if let date = entry.date {
                 dateLabel.text = dateFormatter.string(from: date)
             }

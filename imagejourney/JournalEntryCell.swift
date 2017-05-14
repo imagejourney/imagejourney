@@ -19,7 +19,7 @@ class JournalEntryCell: UITableViewCell {
     var entry: JournalEntry! {
         didSet {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MMM yyyy hh:mm:ss +zzzz"
+            dateFormatter.dateFormat = "MMM d yyyy, h:mm a"
             if let date = entry.date {
                 entryTimeLabel.text = dateFormatter.string(from: date)
             }

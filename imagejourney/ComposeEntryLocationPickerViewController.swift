@@ -41,7 +41,7 @@ class ComposeEntryLocationPickerViewController: UIViewController, UISearchBarDel
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBAction func onTapDateLabel(_ sender: UITapGestureRecognizer) {
-        if showingDatePicker {
+        if showingDatePicker == false {
             return
         }
         
