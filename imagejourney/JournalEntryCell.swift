@@ -35,7 +35,9 @@ class JournalEntryCell: UITableViewCell {
                 default:
                     weatherIconView.image = UIImage(named: "sunny-icon")
             }
-//            entryLocationLabel.text = entry.location
+            JournalEntry.getLocationString(location: entry.location!, handler: {(locationString) -> Void in
+                self.entryLocationLabel.text = locationString
+            })
             entryImageView.image = entry.image
             entryDescriptionLabel.text = entry.desc
             

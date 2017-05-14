@@ -35,7 +35,9 @@ class JournalEntryViewController: UIViewController {
             default:
                 weatherIconView.image = UIImage(named: "sunny-icon")
             }
-//            locationLabel.text = entry.location
+            JournalEntry.getLocationString(location: entry.location!, handler: {(locationString) -> Void in
+                self.locationLabel.text = locationString
+            })
             imageView.image = entry.image
             descLabel.text = entry.desc
         }
