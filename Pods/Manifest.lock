@@ -15,6 +15,10 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - Bolts/Tasks (1.8.4)
+  - BSGridCollectionViewLayout (1.2.0)
+  - BSImagePicker (2.6.0):
+    - BSGridCollectionViewLayout (~> 1.2.0)
+    - UIImageViewModeScaleAspect (= 1.5)
   - GoogleMaps (2.2.0):
     - GoogleMaps/Maps (= 2.2.0)
   - GoogleMaps/Base (2.2.0)
@@ -32,19 +36,25 @@ PODS:
   - Material/Core (2.6.1)
   - Material/Photos (2.6.1):
     - Material/Core
+  - MBAutoGrowingTextView (0.1.0)
+  - OpalImagePicker (1.3.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
   - SidebarOverlay (4.1)
   - SwiftSpinner (1.2.0)
+  - UIImageViewModeScaleAspect (1.5)
 
 DEPENDENCIES:
   - AFNetworking
+  - BSImagePicker
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
   - Material (~> 2.0)
   - Material/Capture (~> 2.0)
   - Material/Photos (~> 2.0)
+  - MBAutoGrowingTextView (~> 0.1.0)
+  - OpalImagePicker
   - Parse
   - SidebarOverlay
   - SwiftSpinner
@@ -52,14 +62,19 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  BSGridCollectionViewLayout: 8f12c8e1e08c47057f5a39a6828f4395f043d78f
+  BSImagePicker: 7b740d0a9f23160bcdca01f179445583bd1c09b0
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   GooglePlacePicker: 345b1aabd42c9d6d9bf2369c1bae1234d903e764
   GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   Material: 42f8ac592669b1a01c1ac7c6fae895e4f308f74a
+  MBAutoGrowingTextView: 3955d4513be3d184fe2cb7739999c1f994dcd4d5
+  OpalImagePicker: 7a922ba1129b8502d5bebc6770f603b050b1a591
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   SidebarOverlay: b65f0a1d9331ce4bf81f82eea202b21cc8655c5a
   SwiftSpinner: 6892642232471da581ecb020a9150e07d17a954b
+  UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: f36264d8cf2447a115cbbc8ca27468d5ef1e1f39
+PODFILE CHECKSUM: 1e4db32ec73be0930a314b9d3dfca620813fdc74
 
 COCOAPODS: 1.2.0

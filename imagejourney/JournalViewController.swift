@@ -81,6 +81,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: - ComposeJournalEntryViewControllerDelegate methods
     func didDismissComposeJournalEntryLocationPickerViewWithNewEntry() {
         journal.reloadJournalData()
+        tableView.backgroundView?.isHidden = true
         tableView.reloadData()
     }
 

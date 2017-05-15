@@ -8,6 +8,7 @@
 
 import UIKit
 import SidebarOverlay
+import Photos
 
 class Helper {
     static var sideMenuController: UIViewController? = nil
@@ -31,6 +32,17 @@ class Helper {
             self.sideMenuController = storyboard.instantiateViewController(withIdentifier: "sidemenu") as? SideMenuViewController
         }
         return self.sideMenuController!
+    }
+    
+    static func getAssetThumbnail(asset: PHAsset) -> UIImage {
+        let manager = PHImageManager.default()
+        let option = PHImageRequestOptions()
+        var thumbnail = UIImage()
+        option.isSynchronous = true
+        manager.requestImage(for: asset, targetSize: CGSize(width: 100.0, height: 100.0), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+            thumbnail = result!
+        })
+        return thumbnail
     }
 }
 

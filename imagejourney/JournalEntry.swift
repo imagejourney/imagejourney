@@ -36,7 +36,7 @@ class JournalEntry: NSObject {
             self.image = #imageLiteral(resourceName: "preview_image_placeholder")
         }
         
-        self.date = obj["date"] as! Date
+        self.date = obj["date"] as? Date
         self.location = obj["location"] as! PFGeoPoint
         self.weather = obj["weather"] as! String
         self.desc = obj["description"] as! String

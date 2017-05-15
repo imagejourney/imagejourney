@@ -22,6 +22,7 @@ class Constants {
     static let LOGIN_LOADING_MSG = "Logging in..."
     static let HOMEFEED_FETCHING_MSG = "Loading journals..."
     static let PASSWORD_NOT_MATCH_MSG = "password does not match."
+    static let SAVING_JOURNAL_ENTRY_MSG = "Saving journal entry.."
     static let SIGN_UP_LOADING_MSG = "Signing up..."
     static let EMPTY_NAME_ERROR_MSG = "Name is required!"
     
@@ -37,4 +38,5 @@ class Constants {
     }
     
     static let THEME_COLOR = Helper.UIColorFromHex(rgbValue: 0x3ec8ef, alpha: 1.0)
+    static let THEME_COLOR_TWO = Helper.UIColorFromHex(rgbValue: 0xf9f9f9, alpha: 1.0)
 }
