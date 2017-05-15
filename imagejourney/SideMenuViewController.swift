@@ -74,6 +74,19 @@ class SideMenuViewController: UIViewController {
         }
     }
     
+    @IBAction func onRecentJournalNav(_ sender: Any) {
+        if currentState != Constants.MENU_STATE.most_recent_journal.rawValue {
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let journalVC = storyBoard.instantiateViewController(withIdentifier: "JournalViewController") as! JournalViewController
+            ParseClient.sharedInstance.getCurrentUserMostRecentJournal(completion: { (journal) in
+                journalVC.journal = journal
+                self.show(journalVC, sender: nil)
+            })
+        } else {
+            Helper.dismissSideMenu()
+        }
+    }
+    
     @IBAction func onProfileViewNav(_ sender: Any) {
         if currentState != Constants.MENU_STATE.profile.rawValue {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)

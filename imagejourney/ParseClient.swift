@@ -67,6 +67,25 @@ class ParseClient: NSObject {
 
     }
     
+    func getCurrentUserMostRecentJournal(completion: @escaping (Journal?) -> ()){
+        let journalsQuery = PFQuery(className: "Journal")
+        journalsQuery.includeKey("author")
+        journalsQuery.includeKey("entries")
+        journalsQuery.whereKey("author", equalTo: PFUser.current()!)
+        journalsQuery.order(byDescending: "createdAt")
+        journalsQuery.getFirstObjectInBackground { (journalPFObject, error) in
+            if error == nil && journalPFObject != nil {
+                print("Got journal")
+                let journal = Journal(obj: journalPFObject!)
+                completion(journal)
+            } else if error != nil {
+                print("Could not get journal. Error: \(String(describing: error?.localizedDescription))");
+            } else if journalPFObject == nil {
+                print("no recent journal")
+            }
+        }
+    }
+    
     func getJournalsWithCompletion(currentUserOnly: Bool, completion: @escaping ([Journal]?) -> ()) {
         let journalsQuery = PFQuery(className: "Journal")
         journalsQuery.includeKey("author")
