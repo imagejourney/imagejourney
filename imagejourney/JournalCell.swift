@@ -40,6 +40,19 @@ class JournalCell: UITableViewCell {
             previewImageTwo.setImageWith((journal.previewImageUrls?[1])!)
             previewImageThree.setImageWith((journal.previewImageUrls?[2])!)
         }
+        
+        if journal.entries != nil  {
+            if (journal.entries?.indices.contains(0))! {
+                previewImageOne.image = journal.entries?[0].image
+            }
+            if (journal.entries?.indices.contains(1))! {
+                previewImageTwo.image = journal.entries?[1].image
+            }
+            if (journal.entries?.indices.contains(2))! {
+                previewImageThree.image = journal.entries?[2].image
+
+            }
+        }
     }
 
 }

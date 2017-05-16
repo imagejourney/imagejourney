@@ -17,6 +17,12 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
 
     var journals: [Journal]? = []
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

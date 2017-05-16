@@ -25,7 +25,7 @@ class JournalEntry: NSObject {
             print(error)
         }
         
-        if let imageFile = obj["image"] as? PFFile {
+        if let imageFile = obj["image0"] as? PFFile {
             var imageData: Data?
             do {
                 imageData = try imageFile.getData()
