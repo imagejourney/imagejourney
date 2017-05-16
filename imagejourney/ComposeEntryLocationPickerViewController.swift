@@ -45,6 +45,9 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var titleText: TextField!
     @IBOutlet var descriptionText: MBAutoGrowingTextView!
+    @IBOutlet var weatherLabel: UILabel!
+    @IBOutlet var weatherView: UIView!
+    
     
     @IBAction func onCancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -57,7 +60,7 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
         }
         
         SwiftSpinner.show(Constants.SAVING_JOURNAL_ENTRY_MSG)
-        ParseClient.sharedInstance.saveEntries(images: images, weather: "Sunny", date: datePicker.date, description: descriptionText.text,title: titleText.text, coordinate: coordinate!, toJournal: journal, completion: { () in
+        ParseClient.sharedInstance.saveEntries(images: images, weather: weatherLabel.text, date: datePicker.date, description: descriptionText.text,title: titleText.text, coordinate: coordinate!, toJournal: journal, completion: { () in
             self.delegate?.didDismissComposeJournalEntryLocationPickerViewWithNewEntry()
             self.dismiss(animated: true, completion: nil)
             SwiftSpinner.hide()
@@ -181,6 +184,13 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
         })
     }
     
+    @IBAction func onWeatherSelect(_ sender: UIButton) {
+        let weatherTxt = sender.titleLabel?.text as! String
+        weatherLabel.text = weatherTxt
+        weatherLabel.isHidden = false
+        weatherView.isHidden = true
+    }
+    
     func onCalendar(_ sender: Any) {
         if showingDatePicker == true {
             return
@@ -196,6 +206,13 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
         let doneButton = UIBarButtonItem.init(title: "Done", style: UIBarButtonItemStyle.done, target: self, action: #selector(removeDatePicker));
         datePickerToolBar.setItems([doneButton], animated: true)
         self.view.addSubview(datePickerToolBar)
+    }
+    
+    func onWeather(_ sender:Any) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.weatherView.isHidden = false
+            self.weatherLabel.isHidden = true
+        })
     }
     
     func removeDatePicker() {
@@ -232,8 +249,10 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
     func setUpLabelTap(){
         let locationTap = UITapGestureRecognizer(target: self, action: #selector(self.onAddDestination))
         let calendarTap = UITapGestureRecognizer(target: self, action: #selector(self.onCalendar))
+        let weatherTap = UITapGestureRecognizer(target: self, action: #selector(self.onWeather))
         locationLabel.addGestureRecognizer(locationTap)
         travelLabel.addGestureRecognizer(calendarTap)
+        weatherLabel.addGestureRecognizer(weatherTap)
     }
 }
 
