@@ -183,9 +183,9 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
             self.locationLabel.text = place.formattedAddress
         })
     }
-    
+
     @IBAction func onWeatherSelect(_ sender: UIButton) {
-        let weatherTxt = sender.titleLabel?.text as! String
+        let weatherTxt = (sender.titleLabel?.text)! as String
         weatherLabel.text = weatherTxt
         weatherLabel.isHidden = false
         weatherView.isHidden = true
