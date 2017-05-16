@@ -26,6 +26,7 @@ protocol ComposeJournalEntryViewControllerDelegate: class {
 class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDelegate,UICollectionViewDelegate,UICollectionViewDataSource,OpalImagePickerControllerDelegate {
     var datePicker: UIDatePicker!
     var datePickerToolBar: UIToolbar!
+    var weather:String? = ""
     var showingDatePicker: Bool! = false
     var weatherPickerData: [String]! = ["Sunny", "Cloudy", "Rain", "Snow"]
     var journal: Journal!
@@ -60,7 +61,7 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
         }
         
         SwiftSpinner.show(Constants.SAVING_JOURNAL_ENTRY_MSG)
-        ParseClient.sharedInstance.saveEntries(images: images, weather: weatherLabel.text!, date: datePicker.date, description: descriptionText.text,title: titleText.text, coordinate: coordinate!, toJournal: journal, completion: { () in
+        ParseClient.sharedInstance.saveEntries(images: images, weather: weather!, date: datePicker.date, description: descriptionText.text,title: titleText.text, coordinate: coordinate!, toJournal: journal, completion: { () in
             self.delegate?.didDismissComposeJournalEntryLocationPickerViewWithNewEntry()
             self.dismiss(animated: true, completion: nil)
             SwiftSpinner.hide()
@@ -186,6 +187,7 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
 
     @IBAction func onWeatherSelect(_ sender: UIButton) {
         let weatherTxt = (sender.titleLabel?.text)! as String
+        weather = weatherTxt
         weatherLabel.text = weatherTxt
         weatherLabel.isHidden = false
         weatherView.isHidden = true
