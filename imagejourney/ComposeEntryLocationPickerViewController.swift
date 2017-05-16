@@ -60,7 +60,7 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
         }
         
         SwiftSpinner.show(Constants.SAVING_JOURNAL_ENTRY_MSG)
-        ParseClient.sharedInstance.saveEntries(images: images, weather: weatherLabel.text, date: datePicker.date, description: descriptionText.text,title: titleText.text, coordinate: coordinate!, toJournal: journal, completion: { () in
+        ParseClient.sharedInstance.saveEntries(images: images, weather: weatherLabel.text!, date: datePicker.date, description: descriptionText.text,title: titleText.text, coordinate: coordinate!, toJournal: journal, completion: { () in
             self.delegate?.didDismissComposeJournalEntryLocationPickerViewWithNewEntry()
             self.dismiss(animated: true, completion: nil)
             SwiftSpinner.hide()
@@ -209,7 +209,7 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
     }
     
     func onWeather(_ sender:Any) {
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 1, animations: {
             self.weatherView.isHidden = false
             self.weatherLabel.isHidden = true
         })
