@@ -431,12 +431,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leJ-6X-Qlf">
-                                <rect key="frame" x="15" y="108" width="345" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="265" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3fL-fI-y5E">
                                 <rect key="frame" x="0.0" y="139" width="375" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -460,7 +454,7 @@
                                                         <constraint firstAttribute="height" constant="154" id="arg-Fv-njD"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some description about this journal entry ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ew7-qd-Ua0">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some description about this journal entry ..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ew7-qd-Ua0">
                                                     <rect key="frame" x="15" y="228" width="345" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -527,20 +521,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yk8-v3-Im9">
+                                <rect key="frame" x="16" y="108" width="26" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="QxL-7q-pdg"/>
+                                    <constraint firstAttribute="height" constant="26" id="rxN-CX-xJv"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Author Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leJ-6X-Qlf">
+                                <rect key="frame" x="46" y="110" width="298" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ED5-4h-gH5" firstAttribute="top" secondItem="3fL-fI-y5E" secondAttribute="bottom" id="0bu-K5-lH7"/>
                             <constraint firstItem="3fL-fI-y5E" firstAttribute="leading" secondItem="DvR-Jv-8zd" secondAttribute="leading" id="5kK-X2-mn0"/>
                             <constraint firstItem="iLQ-Am-TE9" firstAttribute="leading" secondItem="DvR-Jv-8zd" secondAttribute="leading" constant="15" id="CaR-MK-PIU"/>
-                            <constraint firstItem="leJ-6X-Qlf" firstAttribute="top" secondItem="iLQ-Am-TE9" secondAttribute="bottom" constant="-1" id="HSp-jn-Sk4"/>
-                            <constraint firstAttribute="trailing" secondItem="leJ-6X-Qlf" secondAttribute="trailing" constant="15" id="MVo-NI-OPi"/>
+                            <constraint firstItem="leJ-6X-Qlf" firstAttribute="top" secondItem="iLQ-Am-TE9" secondAttribute="bottom" constant="1" id="HSp-jn-Sk4"/>
+                            <constraint firstAttribute="trailing" secondItem="leJ-6X-Qlf" secondAttribute="trailing" constant="31" id="MVo-NI-OPi"/>
+                            <constraint firstItem="Yk8-v3-Im9" firstAttribute="leading" secondItem="DvR-Jv-8zd" secondAttribute="leading" constant="16" id="Pbt-hh-Bht"/>
+                            <constraint firstItem="Yk8-v3-Im9" firstAttribute="top" secondItem="fWd-gS-Zmc" secondAttribute="bottom" constant="44" id="WMd-wY-D4L"/>
                             <constraint firstItem="iLQ-Am-TE9" firstAttribute="top" secondItem="fWd-gS-Zmc" secondAttribute="bottom" constant="10" id="ZCg-zc-g0G"/>
                             <constraint firstAttribute="trailing" secondItem="iLQ-Am-TE9" secondAttribute="trailing" constant="15" id="Ze0-Kg-otC"/>
                             <constraint firstItem="3fL-fI-y5E" firstAttribute="leading" secondItem="DvR-Jv-8zd" secondAttribute="leading" id="aS0-M8-Gxn"/>
                             <constraint firstAttribute="trailing" secondItem="3fL-fI-y5E" secondAttribute="trailing" id="c61-38-Ku1"/>
-                            <constraint firstItem="3fL-fI-y5E" firstAttribute="top" secondItem="leJ-6X-Qlf" secondAttribute="bottom" constant="10" id="o0q-X4-vXU"/>
-                            <constraint firstItem="leJ-6X-Qlf" firstAttribute="leading" secondItem="DvR-Jv-8zd" secondAttribute="leading" constant="15" id="sbl-ai-Wcz"/>
+                            <constraint firstItem="3fL-fI-y5E" firstAttribute="top" secondItem="leJ-6X-Qlf" secondAttribute="bottom" constant="8" id="o0q-X4-vXU"/>
+                            <constraint firstItem="leJ-6X-Qlf" firstAttribute="leading" secondItem="DvR-Jv-8zd" secondAttribute="leading" constant="46" id="sbl-ai-Wcz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PkW-MG-SYL">
@@ -551,6 +560,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="authorImageView" destination="Yk8-v3-Im9" id="nNs-SK-e9X"/>
                         <outlet property="composeNewEntryButton" destination="4rY-n8-OoS" id="qdF-1a-3ie"/>
                         <outlet property="journalAuthorLabel" destination="leJ-6X-Qlf" id="eyD-7j-Vyh"/>
                         <outlet property="journalTitleLabel" destination="iLQ-Am-TE9" id="RMZ-y7-455"/>
@@ -909,7 +919,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SearchNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="xOd-sH-FFv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uxu-nU-nSt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uxu-nU-nSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -928,7 +938,7 @@
                 <navigationController storyboardIdentifier="HomefeedNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="sRE-rH-TgT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FFB-wZ-LUL"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3Ij-aU-n2h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Ij-aU-n2h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -946,7 +956,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vew-g5-wCl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="SVw-hA-KHN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SVw-hA-KHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -964,7 +974,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInUpNav" automaticallyAdjustsScrollViewInsets="NO" id="pPS-7O-GGw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="KHb-qz-Zcu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KHb-qz-Zcu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1063,7 +1073,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="dzc-l1-7rr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="BaO-7a-E6c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BaO-7a-E6c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1082,7 +1092,7 @@
                 <navigationController storyboardIdentifier="LeftMenuNavigationController" navigationBarHidden="YES" id="AfG-jo-igv" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uv5-sX-ede">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uv5-sX-ede">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1263,7 +1273,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43j-NR-cBH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="5sZ-eH-SnW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5sZ-eH-SnW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

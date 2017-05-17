@@ -10,6 +10,7 @@ import UIKit
 
 class JournalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ComposeJournalEntryViewControllerDelegate {
     
+    @IBOutlet var authorImageView: UIImageView!
     @IBOutlet weak var journalTitleLabel: UILabel!
     @IBOutlet weak var journalAuthorLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -20,8 +21,17 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.loadViewIfNeeded()
             journalTitleLabel.text = journal.title
             if let user = journal.author {
-                journalAuthorLabel.text = "by \(user.name ?? "anonymous")"
+                journalAuthorLabel.text = "\(user.name ?? "anonymous")"
             }
+            
+            authorImageView.layer.cornerRadius = authorImageView.frame.size.width/2
+            authorImageView.clipsToBounds = true
+            if journal.author?.profileImageUrl != nil {
+                authorImageView.setImageWith((journal.author?.profileImageUrl)!)
+            } else {
+                authorImageView.image = UIImage(named: "avatar-\(arc4random_uniform(6) + 1)")
+            }
+
         }
     }
     
