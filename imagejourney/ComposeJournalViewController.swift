@@ -34,7 +34,7 @@ class ComposeJournalViewController: UIViewController {
     
     @IBAction func onCreateJournal(_ sender: UIBarButtonItem) {
         if titleTextField.text != nil && (titleTextField.text?.trimmingCharacters(in: .whitespaces).characters.count)! > 0 {
-            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!, desc:descriptionTextField.text!, longtitude:longtitude!, latitude: latitude!, entries: entries!, previewImageUrls: previewImageUrls!, completion: { (pfJournalObj: PFObject) in
+            ParseClient.sharedInstance.saveJournal(title: titleTextField.text!, desc:descriptionTextField.text!, longtitude:longtitude, latitude: latitude, entries: entries!, previewImageUrls: previewImageUrls!, completion: { (pfJournalObj: PFObject) in
                 // On success of saving object to Parse, create Journal object from the PFObject we saved and pass it delegate method in HFVC which
                 // will  segue to after dismissing the Journal creation modal
                 let newJournal = Journal.init(obj: pfJournalObj)
