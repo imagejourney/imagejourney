@@ -12,9 +12,8 @@ import ImageSlideshow
 class JournalEntryViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var weatherIconView: UIImageView!
-    
+    @IBOutlet var descTextView: UITextView!
     @IBOutlet var imageSlides: ImageSlideshow!
     var entry: JournalEntry! {
         didSet{
@@ -41,14 +40,14 @@ class JournalEntryViewController: UIViewController {
             JournalEntry.getLocationString(location: entry.location!, handler: {(locationString) -> Void in
                 self.locationLabel.text = locationString
             })
-            descLabel.text = entry.desc
+            descTextView.text = entry.desc
             var sources:[ImageSource]? = []
             for image in entry.images! {
                 sources?.append(ImageSource(image: image))
             }
             imageSlides.setImageInputs(sources!)
             imageSlides.backgroundColor = Constants.THEME_COLOR_TWO
-            imageSlides.slideshowInterval = 3.0
+            imageSlides.slideshowInterval = 4.0
             imageSlides.pageControlPosition = PageControlPosition.underScrollView
             imageSlides.pageControl.currentPageIndicatorTintColor = UIColor.gray
             imageSlides.pageControl.pageIndicatorTintColor = Constants.THEME_COLOR
