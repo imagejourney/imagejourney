@@ -9,6 +9,7 @@
 import UIKit
 import SidebarOverlay
 import Photos
+import Parse
 
 class Helper {
     static var sideMenuController: UIViewController? = nil
@@ -43,6 +44,30 @@ class Helper {
             thumbnail = result!
         })
         return thumbnail
+    }
+    
+    static func getLocationString(location: PFGeoPoint, handler: @escaping ((String) -> Void)) -> Void {
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: (location.latitude), longitude: (location.longitude))
+        var locationString = "Unknown Location"
+        geoCoder.reverseGeocodeLocation(location, completionHandler: { (placemarks, error) -> Void in
+            // Place details
+            if placemarks != nil {
+                var placeMark: CLPlacemark!
+                placeMark = placemarks?[0]
+                
+                // Location name
+                if let locationName = placeMark.addressDictionary!["Name"] as? String {
+                    locationString = locationName
+                    if let state = placeMark.addressDictionary!["State"] as? String {
+                        locationString = "\(locationName), \(state)"
+                    } else if let country = placeMark.addressDictionary!["Country"] as? String {
+                        locationString = "\(locationName), \(country)"
+                    }
+                }
+                handler(locationString)
+            }
+        })
     }
 }
 

@@ -44,7 +44,7 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
         journalCountLabel.text = "0 journals"
         
         // Fetch journals to show
-        SwiftSpinner.show(Constants.HOMEFEED_FETCHING_MSG)
+        SwiftSpinner.show(Constants.PROFILE_LOADING_MSG)
         ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: true, completion: { (journals: [Journal]?) in
             if journals != nil {
                 self.journals = journals

@@ -21,9 +21,11 @@ class Constants {
     
     static let LOGIN_LOADING_MSG = "Logging in..."
     static let HOMEFEED_FETCHING_MSG = "Loading journals..."
+    static let PROFILE_LOADING_MSG = "Loading Profile.."
     static let PASSWORD_NOT_MATCH_MSG = "password does not match."
-    static let SAVING_JOURNAL_ENTRY_MSG = "Saving journal entry.."
+    static let SAVING_JOURNAL_ENTRY_MSG = "Saving Journal Entry.."
     static let SIGN_UP_LOADING_MSG = "Signing up..."
+    static let SEARCHING_MSG = "Searching a Variaty of Journals..."
     static let EMPTY_NAME_ERROR_MSG = "Name is required!"
     
     // Side menu configs

@@ -10,6 +10,7 @@ import UIKit
 import SidebarOverlay
 import Material
 import MapKit
+import SwiftSpinner
 
 class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -50,13 +51,19 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
     }
     
     func performSearch() {
-        print("perform search")
         self.journals = []
         let query = searchBar.text! as String
+        var isTitleSearchFinished = false
+        var isLocationSearchFinished = false
+        SwiftSpinner.show(Constants.SEARCHING_MSG)
         ParseClient.sharedInstance.searchByJournalTitle(searchText: query) { (journals) in
             if !(journals?.isEmpty)!{
                 self.journals = self.journals! + journals!
                 self.tableView.reloadData()
+            }
+            isTitleSearchFinished = true
+            if isTitleSearchFinished && isLocationSearchFinished {
+                SwiftSpinner.hide()
             }
         }
         let geocoder = CLGeocoder()
@@ -68,10 +75,21 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
                             self.journals = self.journals! + journals!
                             self.tableView.reloadData()
                         }
+                        isLocationSearchFinished = true
+                        if isTitleSearchFinished && isLocationSearchFinished {
+                            SwiftSpinner.hide()
+                        }
                     })
                 }
             }
         })
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            self.journals = []
+            self.tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

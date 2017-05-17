@@ -8,6 +8,7 @@
 
 import AFNetworking
 import UIKit
+import Parse
 
 class JournalCell: UITableViewCell {
 
@@ -16,7 +17,7 @@ class JournalCell: UITableViewCell {
     @IBOutlet weak var previewImageOne: UIImageView!
     @IBOutlet weak var previewImageTwo: UIImageView!
     @IBOutlet weak var previewImageThree: UIImageView!
-    
+    @IBOutlet var authorProfileImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,8 +30,23 @@ class JournalCell: UITableViewCell {
     }
     
     func buildCellWithJournal(journal: Journal) {
+        // If authorProfileImg is nil, it's in ProfileView
+        if authorProfileImg != nil {
+            authorProfileImg.layer.cornerRadius = authorProfileImg.frame.size.width/2
+            authorProfileImg.clipsToBounds = true
+            if journal.author?.profileImageUrl != nil {
+                authorProfileImg.setImageWith((journal.author?.profileImageUrl)!)
+            } else {
+                authorProfileImg.image = UIImage(named: "avatar-\(arc4random_uniform(6) + 1)")
+            }
+            let geoPoint = PFGeoPoint.init(latitude: journal.latitude!, longitude: journal.longitude!)
+            Helper.getLocationString(location: geoPoint, handler: {(locationString) -> Void in
+                let splits:[String] = locationString.components(separatedBy: ",")
+                self.tripTitleLabel.text = "Trip to \(splits.last!.trimmingCharacters(in: NSCharacterSet.whitespaces))"
+            })
+        }
         tripTitleLabel.text = journal.title
-        authorName.text = "by \(journal.author?.name ?? "anonymous")"
+        authorName.text = "\(journal.author?.name ?? "anonymous")"
         if journal.previewImages == nil || (journal.previewImages?.count)! == 0 {
             previewImageOne.image = #imageLiteral(resourceName: "preview_image_placeholder")
             previewImageTwo.image = #imageLiteral(resourceName: "preview_image_placeholder")

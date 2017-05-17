@@ -27,13 +27,15 @@ class JournalEntryViewController: UIViewController {
             let weatherTypeString: String = entry.weather!
             switch weatherTypeString {
             case "Cloudy":
-                weatherIconView.image = UIImage(named: "cloudy-icon")
-            case "Rain":
-                weatherIconView.image = UIImage(named: "rain-icon")
-            case "Snow":
-                weatherIconView.image = UIImage(named: "snow-icon")
+                weatherIconView.image = UIImage(named: "cloud")
+            case "Rainy":
+                weatherIconView.image = UIImage(named: "rain")
+            case "Snowy":
+                weatherIconView.image = UIImage(named: "snow")
+            case "Flashy":
+                weatherIconView.image = UIImage(named: "flash")
             default:
-                weatherIconView.image = UIImage(named: "sunny-icon")
+                weatherIconView.image = UIImage(named: "sun")
             }
             JournalEntry.getLocationString(location: entry.location!, handler: {(locationString) -> Void in
                 self.locationLabel.text = locationString
