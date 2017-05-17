@@ -31,28 +31,22 @@ class JournalCell: UITableViewCell {
     func buildCellWithJournal(journal: Journal) {
         tripTitleLabel.text = journal.title
         authorName.text = "by \(journal.author?.name ?? "anonymous")"
-        if journal.previewImageUrls == nil || (journal.previewImageUrls?.count)! == 0 {
+        if journal.previewImages == nil || (journal.previewImages?.count)! == 0 {
             previewImageOne.image = #imageLiteral(resourceName: "preview_image_placeholder")
             previewImageTwo.image = #imageLiteral(resourceName: "preview_image_placeholder")
             previewImageThree.image = #imageLiteral(resourceName: "preview_image_placeholder")
         } else {
-            previewImageOne.setImageWith((journal.previewImageUrls?[0])!)
-            previewImageTwo.setImageWith((journal.previewImageUrls?[1])!)
-            previewImageThree.setImageWith((journal.previewImageUrls?[2])!)
-        }
-        
-        if journal.entries != nil  {
-            if (journal.entries?.indices.contains(0))! {
-                previewImageOne.image = journal.entries?[0].image
+            previewImageOne.image = journal.previewImages?[0]
+            if((journal.previewImages?.count)! > 0){
+                previewImageTwo.image = journal.previewImages?[1]
+            }else{
+                previewImageTwo.image = #imageLiteral(resourceName: "preview_image_placeholder")
             }
-            if (journal.entries?.indices.contains(1))! {
-                previewImageTwo.image = journal.entries?[1].image
-            }
-            if (journal.entries?.indices.contains(2))! {
-                previewImageThree.image = journal.entries?[2].image
-
+            if((journal.previewImages?.count)! > 1){
+                previewImageThree.image = journal.previewImages?[2]
+            }else{
+                previewImageThree.image = #imageLiteral(resourceName: "preview_image_placeholder")
             }
         }
     }
-
 }

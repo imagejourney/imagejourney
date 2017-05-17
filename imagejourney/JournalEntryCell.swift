@@ -27,18 +27,24 @@ class JournalEntryCell: UITableViewCell {
             let weatherTypeString: String = entry.weather!
             switch weatherTypeString {
                 case "Cloudy":
-                    weatherIconView.image = UIImage(named: "cloudy-icon")
-                case "Rain":
-                    weatherIconView.image = UIImage(named: "rain-icon")
-                case "Snow":
-                    weatherIconView.image = UIImage(named: "snow-icon")
+                    weatherIconView.image = UIImage(named: "cloud")
+                case "Rainy":
+                    weatherIconView.image = UIImage(named: "rain")
+                case "Snowy":
+                    weatherIconView.image = UIImage(named: "snow")
+                case "Flashy":
+                    weatherIconView.image = UIImage(named: "flash")
                 default:
-                    weatherIconView.image = UIImage(named: "sunny-icon")
+                    weatherIconView.image = UIImage(named: "sun")
             }
             JournalEntry.getLocationString(location: entry.location!, handler: {(locationString) -> Void in
                 self.entryLocationLabel.text = locationString
             })
-            entryImageView.image = entry.image
+            if (entry.images?.isEmpty)! {
+               entryImageView.image = #imageLiteral(resourceName: "preview_image_placeholder")
+            } else{
+               entryImageView.image = entry.images?[0]
+            }
             entryDescriptionLabel.text = entry.desc
             
             

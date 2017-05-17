@@ -11,7 +11,7 @@ import UIKit
 import MapKit
 
 class JournalEntry: NSObject {
-    var image: UIImage?
+    var images: [UIImage]? = []
     var date: Date?
     var location: PFGeoPoint? // use Geo later
     var weather: String?
@@ -25,18 +25,18 @@ class JournalEntry: NSObject {
             print(error)
         }
         
-        if let imageFile = obj["image0"] as? PFFile {
-            var imageData: Data?
-            do {
-                imageData = try imageFile.getData()
-                self.image = UIImage(data:imageData!)!
-            } catch {
-                print(error)
+        for index in 0...8 {
+            if let imageFile = obj["image\(index)"] as? PFFile {
+                var imageData: Data?
+                do {
+                    imageData = try imageFile.getData()
+                    self.images?.append(UIImage(data:imageData!)!)
+                } catch {
+                    print(error)
+                }
             }
-        } else {
-            self.image = #imageLiteral(resourceName: "preview_image_placeholder")
         }
-        
+
         self.date = obj["date"] as? Date
         self.location = obj["location"] as! PFGeoPoint
         self.title = obj["title"] as? String
