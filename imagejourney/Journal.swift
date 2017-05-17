@@ -14,11 +14,11 @@ class Journal: NSObject {
     var title: String?
     var author: User?
     var entries: [JournalEntry]?
-    var previewImageUrls: [URL]? = []
+    var previewImages: [UIImage]? = []
     var latitude: CLLocationDegrees?
     var longitude: CLLocationDegrees?
     var pfObj: PFObject?
-    
+    let PREVIEW_IMAGES_LIMIT = 3
     init(obj: PFObject) {
         do {
             try obj.fetchIfNeeded()
@@ -33,6 +33,18 @@ class Journal: NSObject {
         self.author = User(obj: pfUser)
         let entryObjArray = obj["entries"] as! [PFObject]
         self.entries = JournalEntry.journalEntriesFromArray(pfObjectArray: entryObjArray)
+
+        for entry in self.entries! {
+            if (previewImages?.count)! >= PREVIEW_IMAGES_LIMIT {
+                break
+            }
+            let images = entry.images
+            if !(images?.isEmpty)!{
+                for image in images!{
+                    previewImages?.append(image)
+                }
+            }
+        }
     }
     
     class func journalsFromArray(pfObjectArray: [PFObject]) -> [Journal] {

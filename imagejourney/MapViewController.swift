@@ -62,16 +62,24 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     
     func fitAllMarkersWithJournals() {
         let path = GMSMutablePath()
+        var checkHelper:[String:Bool] = [:]
         for journal in journals! {
-            if journal.previewImageUrls != nil && !(journal.previewImageUrls?.isEmpty)! && journal.latitude != nil && (journal.longitude != nil) {
+            if !(journal.previewImages?.isEmpty)! && journal.latitude != nil && (journal.longitude != nil) {
+                let coodinate = CLLocationCoordinate2D(latitude: journal.latitude!, longitude: journal.longitude!)
+                let key = "\(journal.latitude!)\(journal.longitude!)"
+                if checkHelper[key] != nil {
+                    continue
+                }else{
+                    checkHelper[key] = true
+                }
                 let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2D(latitude: journal.latitude!, longitude: journal.longitude!)
+                marker.position = coodinate
                 marker.title = journal.title
                 marker.snippet = journal.author?.name
                 
                 // testing the image view
                 let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-                imageView.setImageWith(journal.previewImageUrls![0])
+                imageView.image = journal.previewImages?[0]
                 marker.iconView = imageView
                 marker.map = mapView
                 marker.userData = journal

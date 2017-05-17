@@ -38,7 +38,11 @@ class JournalEntryViewController: UIViewController {
             JournalEntry.getLocationString(location: entry.location!, handler: {(locationString) -> Void in
                 self.locationLabel.text = locationString
             })
-            imageView.image = entry.image
+            if (entry.images?.isEmpty)!{
+                imageView.image = #imageLiteral(resourceName: "preview_image_placeholder")
+            } else {
+                imageView.image = entry.images?[0]
+            }
             descLabel.text = entry.desc
         }
     }

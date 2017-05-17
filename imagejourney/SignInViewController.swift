@@ -81,7 +81,7 @@ extension SignInViewController {
         leftView.tintColor = Constants.THEME_COLOR
         emailField.leftView = leftView
         
-        view.layout(emailField).center(offsetY: -passwordField.height - Constants.LOGIN_EMAIL_FIELD_OFFSET).left(Constants.LOGIN_FIELD_MARGIN).right(Constants.LOGIN_FIELD_MARGIN)
+        view.layout(emailField).center(offsetY: -passwordField.height - Constants.LOGIN_EMAIL_FIELD_OFFSET - 20).left(Constants.LOGIN_FIELD_MARGIN).right(Constants.LOGIN_FIELD_MARGIN)
         emailField.becomeFirstResponder()
     }
     
