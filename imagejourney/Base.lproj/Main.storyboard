@@ -811,11 +811,15 @@
                                     <constraint firstAttribute="height" constant="21" id="jdn-3d-vo3"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xn-Jl-2nE">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xn-Jl-2nE">
                                 <rect key="frame" x="42" y="481" width="132.5" height="21"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ic8-WR-UWx" appends="YES" id="Joh-AI-yHn"/>
+                                </connections>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="snow-icon" translatesAutoresizingMaskIntoConstraints="NO" id="VkA-GL-t1W">
                                 <rect key="frame" x="318" y="481" width="40" height="40"/>
@@ -873,6 +877,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbY-uX-R9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ic8-WR-UWx">
+                    <connections>
+                        <action selector="onLocationLabelTap:" destination="vpf-Q9-Cja" id="ro5-kB-Tn9"/>
+                        <segue destination="kgR-nR-a8q" kind="show" identifier="entryToMapView" id="Vt7-n2-w4x"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="5992.8000000000002" y="133.5832083958021"/>
         </scene>
@@ -1590,5 +1600,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="HK3-sY-hwV"/>
         <segue reference="6JO-Zh-ei7"/>
+        <segue reference="Vt7-n2-w4x"/>
     </inferredMetricsTieBreakers>
 </document>

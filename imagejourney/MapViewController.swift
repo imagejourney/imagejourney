@@ -14,6 +14,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     var markerList = [GMSMarker]()
     var data = [Dictionary<String, Any>]()
     var journals: [Journal]? = []
+    var entry: JournalEntry?
     var mapView:GMSMapView?
     
     override func viewDidLoad() {
@@ -47,17 +48,39 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         
         // ***************************************************************************************************
         
-        let camera = GMSCameraPosition.camera(withLatitude: -33.8683, longitude: 151.2086, zoom: 6)
+        let camera = GMSCameraPosition.camera(withLatitude: -33.8683, longitude: 151.2086, zoom: 1.0)
         mapView = GMSMapView.map(withFrame: .zero, camera: camera)
+        mapView?.settings.scrollGestures = true
+        mapView?.settings.zoomGestures = true
         mapView?.delegate = self
         view = mapView
         
-        if (journals?.isEmpty)! {
+        if entry != nil {
+            fitEntryMarker()
+        } else if (journals?.isEmpty)! {
             fitAllMarkers()
         } else {
             fitAllMarkersWithJournals()
         }
         self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
+    }
+    
+    func fitEntryMarker(){
+        let marker = GMSMarker()
+        let location = CLLocationCoordinate2D(latitude: (entry?.location?.latitude)!, longitude: (entry?.location?.longitude)! )
+        marker.position = location
+        marker.title = entry?.title
+        marker.snippet = entry?.desc
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        if (entry?.images?.isEmpty)! {
+            imageView.image = #imageLiteral(resourceName: "preview_image_placeholder")
+        } else {
+            imageView.image = entry?.images?[0]
+        }
+        marker.iconView = imageView
+        marker.map = mapView
+        mapView?.animate(toLocation: location)
+        mapView?.animate(toZoom: 6.0)
     }
     
     func fitAllMarkersWithJournals() {
