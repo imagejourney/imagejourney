@@ -17,6 +17,6 @@ target 'imagejourney' do
   pod 'GooglePlaces'
   pod 'GoogleMaps'
   pod 'MBAutoGrowingTextView', '~> 0.1.0'
-  pod 'BSImagePicker'
   pod 'OpalImagePicker'
+  pod 'ImageSlideshow'
 end

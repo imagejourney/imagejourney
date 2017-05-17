@@ -10,7 +10,6 @@ import MapKit
 import Parse
 import UIKit
 import Material
-import BSImagePicker
 import Photos
 import OpalImagePicker
 import GooglePlaces

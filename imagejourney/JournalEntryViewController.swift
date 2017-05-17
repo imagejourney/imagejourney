@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class JournalEntryViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var weatherIconView: UIImageView!
     
+    @IBOutlet var imageSlides: ImageSlideshow!
     var entry: JournalEntry! {
         didSet{
             self.loadViewIfNeeded()// should be view.layoutIfNeeded?
@@ -40,12 +41,20 @@ class JournalEntryViewController: UIViewController {
             JournalEntry.getLocationString(location: entry.location!, handler: {(locationString) -> Void in
                 self.locationLabel.text = locationString
             })
-            if (entry.images?.isEmpty)!{
-                imageView.image = #imageLiteral(resourceName: "preview_image_placeholder")
-            } else {
-                imageView.image = entry.images?[0]
-            }
             descLabel.text = entry.desc
+            var sources:[ImageSource]? = []
+            for image in entry.images! {
+                sources?.append(ImageSource(image: image))
+            }
+            imageSlides.setImageInputs(sources!)
+            imageSlides.backgroundColor = Constants.THEME_COLOR_TWO
+            imageSlides.slideshowInterval = 3.0
+            imageSlides.pageControlPosition = PageControlPosition.underScrollView
+            imageSlides.pageControl.currentPageIndicatorTintColor = UIColor.gray
+            imageSlides.pageControl.pageIndicatorTintColor = Constants.THEME_COLOR
+            
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTapOnSlides))
+            imageSlides.addGestureRecognizer(recognizer)
         }
     }
     
@@ -55,6 +64,10 @@ class JournalEntryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func didTapOnSlides(){
+        imageSlides.presentFullScreenController(from: self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
