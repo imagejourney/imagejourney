@@ -17,11 +17,13 @@ class SideMenuViewController: UIViewController {
     @IBOutlet var curUserImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        user = User.getCurrentUser()
-        setupProfile()
         currentState = Constants.MENU_STATE.home_feed.rawValue
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        user = User.getCurrentUser()
+        setupProfile()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,7 +37,7 @@ class SideMenuViewController: UIViewController {
         } else {
             curUserImageView.image = UIImage(named: "avatar-\(arc4random_uniform(6) + 1)")
         }
-        curUserNameLabel.text = user?.name
+        curUserNameLabel.text = user?.name ?? "Anonymous"
         curUserUsernameLabel.text = "@\(String(describing: (user?.username)!))"
         
         let border = CALayer()

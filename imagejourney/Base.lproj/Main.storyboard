@@ -1130,9 +1130,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKh-y7-FNN">
-                                        <rect key="frame" x="8" y="157" width="152" height="38"/>
+                                        <rect key="frame" x="8" y="157" width="158" height="38"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                        <state key="normal" title="Recent Journal">
+                                        <state key="normal" title="Current Journal">
                                             <color key="titleColor" red="0.24313725489999999" green="0.7843137255" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>

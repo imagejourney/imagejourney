@@ -161,12 +161,16 @@ class ParseClient: NSObject {
         }
     }
     
-    func saveJournal(title: String, desc:String, longtitude:CLLocationDegrees, latitude: CLLocationDegrees, entries: [JournalEntry], previewImageUrls: [URL], completion: @escaping (PFObject) -> ()) {
+    func saveJournal(title: String, desc:String, longtitude:CLLocationDegrees?, latitude: CLLocationDegrees?, entries: [JournalEntry], previewImageUrls: [URL], completion: @escaping (PFObject) -> ()) {
         let journalObj = PFObject(className:"Journal")
         journalObj["title"] = title
         journalObj["description"] = desc
-        journalObj["latitude"] = latitude
-        journalObj["longitude"] = longtitude
+        if latitude != nil {
+            journalObj["latitude"] = latitude
+        }
+        if longtitude != nil {
+            journalObj["longitude"] = longtitude
+        }
         journalObj["author"] = PFUser.current()
         journalObj["entries"] = entries
         journalObj["previewImageUrls"] = previewImageUrls
