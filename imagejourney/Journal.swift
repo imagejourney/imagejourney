@@ -33,12 +33,6 @@ class Journal: NSObject {
         self.author = User(obj: pfUser)
         let entryObjArray = obj["entries"] as! [PFObject]
         self.entries = JournalEntry.journalEntriesFromArray(pfObjectArray: entryObjArray)
-        let previewImageUrlArray = obj["previewImageUrls"] as! [Any]
-        for previewImageUrlAny in previewImageUrlArray {
-            if let previewImageUrl = URL(string: (previewImageUrlAny as? String)!) {
-                previewImageUrls?.append(previewImageUrl)
-            }
-        }
     }
     
     class func journalsFromArray(pfObjectArray: [PFObject]) -> [Journal] {
