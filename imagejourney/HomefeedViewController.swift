@@ -20,6 +20,7 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        fetchJournals()
         tableView.reloadData()
     }
     
@@ -32,6 +33,21 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 380
         
+        // fetch journals
+        fetchJournals()
+        
+        self.menuSide = .left
+        self.sideViewController = Helper.getMenuController()
+        self.sideMenuWidth = Constants.MENU_WIDTH
+        
+        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
+        for item in self.navigationItem.rightBarButtonItems! {
+            item.tintColor = Constants.THEME_COLOR
+        }
+        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
+    }
+    
+    func fetchJournals() {
         // Fetch journals to show
         SwiftSpinner.show(Constants.HOMEFEED_FETCHING_MSG)
         ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: false, completion: { (journals: [Journal]?) in
@@ -43,16 +59,6 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
             }
             SwiftSpinner.hide()
         })
-        
-        self.menuSide = .left
-        self.sideViewController = Helper.getMenuController()
-        self.sideMenuWidth = Constants.MENU_WIDTH
-        
-        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
-        for item in self.navigationItem.rightBarButtonItems! {
-            item.tintColor = Constants.THEME_COLOR
-        }
-        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
     }
     
     @IBAction func showMenu(_ sender: Any) {

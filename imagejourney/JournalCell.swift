@@ -53,12 +53,12 @@ class JournalCell: UITableViewCell {
             previewImageThree.image = #imageLiteral(resourceName: "preview_image_placeholder")
         } else {
             previewImageOne.image = journal.previewImages?[0]
-            if((journal.previewImages?.count)! > 0){
+            if((journal.previewImages?.count)! > 1){
                 previewImageTwo.image = journal.previewImages?[1]
             }else{
                 previewImageTwo.image = #imageLiteral(resourceName: "preview_image_placeholder")
             }
-            if((journal.previewImages?.count)! > 1){
+            if((journal.previewImages?.count)! > 2){
                 previewImageThree.image = journal.previewImages?[2]
             }else{
                 previewImageThree.image = #imageLiteral(resourceName: "preview_image_placeholder")
