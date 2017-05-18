@@ -21,7 +21,6 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         super.viewWillAppear(animated)
         
         fetchJournals()
-        tableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -35,6 +34,9 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         
         // fetch journals
         fetchJournals()
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshControlAction(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
         
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
@@ -57,6 +59,21 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
             } else {
                 print("journals fetch failed")
             }
+            SwiftSpinner.hide()
+        })
+    }
+    
+    func refreshControlAction(_ refreshControl: UIRefreshControl) {
+        // Fetch journals to show
+        SwiftSpinner.show(Constants.HOMEFEED_FETCHING_MSG)
+        ParseClient.sharedInstance.getJournalsWithCompletion(currentUserOnly: false, completion: { (journals: [Journal]?) in
+            if journals != nil {
+                self.journals = journals
+                self.tableView.reloadData()
+            } else {
+                print("journals fetch failed")
+            }
+            refreshControl.endRefreshing()
             SwiftSpinner.hide()
         })
     }

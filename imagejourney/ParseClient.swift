@@ -94,7 +94,7 @@ class ParseClient: NSObject {
         if currentUserOnly {
             journalsQuery.whereKey("author", equalTo: PFUser.current()!)
         }
-        
+        journalsQuery.order(byDescending: "createdAt")
         journalsQuery.findObjectsInBackground { (journalPFObjects: [PFObject]?, error: Error?) in
             if error == nil && journalPFObjects != nil && (journalPFObjects?.count)! > 0 {
                 print("Got journals")
