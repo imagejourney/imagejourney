@@ -39,11 +39,13 @@ class JournalCell: UITableViewCell {
             } else {
                 authorProfileImg.image = UIImage(named: "avatar-\(arc4random_uniform(6) + 1)")
             }
-            let geoPoint = PFGeoPoint.init(latitude: journal.latitude!, longitude: journal.longitude!)
-            Helper.getLocationString(location: geoPoint, handler: {(locationString) -> Void in
-                let splits:[String] = locationString.components(separatedBy: ",")
-                self.tripTitleLabel.text = "Trip to \(splits.last!.trimmingCharacters(in: NSCharacterSet.whitespaces))"
-            })
+            if let latitude = journal.latitude as CLLocationDegrees!, let longitude = journal.longitude as CLLocationDegrees! {
+                let geoPoint = PFGeoPoint.init(latitude: latitude, longitude: longitude)
+                Helper.getLocationString(location: geoPoint, handler: {(locationString) -> Void in
+                    let splits:[String] = locationString.components(separatedBy: ",")
+                    self.tripTitleLabel.text = "Trip to \(splits.last!.trimmingCharacters(in: NSCharacterSet.whitespaces))"
+                })
+            }
         }
         tripTitleLabel.text = journal.title
         authorName.text = "\(journal.author?.name ?? "anonymous")"

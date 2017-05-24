@@ -77,7 +77,7 @@ extension SignInViewController {
         emailField.delegate = self
         
         let leftView = UIImageView()
-        leftView.image = UIImage(named: "email")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        leftView.image = UIImage(named: "account")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         leftView.tintColor = Constants.THEME_COLOR
         emailField.leftView = leftView
         
