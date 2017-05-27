@@ -15,9 +15,16 @@ class SideMenuViewController: UIViewController {
     @IBOutlet var curUserNameLabel: UILabel!
     @IBOutlet var profileViewContainer: UIView!
     @IBOutlet var curUserImageView: UIImageView!
+    
+    @IBOutlet weak var homeIcon: UIImageView!
+    @IBOutlet weak var journalIcon: UIImageView!
+    @IBOutlet weak var profileIcon: UIImageView!
+    @IBOutlet weak var searchIcon: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentState = Constants.MENU_STATE.home_feed.rawValue
+        self.homeIcon.tintColor = Constants.THEME_COLOR
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,6 +34,24 @@ class SideMenuViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func switchActiveIconColor(icon: String) {
+        self.homeIcon.tintColor = Constants.LIGHT_GRAY
+        self.journalIcon.tintColor = Constants.LIGHT_GRAY
+        self.profileIcon.tintColor = Constants.LIGHT_GRAY
+        self.searchIcon.tintColor = Constants.LIGHT_GRAY
+        
+        switch icon {
+            case "home":
+                self.homeIcon.tintColor = Constants.THEME_COLOR
+            case "journal":
+                self.journalIcon.tintColor = Constants.THEME_COLOR
+            case "profile":
+                self.profileIcon.tintColor = Constants.THEME_COLOR
+            default:
+                self.searchIcon.tintColor = Constants.THEME_COLOR
+        }
     }
     
     func setupProfile(){
@@ -60,6 +85,7 @@ class SideMenuViewController: UIViewController {
             let searchCtrl = storyBoard.instantiateViewController(withIdentifier: "SearchNavigationCtl") as! UINavigationController
             self.present(searchCtrl, animated: true, completion: nil)
             currentState = Constants.MENU_STATE.search.rawValue
+            self.switchActiveIconColor(icon: "search")
         } else {
             Helper.dismissSideMenu()
         }
@@ -71,6 +97,7 @@ class SideMenuViewController: UIViewController {
             let homeFeedCtrl = storyBoard.instantiateViewController(withIdentifier: "HomefeedNavigationCtl") as! UINavigationController
             self.present(homeFeedCtrl, animated: true, completion: nil)
             currentState = Constants.MENU_STATE.home_feed.rawValue
+            self.switchActiveIconColor(icon: "home")
         } else {
             Helper.dismissSideMenu()
         }
@@ -84,6 +111,7 @@ class SideMenuViewController: UIViewController {
                 journalVC.journal = journal
                 self.show(journalVC, sender: nil)
             })
+            self.switchActiveIconColor(icon: "journal")
         } else {
             Helper.dismissSideMenu()
         }
@@ -95,6 +123,7 @@ class SideMenuViewController: UIViewController {
             let profileCtrl = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigationCtl") as! UINavigationController
             self.present(profileCtrl, animated: true, completion: nil)
             currentState = Constants.MENU_STATE.profile.rawValue
+            self.switchActiveIconColor(icon: "profile")
         } else {
             Helper.dismissSideMenu()
         }
