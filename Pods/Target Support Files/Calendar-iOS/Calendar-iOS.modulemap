@@ -1,0 +1,6 @@
+framework module Calendar_iOS {
+  umbrella header "Calendar-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
