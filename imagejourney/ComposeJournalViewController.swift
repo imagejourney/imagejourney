@@ -68,10 +68,6 @@ class ComposeJournalViewController: UIViewController {
         descriptionTextField.leftView = descLeftView
         
         titleTextField.becomeFirstResponder()
-        
-        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
-        self.navigationItem.rightBarButtonItem?.tintColor = Constants.THEME_COLOR
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.THEME_COLOR]
     }
 
     @IBAction func pickPlace(_ sender: UIButton) {

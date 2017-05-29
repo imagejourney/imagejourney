@@ -62,7 +62,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         } else {
             fitAllMarkersWithJournals()
         }
-        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
     }
     
     func fitEntryMarker(){

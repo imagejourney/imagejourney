@@ -26,6 +26,8 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController!.navigationBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 70.0)
+        
         // table view defaults
         tableView.dataSource = self
         tableView.delegate = self
@@ -41,12 +43,6 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH
-        
-        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
-        for item in self.navigationItem.rightBarButtonItems! {
-            item.tintColor = Constants.THEME_COLOR
-        }
-        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
     }
     
     func fetchJournals() {

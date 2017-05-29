@@ -157,12 +157,6 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
         setUpImagePicker()
         setUpCalendarPicker()
         setUpLabelTap()
-        
-        // Navigation bar set up
-        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
-        self.navigationItem.rightBarButtonItem?.tintColor = Constants.THEME_COLOR
-        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR_TWO
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.THEME_COLOR]
     }
     
     func onAddDestination(_ sender: Any) {

@@ -35,9 +35,6 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH
-        
-        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
-        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
     }
 
     override func didReceiveMemoryWarning() {

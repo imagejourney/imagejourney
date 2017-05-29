@@ -56,8 +56,6 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
             SwiftSpinner.hide()
         })
         
-        self.navigationItem.leftBarButtonItem?.tintColor = Constants.THEME_COLOR
-        self.navigationController?.navigationBar.tintColor = Constants.THEME_COLOR
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()
         self.sideMenuWidth = Constants.MENU_WIDTH
