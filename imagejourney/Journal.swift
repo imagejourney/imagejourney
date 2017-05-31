@@ -18,7 +18,7 @@ class Journal: NSObject {
     var latitude: CLLocationDegrees?
     var longitude: CLLocationDegrees?
     var pfObj: PFObject?
-    let PREVIEW_IMAGES_LIMIT = 3
+    let PREVIEW_IMAGES_LIMIT = 6
     init(obj: PFObject) {
         do {
             try obj.fetchIfNeeded()

@@ -33,6 +33,7 @@ class HomefeedViewController: SOContainerViewController, UITableViewDelegate, UI
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 380
+        tableView.separatorStyle = .none
         
         // fetch journals
         fetchJournals()

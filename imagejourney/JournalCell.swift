@@ -15,10 +15,8 @@ class JournalCell: UITableViewCell {
     @IBOutlet weak var journalTitleLabel: UILabel!
     @IBOutlet weak var tripTitleLabel: UILabel!
     @IBOutlet weak var authorName: UILabel!
-    @IBOutlet weak var previewImageOne: UIImageView!
-    @IBOutlet weak var previewImageTwo: UIImageView!
-    @IBOutlet weak var previewImageThree: UIImageView!
     @IBOutlet var authorProfileImg: UIImageView!
+    @IBOutlet weak var imageCollageView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,22 +49,47 @@ class JournalCell: UITableViewCell {
             }
         }
         authorName.text = "\(journal.author?.name ?? "anonymous")"
-        if journal.previewImages == nil || (journal.previewImages?.count)! == 0 {
-            previewImageOne.image = #imageLiteral(resourceName: "preview_image_placeholder")
-            previewImageTwo.image = #imageLiteral(resourceName: "preview_image_placeholder")
-            previewImageThree.image = #imageLiteral(resourceName: "preview_image_placeholder")
-        } else {
-            previewImageOne.image = journal.previewImages?[0]
-            if((journal.previewImages?.count)! > 1){
-                previewImageTwo.image = journal.previewImages?[1]
-            }else{
-                previewImageTwo.image = #imageLiteral(resourceName: "preview_image_placeholder")
+        
+        // Clear images from previous view
+        for subview in self.imageCollageView.subviews {
+            if subview.tag == 999 {
+                subview.removeFromSuperview()
             }
-            if((journal.previewImages?.count)! > 2){
-                previewImageThree.image = journal.previewImages?[2]
-            }else{
-                previewImageThree.image = #imageLiteral(resourceName: "preview_image_placeholder")
+        }
+
+        var counter = 0
+        var currColumnHeights = [0, 0, 0]
+        while counter < 6 {
+            if (journal.previewImages != nil && (journal.previewImages?.count)! > counter) {
+                let uiImage = UIImageView(image: journal.previewImages?[counter])
+                if (uiImage.frame.height >= uiImage.frame.width) {
+                    let scaleFactor = uiImage.frame.width / 110
+                    var newHeight = Int(uiImage.frame.height / scaleFactor)
+                    newHeight = (newHeight + currColumnHeights[counter % 3]) < Int(imageCollageView.frame.height) ? newHeight : Int(imageCollageView.frame.height) - currColumnHeights[counter % 3]
+                    uiImage.frame = CGRect(x: (counter % 3) * 115, y: currColumnHeights[counter % 3], width: 110, height: newHeight)
+                    currColumnHeights[counter % 3] = newHeight + 5
+                } else {
+                    uiImage.frame = CGRect(x: (counter % 3) * 115, y: currColumnHeights[counter % 3], width: 110, height: 110)
+                    currColumnHeights[counter % 3] = 115
+                }
+                uiImage.contentMode = UIViewContentMode.scaleAspectFill
+                uiImage.masksToBounds = true
+                uiImage.tag = 999
+                imageCollageView.addSubview(uiImage)
+            } else {
+                let newHeight = currColumnHeights[counter % 3] == 0 ? 110 : imageCollageView.frame.height - CGFloat(currColumnHeights[counter % 3]) - 5.0;
+                let view = UIView(frame: CGRect(x: (counter % 3) * 115, y: currColumnHeights[counter % 3], width: 110, height: Int(newHeight)))
+                if (currColumnHeights[counter % 3] == 0) {
+                    currColumnHeights[counter % 3] = 115
+                }
+                view.backgroundColor = Constants.LIGHT_GRAY
+                view.tag = 999
+                view.masksToBounds = true
+                imageCollageView.addSubview(view)
             }
+            imageCollageView.cornerRadius = 5
+            imageCollageView.masksToBounds = true
+            counter += 1
         }
     }
 }
