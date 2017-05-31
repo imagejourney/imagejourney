@@ -33,13 +33,13 @@
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "imagejourney_app_icon_smaller.png",
+      "filename" : "imagejourney_app_icon2_smaller.png",
       "scale" : "2x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "imagejourney_app_icon.png",
+      "filename" : "imagejourney_app_icon2.png",
       "scale" : "3x"
     }
   ],
