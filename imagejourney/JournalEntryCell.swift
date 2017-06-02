@@ -15,6 +15,20 @@ class JournalEntryCell: UITableViewCell {
     @IBOutlet weak var entryImageView: UIImageView!
     @IBOutlet weak var entryDescriptionLabel: UILabel!
     @IBOutlet weak var weatherIconView: UIImageView!
+    @IBOutlet weak var topMapLine: UIView!
+    @IBOutlet weak var mapPin: UIImageView!
+    @IBOutlet weak var bottomMapLine: UIView!
+    
+    var isFirst: Bool! {
+        didSet {
+            topMapLine.isHidden = isFirst
+        }
+    }
+    var isLast: Bool! {
+        didSet {
+            bottomMapLine.isHidden = isLast
+        }
+    }
     
     var entry: JournalEntry! {
         didSet {
@@ -46,8 +60,6 @@ class JournalEntryCell: UITableViewCell {
                entryImageView.image = entry.images?[0]
             }
             entryDescriptionLabel.text = entry.desc
-            
-            
         }
     }
     

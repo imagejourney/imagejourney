@@ -48,6 +48,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 380
+        tableView.separatorStyle = .none
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,6 +71,16 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryCell") as! JournalEntryCell
         let entry = journal.entries?[indexPath.row]
+        if indexPath.row == 0 {
+            cell.isFirst = true
+            print("first cell")
+        }
+        if let entries = journal.entries {
+            if indexPath.row == entries.count - 1 {
+                cell.isLast = true
+                print("last cell")
+            }
+        }
         cell.entry = entry
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
