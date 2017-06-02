@@ -20,11 +20,17 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var journalIcon: UIImageView!
     @IBOutlet weak var profileIcon: UIImageView!
     @IBOutlet weak var searchIcon: UIImageView!
+
+    @IBOutlet weak var homefeedLabel: UIButton!
+    @IBOutlet weak var currentJournalLabel: UIButton!
+    @IBOutlet weak var profileLabel: UIButton!
+    @IBOutlet weak var searchLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         currentState = Constants.MENU_STATE.home_feed.rawValue
         self.homeIcon.tintColor = Constants.THEME_COLOR
+        self.homefeedLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,15 +48,24 @@ class SideMenuViewController: UIViewController {
         self.profileIcon.tintColor = Constants.LIGHT_GRAY
         self.searchIcon.tintColor = Constants.LIGHT_GRAY
         
+        self.homefeedLabel.setTitleColor(Constants.DARK_GRAY, for: .normal)
+        self.currentJournalLabel.setTitleColor(Constants.DARK_GRAY, for: .normal)
+        self.profileLabel.setTitleColor(Constants.DARK_GRAY, for: .normal)
+        self.searchLabel.setTitleColor(Constants.DARK_GRAY, for: .normal)
+        
         switch icon {
             case "home":
                 self.homeIcon.tintColor = Constants.THEME_COLOR
+                self.homefeedLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
             case "journal":
                 self.journalIcon.tintColor = Constants.THEME_COLOR
+                self.currentJournalLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
             case "profile":
                 self.profileIcon.tintColor = Constants.THEME_COLOR
+                self.profileLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
             default:
                 self.searchIcon.tintColor = Constants.THEME_COLOR
+                self.searchLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
         }
     }
     

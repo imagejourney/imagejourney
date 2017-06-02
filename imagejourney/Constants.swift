@@ -42,4 +42,5 @@ class Constants {
     static let THEME_COLOR = Helper.UIColorFromHex(rgbValue: 0x2196f3, alpha: 1.0)
     static let THEME_COLOR_TWO = Helper.UIColorFromHex(rgbValue: 0xf9f9f9, alpha: 1.0)
     static let LIGHT_GRAY = Helper.UIColorFromHex(rgbValue: 0xeeeeee, alpha: 1.0)
+    static let DARK_GRAY = Helper.UIColorFromHex(rgbValue: 0x484848, alpha: 1.0)
 }
