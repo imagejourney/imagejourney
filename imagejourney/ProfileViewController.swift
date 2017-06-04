@@ -30,6 +30,7 @@ class ProfileViewController: SOContainerViewController, UITableViewDelegate, UIT
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 380
+        tableView.separatorStyle = .none
         
         profileImageView.layer.cornerRadius = profileImageView.frame.size.width/2
         profileImageView.clipsToBounds = true
