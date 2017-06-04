@@ -106,7 +106,7 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
     }
     
     func setTextViewPlaceholder(){
-        textView.text = "Share the moments or interest findings here.."
+        textView.text = "Share some interesting moments or findings!"
         textView.textColor = TEXT_PLACEHOLDER_COLOR
     }
     

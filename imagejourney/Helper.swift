@@ -69,6 +69,23 @@ class Helper {
             }
         })
     }
+    
+    static func getMapSegmentColors(color1: UIColor, color2: UIColor, segmentIndex: Int, totalSegments:Int) -> (segmentedColor1: UIColor, segmentedColor2: UIColor) {
+        let colorComponents1 = color1.cgColor.components
+        let colorComponents2 = color2.cgColor.components
+        
+        let ratio1a = CGFloat(totalSegments - segmentIndex) / CGFloat(totalSegments)
+        let ratio2a = CGFloat(segmentIndex) / CGFloat(totalSegments)
+        
+        let ratio1b = CGFloat(totalSegments - (segmentIndex + 1)) / CGFloat(totalSegments)
+        let ratio2b = CGFloat(segmentIndex + 1) / CGFloat(totalSegments)
+        
+        let colora = UIColor(red: (colorComponents1?[0])! * ratio1a + (colorComponents2?[0])! * ratio2a, green: (colorComponents1?[1])! * ratio1a + (colorComponents2?[1])! * ratio2a, blue: (colorComponents1?[2])! * ratio1a + (colorComponents2?[2])! * ratio2a, alpha: (colorComponents1?[3])! * ratio1a + (colorComponents2?[3])! * ratio2a)
+        
+        let colorb = UIColor(red: (colorComponents1?[0])! * ratio1b + (colorComponents2?[0])! * ratio2b, green: (colorComponents1?[1])! * ratio1b + (colorComponents2?[1])! * ratio2b, blue: (colorComponents1?[2])! * ratio1b + (colorComponents2?[2])! * ratio2b, alpha: (colorComponents1?[3])! * ratio1b + (colorComponents2?[3])! * ratio2b)
+        
+        return (colora, colorb)
+    }
 }
 
 // http://stackoverflow.com/a/39480016/1272813

@@ -43,4 +43,7 @@ class Constants {
     static let THEME_COLOR_TWO = Helper.UIColorFromHex(rgbValue: 0xf9f9f9, alpha: 1.0)
     static let LIGHT_GRAY = Helper.UIColorFromHex(rgbValue: 0xeeeeee, alpha: 1.0)
     static let DARK_GRAY = Helper.UIColorFromHex(rgbValue: 0x484848, alpha: 1.0)
+    
+    static let MAPLINE_BLUE = Helper.UIColorFromHex(rgbValue: 0x29b6f6, alpha: 1.0)
+    static let MAPLINE_GREEN = Helper.UIColorFromHex(rgbValue: 0x81c784, alpha: 1.0)
 }

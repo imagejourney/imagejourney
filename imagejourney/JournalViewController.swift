@@ -59,27 +59,18 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let entries = journal.entries {
             if entries.count > 0 {
-                tableView.separatorStyle = .singleLine
                 return entries.count
             }
         }
         tableView.backgroundView = Bundle.main.loadNibNamed("EmptyJournalView", owner: self, options: nil)?.first as! UIView?
-        tableView.separatorStyle = .none
         return 0
     }
 
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryCell") as! JournalEntryCell
         let entry = journal.entries?[indexPath.row]
-        if indexPath.row == 0 {
-            cell.isFirst = true
-            print("first cell")
-        }
         if let entries = journal.entries {
-            if indexPath.row == entries.count - 1 {
-                cell.isLast = true
-                print("last cell")
-            }
+            cell.segmentPositionTuple = (indexPath.row, entries.count)
         }
         cell.entry = entry
         cell.selectionStyle = UITableViewCellSelectionStyle.none
