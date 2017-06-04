@@ -196,14 +196,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="299.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qc4-7I-UFm">
-                                                    <rect key="frame" x="17" y="9" width="63" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip to Tokyo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qc4-7I-UFm">
+                                                    <rect key="frame" x="17" y="9" width="99.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="by author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm3-eZ-ddM">
-                                                    <rect key="frame" x="284" y="9" width="73" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Tokyo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm3-eZ-ddM">
+                                                    <rect key="frame" x="311" y="9" width="46" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -229,9 +229,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="authorName" destination="Wm3-eZ-ddM" id="iyX-wb-OQ5"/>
                                             <outlet property="imageCollageView" destination="HV7-9V-G4n" id="Oix-FU-x0V"/>
-                                            <outlet property="tripTitleLabel" destination="Qc4-7I-UFm" id="dMT-zg-mhf"/>
+                                            <outlet property="journalTitleLabel" destination="Qc4-7I-UFm" id="U3B-yh-szX"/>
+                                            <outlet property="tripTitleLabel" destination="Wm3-eZ-ddM" id="mAU-ID-H6C"/>
                                             <segue destination="1vU-rZ-gfK" kind="show" identifier="profileToJournalSegue" id="6JO-Zh-ei7"/>
                                         </connections>
                                     </tableViewCell>
