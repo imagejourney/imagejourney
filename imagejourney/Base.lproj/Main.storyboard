@@ -261,6 +261,12 @@
                                 <action selector="showMenu:" destination="r4g-ai-XE7" id="iLB-XL-MuD"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="edit" id="7Za-tz-cqD">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="vew-g5-wCl" kind="presentation" id="00k-Sv-01G"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="journalCountLabel" destination="9tP-B6-9N7" id="TgQ-Kf-zDr"/>
@@ -1701,8 +1707,9 @@
         <image name="weather" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pQU-tQ-BnL"/>
+        <segue reference="00k-Sv-01G"/>
+        <segue reference="6JO-Zh-ei7"/>
         <segue reference="HK3-sY-hwV"/>
-        <segue reference="uQn-Il-qGC"/>
+        <segue reference="pQU-tQ-BnL"/>
     </inferredMetricsTieBreakers>
 </document>

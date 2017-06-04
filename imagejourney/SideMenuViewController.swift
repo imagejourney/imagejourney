@@ -98,7 +98,7 @@ class SideMenuViewController: UIViewController {
         if currentState != Constants.MENU_STATE.search.rawValue{
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let searchCtrl = storyBoard.instantiateViewController(withIdentifier: "SearchNavigationCtl") as! UINavigationController
-            self.present(searchCtrl, animated: true, completion: nil)
+            self.show(searchCtrl.viewControllers.first!, sender: nil)
             currentState = Constants.MENU_STATE.search.rawValue
             self.switchActiveIconColor(icon: "search")
         } else {
@@ -110,7 +110,7 @@ class SideMenuViewController: UIViewController {
         if currentState != Constants.MENU_STATE.home_feed.rawValue {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let homeFeedCtrl = storyBoard.instantiateViewController(withIdentifier: "HomefeedNavigationCtl") as! UINavigationController
-            self.present(homeFeedCtrl, animated: true, completion: nil)
+            self.show(homeFeedCtrl.viewControllers.first!, sender: nil)
             currentState = Constants.MENU_STATE.home_feed.rawValue
             self.switchActiveIconColor(icon: "home")
         } else {
@@ -136,7 +136,7 @@ class SideMenuViewController: UIViewController {
         if currentState != Constants.MENU_STATE.profile.rawValue {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let profileCtrl = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigationCtl") as! UINavigationController
-            self.present(profileCtrl, animated: true, completion: nil)
+            self.show(profileCtrl.viewControllers.first!, sender: nil)
             currentState = Constants.MENU_STATE.profile.rawValue
             self.switchActiveIconColor(icon: "profile")
         } else {
