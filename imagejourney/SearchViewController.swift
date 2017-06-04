@@ -55,7 +55,9 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
         SwiftSpinner.show(Constants.SEARCHING_MSG)
         ParseClient.sharedInstance.searchByJournalTitle(searchText: query) { (journals) in
             if !(journals?.isEmpty)!{
-                self.journals = self.journals! + journals!
+                var journalArray = self.journals! + journals!
+                journalArray = journalArray.filter {(journal) in journal.author?.username != User.getCurrentUser()?.username}
+                self.journals = journalArray
                 self.tableView.reloadData()
             }
             isTitleSearchFinished = true
@@ -69,7 +71,9 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
                 if let coord = clPlacemarkArray?[0].location?.coordinate {
                     ParseClient.sharedInstance.searchByJournalLocation(lat: coord.latitude, long: coord.longitude, completion: { (journals) in
                         if !(journals?.isEmpty)!{
-                            self.journals = self.journals! + journals!
+                            var journalArray = self.journals! + journals!
+                            journalArray = journalArray.filter {(journal) in journal.author?.username != User.getCurrentUser()?.username}
+                            self.journals = journalArray
                             self.tableView.reloadData()
                         }
                         isLocationSearchFinished = true

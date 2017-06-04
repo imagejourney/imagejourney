@@ -111,7 +111,7 @@ class ParseClient: NSObject {
     func searchByJournalTitle(searchText: String, completion: @escaping ([Journal]?) -> ()) {
         let query = PFQuery(className: "Journal")
         query.whereKey("title", matchesRegex: "(?i)(\(searchText))")
-
+        
         query.findObjectsInBackground { (journals, error) -> Void in
             if error == nil && journals != nil && (journals?.count)! > 0 {
                 print("Got journals")

@@ -24,6 +24,10 @@ class SignInViewController: UIViewController, TextFieldDelegate {
         })
     }
     
+    @IBAction func tapAnywhere(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     @IBAction func onSignUpClick(_ sender: FlatButton) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let signupController = storyBoard.instantiateViewController(withIdentifier: "SignUpView") as! SignUpViewController
