@@ -1701,8 +1701,8 @@
         <image name="weather" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pQU-tQ-BnL"/>
+        <segue reference="V6a-4s-1V8"/>
         <segue reference="HK3-sY-hwV"/>
-        <segue reference="uQn-Il-qGC"/>
+        <segue reference="pQU-tQ-BnL"/>
     </inferredMetricsTieBreakers>
 </document>

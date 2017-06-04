@@ -97,8 +97,8 @@ class SideMenuViewController: UIViewController {
     @IBAction func onSearchNav(_ sender: Any) {
         if currentState != Constants.MENU_STATE.search.rawValue{
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-            let searchCtrl = storyBoard.instantiateViewController(withIdentifier: "SearchNavigationCtl") as! UINavigationController
-            self.present(searchCtrl, animated: true, completion: nil)
+            let searchCtrl = storyBoard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+            self.show(searchCtrl, sender: nil)
             currentState = Constants.MENU_STATE.search.rawValue
             self.switchActiveIconColor(icon: "search")
         } else {
@@ -109,8 +109,8 @@ class SideMenuViewController: UIViewController {
     @IBAction func onHomefeedViewNav(_ sender: Any) {
         if currentState != Constants.MENU_STATE.home_feed.rawValue {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-            let homeFeedCtrl = storyBoard.instantiateViewController(withIdentifier: "HomefeedNavigationCtl") as! UINavigationController
-            self.present(homeFeedCtrl, animated: true, completion: nil)
+            let homeFeedCtrl = storyBoard.instantiateViewController(withIdentifier: "HomefeedViewController") as! HomefeedViewController
+            self.show(homeFeedCtrl, sender: nil)
             currentState = Constants.MENU_STATE.home_feed.rawValue
             self.switchActiveIconColor(icon: "home")
         } else {
@@ -135,8 +135,8 @@ class SideMenuViewController: UIViewController {
     @IBAction func onProfileViewNav(_ sender: Any) {
         if currentState != Constants.MENU_STATE.profile.rawValue {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-            let profileCtrl = storyBoard.instantiateViewController(withIdentifier: "ProfileNavigationCtl") as! UINavigationController
-            self.present(profileCtrl, animated: true, completion: nil)
+            let profileCtrl = storyBoard.instantiateViewController(withIdentifier: "ProfileViewController") as! ProfileViewController
+            self.show(profileCtrl, sender: nil)
             currentState = Constants.MENU_STATE.profile.rawValue
             self.switchActiveIconColor(icon: "profile")
         } else {
