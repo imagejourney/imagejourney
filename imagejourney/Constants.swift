@@ -46,4 +46,8 @@ class Constants {
     
     static let MAPLINE_BLUE = Helper.UIColorFromHex(rgbValue: 0x29b6f6, alpha: 1.0)
     static let MAPLINE_GREEN = Helper.UIColorFromHex(rgbValue: 0x81c784, alpha: 1.0)
+    
+    
+    static let BG_GRADIENT_BLUE = Helper.UIColorFromHex(rgbValue: 0x81d4fa, alpha: 1.0)
+    static let BG_GRADIENT_GREEN = Helper.UIColorFromHex(rgbValue: 0xa5d6a7, alpha: 1.0)
 }

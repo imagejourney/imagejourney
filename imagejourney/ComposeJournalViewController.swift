@@ -26,6 +26,7 @@ class ComposeJournalViewController: UIViewController {
     @IBOutlet weak var titleTextField: TextField!
     @IBOutlet weak var descriptionTextField: TextField!
     @IBOutlet var locationLabel: UILabel!
+    @IBOutlet weak var backgroundView: UIView!
     
     @IBAction func onCancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -57,6 +58,11 @@ class ComposeJournalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = backgroundView.bounds
+        gradient.colors = [Constants.BG_GRADIENT_BLUE.cgColor, Constants.BG_GRADIENT_GREEN.cgColor]
+        backgroundView.layer.insertSublayer(gradient, at: 0)
+        
         let titleLeftView = UIImageView()
         titleLeftView.image = UIImage(named: "camera")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         titleLeftView.tintColor = Constants.THEME_COLOR

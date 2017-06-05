@@ -34,7 +34,7 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
     var delegate: ComposeJournalEntryViewControllerDelegate?
     var coordinate: CLLocationCoordinate2D?
     let IMAGE_SELECT_LIMIT = 9
-    let IMAGE_ROW_HEIGHT = 120
+    let IMAGE_ROW_HEIGHT = 105
     let IMAGE_ROW_BOTTOM_MARGIN = 5
     let TEXT_PLACEHOLDER_COLOR = Helper.UIColorFromHex(rgbValue: 0xaaaaaa, alpha: 1.0)
     
@@ -47,7 +47,7 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
     @IBOutlet var descriptionText: MBAutoGrowingTextView!
     @IBOutlet var weatherLabel: UILabel!
     @IBOutlet var weatherView: UIView!
-    
+    @IBOutlet weak var backgroundView: UIView!
     
     @IBAction func onCancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
@@ -157,6 +157,11 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
         setUpImagePicker()
         setUpCalendarPicker()
         setUpLabelTap()
+        
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame = backgroundView.bounds
+        gradient.colors = [Constants.BG_GRADIENT_BLUE.cgColor, Constants.BG_GRADIENT_GREEN.cgColor]
+        backgroundView.layer.insertSublayer(gradient, at: 0)
     }
     
     func onAddDestination(_ sender: Any) {
