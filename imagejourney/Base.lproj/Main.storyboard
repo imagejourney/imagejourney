@@ -157,13 +157,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsu-GU-lbG">
-                                        <rect key="frame" x="102" y="51" width="69" height="17.5"/>
+                                        <rect key="frame" x="102" y="51" width="69" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# journals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tP-B6-9N7">
-                                        <rect key="frame" x="293.5" y="51" width="65.5" height="17.5"/>
+                                        <rect key="frame" x="293" y="51" width="66" height="18"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -196,20 +196,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Tokyo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm3-eZ-ddM">
-                                                    <rect key="frame" x="317.5" y="25.5" width="39.5" height="17.5"/>
+                                                    <rect key="frame" x="317" y="27" width="40" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HV7-9V-G4n">
-                                                    <rect key="frame" x="17" y="59.5" width="340" height="225"/>
+                                                    <rect key="frame" x="17" y="60" width="340" height="225"/>
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="225" id="L4w-cJ-O2j"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trip to Tokyo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qc4-7I-UFm">
-                                                    <rect key="frame" x="17" y="9" width="123" height="35.5"/>
+                                                    <rect key="frame" x="17" y="9" width="123" height="36"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -321,7 +321,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paris, France" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ru-P7-LIw">
-                                                    <rect key="frame" x="268" y="55" width="89" height="18"/>
+                                                    <rect key="frame" x="268" y="56" width="89" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -500,7 +500,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" image="rain-1" translatesAutoresizingMaskIntoConstraints="NO" id="JUn-bC-Mmf">
-                                                    <rect key="frame" x="330" y="15" width="30" height="30"/>
+                                                    <rect key="frame" x="330" y="20" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="VNe-4u-fdK"/>
                                                         <constraint firstAttribute="width" constant="30" id="VQW-NV-oJD"/>
@@ -522,10 +522,10 @@
                                                 <constraint firstItem="wOp-Fz-kdE" firstAttribute="centerX" secondItem="LR0-dN-hFb" secondAttribute="centerX" id="Nu7-aY-XOu"/>
                                                 <constraint firstItem="8ZH-ix-rai" firstAttribute="top" secondItem="dJG-h8-5n9" secondAttribute="top" constant="20" id="T8h-ub-Tdu"/>
                                                 <constraint firstItem="LR0-dN-hFb" firstAttribute="leading" secondItem="dJG-h8-5n9" secondAttribute="leading" constant="5" id="TZY-W4-LTy"/>
-                                                <constraint firstItem="JUn-bC-Mmf" firstAttribute="centerY" secondItem="8ZH-ix-rai" secondAttribute="centerY" id="UsX-6E-iFH"/>
                                                 <constraint firstItem="y1U-lQ-rMl" firstAttribute="centerX" secondItem="LR0-dN-hFb" secondAttribute="centerX" id="WF3-xc-OO4"/>
                                                 <constraint firstItem="Rdk-HI-488" firstAttribute="centerY" secondItem="E58-mB-FT1" secondAttribute="centerY" constant="1" id="cVj-f3-dUh"/>
                                                 <constraint firstAttribute="bottom" secondItem="wOp-Fz-kdE" secondAttribute="bottom" id="cn6-7g-E5R"/>
+                                                <constraint firstItem="JUn-bC-Mmf" firstAttribute="top" secondItem="8ZH-ix-rai" secondAttribute="top" id="eIo-yY-2gz"/>
                                                 <constraint firstItem="ew7-qd-Ua0" firstAttribute="top" secondItem="neS-EO-90M" secondAttribute="bottom" constant="13" id="ghO-E1-8MM"/>
                                                 <constraint firstItem="JUn-bC-Mmf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8ZH-ix-rai" secondAttribute="trailing" constant="15" id="hjh-Xu-lgn"/>
                                                 <constraint firstItem="yPx-pO-GDK" firstAttribute="top" secondItem="dJG-h8-5n9" secondAttribute="top" constant="-6" id="od9-fQ-Nyo"/>
@@ -972,7 +972,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SearchNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="xOd-sH-FFv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="uxu-nU-nSt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="uxu-nU-nSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -993,7 +993,7 @@
                 <navigationController storyboardIdentifier="HomefeedNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="sRE-rH-TgT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FFB-wZ-LUL"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="3Ij-aU-n2h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3Ij-aU-n2h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.565926194190979" green="0.8676413893699646" blue="0.86925691366195679" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1017,7 +1017,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vew-g5-wCl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="SVw-hA-KHN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SVw-hA-KHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1037,7 +1037,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInUpNav" automaticallyAdjustsScrollViewInsets="NO" id="pPS-7O-GGw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="KHb-qz-Zcu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KHb-qz-Zcu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1138,7 +1138,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="dzc-l1-7rr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="BaO-7a-E6c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BaO-7a-E6c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1159,7 +1159,7 @@
                 <navigationController storyboardIdentifier="LeftMenuNavigationController" navigationBarHidden="YES" id="AfG-jo-igv" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uv5-sX-ede">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uv5-sX-ede">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1394,7 +1394,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43j-NR-cBH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="5sZ-eH-SnW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="5sZ-eH-SnW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.066666666666666666" green="0.57647058823529407" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

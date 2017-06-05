@@ -160,7 +160,8 @@ class ComposeEntryLocationPickerViewController: UIViewController,UITextViewDeleg
         
         let gradient: CAGradientLayer = CAGradientLayer()
         gradient.frame = backgroundView.bounds
-        gradient.colors = [Constants.BG_GRADIENT_BLUE.cgColor, Constants.BG_GRADIENT_GREEN.cgColor]
+        gradient.colors = [Constants.BG_GRADIENT_BLUE.cgColor, Constants.BG_GRADIENT_GREEN.cgColor, Constants.BG_GRADIENT_AQUA.cgColor]
+        gradient.locations = [0.5, 0.8, 1.0]
         backgroundView.layer.insertSublayer(gradient, at: 0)
     }
     
