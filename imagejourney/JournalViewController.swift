@@ -69,10 +69,10 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryCell") as! JournalEntryCell
         let entry = journal.entries?[indexPath.row]
+        cell.entry = entry
         if let entries = journal.entries {
             cell.segmentPositionTuple = (indexPath.row, entries.count)
         }
-        cell.entry = entry
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
     }

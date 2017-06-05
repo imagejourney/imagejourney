@@ -30,7 +30,7 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
+        tableView.separatorStyle = .none
         
         self.menuSide = .left
         self.sideViewController = Helper.getMenuController()

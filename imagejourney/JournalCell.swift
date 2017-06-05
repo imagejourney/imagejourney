@@ -80,7 +80,7 @@ class JournalCell: UITableViewCell {
                 uiImage.tag = 999
                 imageCollageView.addSubview(uiImage)
             } else {
-                let newHeight = currColumnHeights[counter % 3] == 0 ? 110 : imageCollageView.frame.height - CGFloat(currColumnHeights[counter % 3]) - 5.0;
+                let newHeight = currColumnHeights[counter % 3] == 0 ? 110 : imageCollageView.frame.height - CGFloat(currColumnHeights[counter % 3]);
                 let view = UIView(frame: CGRect(x: (counter % 3) * 115, y: currColumnHeights[counter % 3], width: 110, height: Int(newHeight)))
                 if (currColumnHeights[counter % 3] == 0) {
                     currColumnHeights[counter % 3] = 115
