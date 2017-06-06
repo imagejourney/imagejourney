@@ -37,6 +37,10 @@ class SideMenuViewController: UIViewController {
         self.homeIcon.tintColor = Constants.THEME_COLOR
         self.homefeedLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
         
+        self.journalIcon.tintColor = Constants.MEDIUM_GRAY
+        self.profileIcon.tintColor = Constants.MEDIUM_GRAY
+        self.searchIcon.tintColor = Constants.MEDIUM_GRAY
+        
         self.addLeftBorderToSelectionHighlight(view: self.homefeedSelect)
         self.addLeftBorderToSelectionHighlight(view: self.journalSelect)
         self.addLeftBorderToSelectionHighlight(view: self.profileSelect)
@@ -64,10 +68,10 @@ class SideMenuViewController: UIViewController {
     }
     
     func switchActiveIconColor(icon: String) {
-        self.homeIcon.tintColor = Constants.LIGHT_GRAY
-        self.journalIcon.tintColor = Constants.LIGHT_GRAY
-        self.profileIcon.tintColor = Constants.LIGHT_GRAY
-        self.searchIcon.tintColor = Constants.LIGHT_GRAY
+        self.homeIcon.tintColor = Constants.MEDIUM_GRAY
+        self.journalIcon.tintColor = Constants.MEDIUM_GRAY
+        self.profileIcon.tintColor = Constants.MEDIUM_GRAY
+        self.searchIcon.tintColor = Constants.MEDIUM_GRAY
         
         self.homefeedLabel.setTitleColor(Constants.DARK_GRAY, for: .normal)
         self.currentJournalLabel.setTitleColor(Constants.DARK_GRAY, for: .normal)
