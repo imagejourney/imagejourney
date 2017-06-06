@@ -196,7 +196,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="Tokyo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wm3-eZ-ddM">
-                                                    <rect key="frame" x="317" y="27" width="40" height="18"/>
+                                                    <rect key="frame" x="317" y="25.5" width="40" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -321,7 +321,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paris, France" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ru-P7-LIw">
-                                                    <rect key="frame" x="268" y="56" width="89" height="18"/>
+                                                    <rect key="frame" x="268" y="55" width="89" height="18"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -972,7 +972,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SearchNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="xOd-sH-FFv" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="uxu-nU-nSt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="uxu-nU-nSt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -993,7 +993,7 @@
                 <navigationController storyboardIdentifier="HomefeedNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="sRE-rH-TgT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="FFB-wZ-LUL"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="3Ij-aU-n2h">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="3Ij-aU-n2h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.565926194190979" green="0.8676413893699646" blue="0.86925691366195679" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1017,7 +1017,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vew-g5-wCl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SVw-hA-KHN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="SVw-hA-KHN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1037,7 +1037,7 @@
             <objects>
                 <navigationController storyboardIdentifier="SignInUpNav" automaticallyAdjustsScrollViewInsets="NO" id="pPS-7O-GGw" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KHb-qz-Zcu">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="KHb-qz-Zcu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1138,7 +1138,7 @@
             <objects>
                 <navigationController storyboardIdentifier="ProfileNavigationCtl" automaticallyAdjustsScrollViewInsets="NO" id="dzc-l1-7rr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BaO-7a-E6c">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="BaO-7a-E6c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1159,7 +1159,7 @@
                 <navigationController storyboardIdentifier="LeftMenuNavigationController" navigationBarHidden="YES" id="AfG-jo-igv" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Uv5-sX-ede">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Uv5-sX-ede">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1189,6 +1189,13 @@
                             <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="fc8-58-3m7">
                                 <rect key="frame" x="0.0" y="0.0" width="250" height="667"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5G-1D-55h">
+                                        <rect key="frame" x="0.0" y="151" width="250" height="48"/>
+                                        <color key="backgroundColor" red="0.8901960784313725" green="0.94901960784313721" blue="0.99215686274509807" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="3o0-BE-Nh1"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M6T-q4-xyw">
                                         <rect key="frame" x="0.0" y="541" width="229" height="126"/>
                                         <constraints>
@@ -1203,6 +1210,28 @@
                                             <action selector="onSignOut:" destination="bvd-EV-613" eventType="touchUpInside" id="5Br-X7-js9"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HOl-nA-K7Q">
+                                        <rect key="frame" x="0.0" y="210" width="250" height="48"/>
+                                        <color key="backgroundColor" red="0.8901960784313725" green="0.94901960784313721" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="8bJ-h5-d8U"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyM-a9-Gym">
+                                        <rect key="frame" x="0.0" y="269" width="250" height="48"/>
+                                        <color key="backgroundColor" red="0.8901960784313725" green="0.94901960784313721" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="Kat-oc-ul2"/>
+                                            <constraint firstAttribute="height" constant="48" id="fnd-mq-YZ5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5H-Cd-ecR">
+                                        <rect key="frame" x="0.0" y="334" width="250" height="48"/>
+                                        <color key="backgroundColor" red="0.8901960784313725" green="0.94901960784313721" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="bhr-qA-LqK"/>
+                                        </constraints>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mkj-Iq-BdS">
                                         <rect key="frame" x="82" y="157" width="82" height="36"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
@@ -1325,6 +1354,7 @@
                                 <constraints>
                                     <constraint firstItem="PUG-8d-6lJ" firstAttribute="top" secondItem="fc8-58-3m7" secondAttribute="top" id="04d-Jq-hQS"/>
                                     <constraint firstAttribute="trailing" secondItem="PUG-8d-6lJ" secondAttribute="trailing" id="1Rb-BQ-aOm"/>
+                                    <constraint firstItem="Mkj-Iq-BdS" firstAttribute="centerY" secondItem="e5G-1D-55h" secondAttribute="centerY" id="2Vq-UK-AyX"/>
                                     <constraint firstItem="kyX-qp-BlG" firstAttribute="top" secondItem="Amq-Gh-JSm" secondAttribute="bottom" constant="29" id="4OI-z7-KlK"/>
                                     <constraint firstItem="Mkj-Iq-BdS" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" constant="82" id="4Zj-1D-QJZ"/>
                                     <constraint firstItem="EnL-B5-UkA" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" constant="40" id="4tm-bG-mUo"/>
@@ -1336,18 +1366,29 @@
                                     <constraint firstItem="Mkj-Iq-BdS" firstAttribute="centerY" secondItem="QIq-ES-97S" secondAttribute="centerY" id="Bkq-b2-AuI"/>
                                     <constraint firstItem="Mbb-DK-xm8" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" constant="40" id="E8q-qV-Qiz"/>
                                     <constraint firstItem="Amq-Gh-JSm" firstAttribute="leading" secondItem="Mkj-Iq-BdS" secondAttribute="leading" id="HAE-2R-1rp"/>
+                                    <constraint firstAttribute="trailing" secondItem="HOl-nA-K7Q" secondAttribute="trailing" id="HaI-ap-lGD"/>
+                                    <constraint firstItem="kyX-qp-BlG" firstAttribute="centerY" secondItem="h5H-Cd-ecR" secondAttribute="centerY" id="Jt0-k5-oNM"/>
                                     <constraint firstItem="PKh-y7-FNN" firstAttribute="centerY" secondItem="EnL-B5-UkA" secondAttribute="centerY" id="Nq2-BJ-s7W"/>
                                     <constraint firstItem="kyX-qp-BlG" firstAttribute="centerY" secondItem="Mbb-DK-xm8" secondAttribute="centerY" id="Nqm-ui-fpY"/>
                                     <constraint firstAttribute="width" constant="250" id="SFV-hh-Je0"/>
                                     <constraint firstItem="HCS-hQ-HxO" firstAttribute="centerY" secondItem="M6T-q4-xyw" secondAttribute="centerY" id="XXU-Ie-r6k"/>
+                                    <constraint firstItem="PKh-y7-FNN" firstAttribute="centerY" secondItem="HOl-nA-K7Q" secondAttribute="centerY" id="Zyj-As-lYC"/>
                                     <constraint firstItem="Amq-Gh-JSm" firstAttribute="top" secondItem="PKh-y7-FNN" secondAttribute="bottom" constant="23" id="aVR-zi-TQw"/>
+                                    <constraint firstItem="HOl-nA-K7Q" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" id="cY6-wM-eCE"/>
+                                    <constraint firstItem="e5G-1D-55h" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" id="gVT-Kz-ZTs"/>
                                     <constraint firstItem="PKh-y7-FNN" firstAttribute="top" secondItem="Mkj-Iq-BdS" secondAttribute="bottom" constant="23" id="hdo-iU-MyM"/>
+                                    <constraint firstAttribute="trailing" secondItem="e5G-1D-55h" secondAttribute="trailing" id="hq8-6C-Cp5"/>
                                     <constraint firstItem="Amq-Gh-JSm" firstAttribute="centerY" secondItem="xEV-gg-Zmf" secondAttribute="centerY" id="iEv-0F-RgA"/>
                                     <constraint firstAttribute="bottom" secondItem="M6T-q4-xyw" secondAttribute="bottom" id="jgT-xU-YWc"/>
+                                    <constraint firstItem="h5H-Cd-ecR" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" id="ln1-zR-CRk"/>
                                     <constraint firstItem="PKh-y7-FNN" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" constant="82" id="o0o-d5-ITf"/>
+                                    <constraint firstItem="tyM-a9-Gym" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" id="ou2-mo-3fv"/>
                                     <constraint firstItem="PUG-8d-6lJ" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" id="s9s-CZ-ocn"/>
+                                    <constraint firstAttribute="trailing" secondItem="h5H-Cd-ecR" secondAttribute="trailing" id="ts9-Wm-hX9"/>
                                     <constraint firstAttribute="trailing" secondItem="M6T-q4-xyw" secondAttribute="trailing" constant="21" id="w8l-kS-Ldr"/>
+                                    <constraint firstAttribute="trailing" secondItem="tyM-a9-Gym" secondAttribute="trailing" id="xbu-QB-Let"/>
                                     <constraint firstItem="kyX-qp-BlG" firstAttribute="leading" secondItem="fc8-58-3m7" secondAttribute="leading" constant="82" id="xfX-g6-KP4"/>
+                                    <constraint firstItem="Amq-Gh-JSm" firstAttribute="centerY" secondItem="tyM-a9-Gym" secondAttribute="centerY" id="yUh-3Z-rej"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
@@ -1377,12 +1418,16 @@
                         <outlet property="currentJournalLabel" destination="PKh-y7-FNN" id="QIe-MX-ybB"/>
                         <outlet property="homeIcon" destination="QIq-ES-97S" id="eWR-ZQ-PhQ"/>
                         <outlet property="homefeedLabel" destination="Mkj-Iq-BdS" id="asU-Iy-ebS"/>
+                        <outlet property="homefeedSelect" destination="e5G-1D-55h" id="WOE-co-s5X"/>
                         <outlet property="journalIcon" destination="EnL-B5-UkA" id="K2a-eg-NmX"/>
+                        <outlet property="journalSelect" destination="HOl-nA-K7Q" id="8m8-Xo-GEL"/>
                         <outlet property="profileIcon" destination="xEV-gg-Zmf" id="Tlk-WN-TDP"/>
                         <outlet property="profileLabel" destination="Amq-Gh-JSm" id="Awi-QO-QZj"/>
+                        <outlet property="profileSelect" destination="tyM-a9-Gym" id="YaX-Jb-VFS"/>
                         <outlet property="profileViewContainer" destination="PUG-8d-6lJ" id="HZI-m3-9ZN"/>
                         <outlet property="searchIcon" destination="Mbb-DK-xm8" id="dny-oT-rGY"/>
                         <outlet property="searchLabel" destination="kyX-qp-BlG" id="HcT-fe-QfR"/>
+                        <outlet property="searchSelect" destination="h5H-Cd-ecR" id="bPu-hl-p86"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcl-en-wPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1394,7 +1439,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="43j-NR-cBH" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="5sZ-eH-SnW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" id="5sZ-eH-SnW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.066666666666666666" green="0.57647058823529407" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

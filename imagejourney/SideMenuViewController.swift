@@ -26,13 +26,34 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var profileLabel: UIButton!
     @IBOutlet weak var searchLabel: UIButton!
     
+    @IBOutlet weak var homefeedSelect: UIView!
+    @IBOutlet weak var journalSelect: UIView!
+    @IBOutlet weak var profileSelect: UIView!
+    @IBOutlet weak var searchSelect: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentState = Constants.MENU_STATE.home_feed.rawValue
         self.homeIcon.tintColor = Constants.THEME_COLOR
         self.homefeedLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
+        
+        self.addLeftBorderToSelectionHighlight(view: self.homefeedSelect)
+        self.addLeftBorderToSelectionHighlight(view: self.journalSelect)
+        self.addLeftBorderToSelectionHighlight(view: self.profileSelect)
+        self.addLeftBorderToSelectionHighlight(view: self.searchSelect)
+        
+        self.journalSelect.isHidden = true
+        self.profileSelect.isHidden = true
+        self.searchSelect.isHidden = true
     }
     
+    func addLeftBorderToSelectionHighlight(view: UIView) {
+        let leftBorder = CALayer()
+        leftBorder.backgroundColor = Constants.THEME_COLOR.cgColor
+        leftBorder.frame = CGRect(x: 0, y: 0, width: 3.0, height: view.height)
+        view.layer.addSublayer(leftBorder)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         user = User.getCurrentUser()
         setupProfile()
@@ -53,19 +74,28 @@ class SideMenuViewController: UIViewController {
         self.profileLabel.setTitleColor(Constants.DARK_GRAY, for: .normal)
         self.searchLabel.setTitleColor(Constants.DARK_GRAY, for: .normal)
         
+        self.homefeedSelect.isHidden = true
+        self.journalSelect.isHidden = true
+        self.profileSelect.isHidden = true
+        self.searchSelect.isHidden = true
+        
         switch icon {
             case "home":
                 self.homeIcon.tintColor = Constants.THEME_COLOR
                 self.homefeedLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
+                self.homefeedSelect.isHidden = false
             case "journal":
                 self.journalIcon.tintColor = Constants.THEME_COLOR
                 self.currentJournalLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
+                self.journalSelect.isHidden = false
             case "profile":
                 self.profileIcon.tintColor = Constants.THEME_COLOR
                 self.profileLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
+                self.profileSelect.isHidden = false
             default:
                 self.searchIcon.tintColor = Constants.THEME_COLOR
                 self.searchLabel.setTitleColor(Constants.THEME_COLOR, for: .normal)
+                self.searchSelect.isHidden = false
         }
     }
     

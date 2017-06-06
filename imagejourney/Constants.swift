@@ -51,4 +51,6 @@ class Constants {
     static let BG_GRADIENT_BLUE = Helper.UIColorFromHex(rgbValue: 0xe1f5fe, alpha: 1.0)
     static let BG_GRADIENT_GREEN = Helper.UIColorFromHex(rgbValue: 0x81d4fa, alpha: 1.0)
     static let BG_GRADIENT_AQUA = Helper.UIColorFromHex(rgbValue: 0x4dd0e1, alpha: 1.0)
+    
+    static let MENU_HIGHLIGHT = Helper.UIColorFromHex(rgbValue: 0x0097a7)
 }
