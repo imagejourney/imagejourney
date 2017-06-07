@@ -36,7 +36,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do not show compose new entry if journal view does not belong to current owner
         if journal.author?.username != User.getCurrentUser()?.username {
            self.navigationItem.rightBarButtonItem = nil
@@ -46,8 +46,13 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 380
+        tableView.estimatedRowHeight = 600
         tableView.separatorStyle = .none
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,7 +69,7 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.backgroundView = Bundle.main.loadNibNamed("EmptyJournalView", owner: self, options: nil)?.first as! UIView?
         return 0
     }
-
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryCell") as! JournalEntryCell
         let entry = journal.entries?[indexPath.row]
