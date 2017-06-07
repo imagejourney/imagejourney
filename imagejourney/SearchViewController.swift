@@ -52,6 +52,7 @@ class SearchViewController: SOContainerViewController, UISearchBarDelegate, UITa
         let query = searchBar.text! as String
         var isTitleSearchFinished = false
         var isLocationSearchFinished = false
+        self.view.endEditing(true)
         SwiftSpinner.show(Constants.SEARCHING_MSG)
         ParseClient.sharedInstance.searchByJournalTitle(searchText: query) { (journals) in
             if !(journals?.isEmpty)!{
