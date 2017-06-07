@@ -31,7 +31,6 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 authorImageView.image = UIImage(named: "avatar-\(arc4random_uniform(6) + 1)")
             }
-
         }
     }
     
@@ -74,6 +73,8 @@ class JournalViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.segmentPositionTuple = (indexPath.row, entries.count)
         }
         cell.selectionStyle = UITableViewCellSelectionStyle.none
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
         return cell
     }
     
