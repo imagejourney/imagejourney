@@ -77,10 +77,10 @@ class JournalEntryCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        super.layoutSubviews()
+        self.entryLocationLabel.preferredMaxLayoutWidth = 280
         bottomMapLine.setNeedsLayout()
         bottomMapLine.layoutIfNeeded()
-
+        
         if segmentPositionTuple != nil {
             if segmentPositionTuple.0 == 0 {
                 topMapLine.isHidden = true
